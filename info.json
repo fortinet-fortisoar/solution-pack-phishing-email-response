@@ -1,0 +1,54 @@
+{
+    "name": "phishingEmailResponse",
+    "version": "1.0.0",
+    "type": "solutionpack",
+    "local": true,
+    "label": "Phishing Email Response",
+    "dependencies": [
+        {
+            "name": "fortiSOAREssentials",
+            "type": "solutionpack",
+            "label": "FortiSOAR Essentials",
+            "version": "1.0.0",
+            "minVersion": null
+        },
+        {
+            "name": "socSimulator",
+            "type": "solutionpack",
+            "label": "SOC Simulator",
+            "version": "1.0.0",
+            "minVersion": null
+        }
+    ],
+    "prerequisite": [],
+    "category": [],
+    "publisher": "Fortinet",
+    "certified": "true",
+    "supportInfo": "support@fortinet.com",
+    "help": "https://github.com/fortinet-fortisoar/solution-pack-phishing-email-response",
+    "description": "Investigates an alert of type \u2018Suspicious Email\u2019 is Phishing or not",
+    "fsrMinCompatibility": "7.2.0",
+    "date": "2022-02-15T17:47:21+00:00",
+    "exported_from": "master.fortisoar.com",
+    "exported_by": "CS Admin",
+    "contents": {
+        "module": {
+            "scenario": []
+        },
+        "viewTemplates": {
+            "scenario": [
+                "list",
+                "detail",
+                "form"
+            ]
+        },
+        "playbooks": [
+            {
+                "name": "04 - Use Case - Phishing Email Response"
+            }
+        ],
+        "recordSets": {
+            "scenario": 1
+        }
+    }
+}

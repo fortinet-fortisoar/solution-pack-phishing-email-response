@@ -1,0 +1,340 @@
+{
+    "@context": "\/api\/3\/contexts\/StagingModelMetadata",
+    "@id": "\/api\/3\/staging_model_metadatas\/6aff02c6-7d7f-4bea-a450-acf2440ac82f",
+    "@type": "StagingModelMetadata",
+    "type": "scenario",
+    "parentType": null,
+    "tableName": "scenario",
+    "ownable": false,
+    "userOwnable": false,
+    "queueable": false,
+    "trackable": true,
+    "taggable": true,
+    "peerReplicable": false,
+    "defaultSort": [],
+    "uniqueConstraint": [],
+    "indexable": true,
+    "writable": true,
+    "attributes": [
+        {
+            "@id": "\/api\/3\/attribute_metadatas\/2700e9f5-2151-4546-938a-647db9108ef1",
+            "@type": "AttributeMetadata",
+            "type": "string",
+            "name": "configuration",
+            "length": null,
+            "orderIndex": 1,
+            "formType": "text",
+            "dataSource": null,
+            "searchable": false,
+            "peerReplicable": true,
+            "system": false,
+            "encrypted": false,
+            "gridColumn": false,
+            "collection": false,
+            "inversedField": null,
+            "ownsRelationship": false,
+            "validation": {
+                "required": false,
+                "minlength": 0,
+                "maxlength": 10485761
+            },
+            "bulkAction": {
+                "allow": false,
+                "buttonText": "",
+                "buttonIcon": "",
+                "buttonClass": "btn btn-default btn-sm"
+            },
+            "dataSourceFilters": null,
+            "defaultValue": "",
+            "tooltip": null,
+            "visibility": false,
+            "htmlEscape": null,
+            "orphanRemoval": null,
+            "readable": null,
+            "writeable": true,
+            "identifier": null,
+            "unique": false,
+            "recommend": false,
+            "sattrib": "\/api\/3\/staging_model_metadatas\/6aff02c6-7d7f-4bea-a450-acf2440ac82f",
+            "uuid": "2700e9f5-2151-4546-938a-647db9108ef1",
+            "recordTags": [
+                "FSRSolutionPack",
+                "phishingEmailResponse-1.0.0"
+            ],
+            "displayName": "{{ configuration }}",
+            "descriptions": {
+                "singular": "Configuration"
+            }
+        },
+        {
+            "@id": "\/api\/3\/attribute_metadatas\/1b86e59e-aa90-4c6a-9d04-77e72e0179f0",
+            "@type": "AttributeMetadata",
+            "type": "comments",
+            "name": "comments",
+            "length": 0,
+            "orderIndex": 5,
+            "formType": "manyToMany",
+            "dataSource": {
+                "model": "comments"
+            },
+            "searchable": false,
+            "peerReplicable": true,
+            "system": false,
+            "encrypted": false,
+            "gridColumn": false,
+            "collection": true,
+            "inversedField": "scenario",
+            "ownsRelationship": false,
+            "validation": {
+                "required": false,
+                "minlength": 0,
+                "maxlength": 10485761,
+                "_enableRange": false
+            },
+            "bulkAction": [],
+            "dataSourceFilters": [],
+            "defaultValue": null,
+            "tooltip": "",
+            "visibility": true,
+            "htmlEscape": false,
+            "orphanRemoval": false,
+            "readable": true,
+            "writeable": true,
+            "identifier": false,
+            "unique": false,
+            "recommend": false,
+            "sattrib": "\/api\/3\/staging_model_metadatas\/6aff02c6-7d7f-4bea-a450-acf2440ac82f",
+            "uuid": "1b86e59e-aa90-4c6a-9d04-77e72e0179f0",
+            "recordTags": [
+                "FSRSolutionPack",
+                "phishingEmailResponse-1.0.0"
+            ],
+            "displayName": "{{ comments }}",
+            "descriptions": {
+                "singular": "Comments"
+            }
+        },
+        {
+            "@id": "\/api\/3\/attribute_metadatas\/e38fc646-dcd2-4feb-b54e-d9c0474aef3e",
+            "@type": "AttributeMetadata",
+            "type": "string",
+            "name": "title",
+            "length": 0,
+            "orderIndex": 2,
+            "formType": "text",
+            "dataSource": [],
+            "searchable": true,
+            "peerReplicable": true,
+            "system": false,
+            "encrypted": false,
+            "gridColumn": false,
+            "collection": false,
+            "inversedField": null,
+            "ownsRelationship": false,
+            "validation": {
+                "required": true,
+                "minlength": 0,
+                "maxlength": 10485761,
+                "_enableRange": false
+            },
+            "bulkAction": {
+                "allow": false,
+                "buttonText": "",
+                "buttonIcon": "",
+                "buttonClass": "btn btn-default btn-sm"
+            },
+            "dataSourceFilters": [],
+            "defaultValue": "",
+            "tooltip": "Specify the name of your Use Case",
+            "visibility": true,
+            "htmlEscape": false,
+            "orphanRemoval": false,
+            "readable": true,
+            "writeable": true,
+            "identifier": false,
+            "unique": false,
+            "recommend": false,
+            "sattrib": "\/api\/3\/staging_model_metadatas\/6aff02c6-7d7f-4bea-a450-acf2440ac82f",
+            "uuid": "e38fc646-dcd2-4feb-b54e-d9c0474aef3e",
+            "recordTags": [
+                "FSRSolutionPack",
+                "phishingEmailResponse-1.0.0"
+            ],
+            "displayName": "{{ title }}",
+            "descriptions": {
+                "singular": "Title"
+            }
+        },
+        {
+            "@id": "\/api\/3\/attribute_metadatas\/42891af9-05da-40cc-b4d0-3b7843dfda07",
+            "@type": "AttributeMetadata",
+            "type": "string",
+            "name": "description",
+            "length": 0,
+            "orderIndex": 3,
+            "formType": "richtext",
+            "dataSource": [],
+            "searchable": true,
+            "peerReplicable": true,
+            "system": false,
+            "encrypted": false,
+            "gridColumn": false,
+            "collection": false,
+            "inversedField": null,
+            "ownsRelationship": false,
+            "validation": {
+                "required": true,
+                "minlength": 0,
+                "maxlength": 10485761
+            },
+            "bulkAction": {
+                "allow": false,
+                "buttonText": "",
+                "buttonIcon": "",
+                "buttonClass": "btn btn-default btn-sm"
+            },
+            "dataSourceFilters": [],
+            "defaultValue": null,
+            "tooltip": "Define your use case with help of diagram and steps",
+            "visibility": true,
+            "htmlEscape": false,
+            "orphanRemoval": false,
+            "readable": true,
+            "writeable": true,
+            "identifier": false,
+            "unique": false,
+            "recommend": false,
+            "sattrib": "\/api\/3\/staging_model_metadatas\/6aff02c6-7d7f-4bea-a450-acf2440ac82f",
+            "uuid": "42891af9-05da-40cc-b4d0-3b7843dfda07",
+            "recordTags": [
+                "FSRSolutionPack",
+                "phishingEmailResponse-1.0.0"
+            ],
+            "displayName": "{{ description }}",
+            "descriptions": {
+                "singular": "Description"
+            }
+        },
+        {
+            "@id": "\/api\/3\/attribute_metadatas\/5cdb974b-2acc-4aee-a344-cf1c1495a548",
+            "@type": "AttributeMetadata",
+            "type": "object",
+            "name": "steps",
+            "length": 0,
+            "orderIndex": 4,
+            "formType": "object",
+            "dataSource": [],
+            "searchable": false,
+            "peerReplicable": true,
+            "system": false,
+            "encrypted": false,
+            "gridColumn": false,
+            "collection": false,
+            "inversedField": null,
+            "ownsRelationship": false,
+            "validation": {
+                "required": true,
+                "minlength": 0,
+                "maxlength": 10485761
+            },
+            "bulkAction": {
+                "allow": false,
+                "buttonText": "",
+                "buttonIcon": "",
+                "buttonClass": "btn btn-default btn-sm"
+            },
+            "dataSourceFilters": [],
+            "defaultValue": null,
+            "tooltip": "define the steps of use case in the prescribed format",
+            "visibility": true,
+            "htmlEscape": false,
+            "orphanRemoval": false,
+            "readable": true,
+            "writeable": true,
+            "identifier": false,
+            "unique": false,
+            "recommend": false,
+            "sattrib": "\/api\/3\/staging_model_metadatas\/6aff02c6-7d7f-4bea-a450-acf2440ac82f",
+            "uuid": "5cdb974b-2acc-4aee-a344-cf1c1495a548",
+            "recordTags": [
+                "FSRSolutionPack",
+                "phishingEmailResponse-1.0.0"
+            ],
+            "displayName": "{{ steps }}",
+            "descriptions": {
+                "singular": "Steps"
+            }
+        },
+        {
+            "@id": "\/api\/3\/attribute_metadatas\/ac055032-6bc2-4fa4-b4b1-ec36322a9b9e",
+            "@type": "AttributeMetadata",
+            "type": "string",
+            "name": "createdAlertsID",
+            "length": 0,
+            "orderIndex": 6,
+            "formType": "textarea",
+            "dataSource": [],
+            "searchable": true,
+            "peerReplicable": true,
+            "system": false,
+            "encrypted": false,
+            "gridColumn": false,
+            "collection": false,
+            "inversedField": null,
+            "ownsRelationship": false,
+            "validation": {
+                "required": false,
+                "minlength": 0,
+                "maxlength": 10485761
+            },
+            "bulkAction": {
+                "allow": false,
+                "buttonText": "",
+                "buttonIcon": "",
+                "buttonClass": "btn btn-default btn-sm"
+            },
+            "dataSourceFilters": [],
+            "defaultValue": null,
+            "tooltip": "",
+            "visibility": true,
+            "htmlEscape": false,
+            "orphanRemoval": false,
+            "readable": true,
+            "writeable": true,
+            "identifier": false,
+            "unique": false,
+            "recommend": false,
+            "sattrib": "\/api\/3\/staging_model_metadatas\/6aff02c6-7d7f-4bea-a450-acf2440ac82f",
+            "uuid": "ac055032-6bc2-4fa4-b4b1-ec36322a9b9e",
+            "recordTags": [
+                "FSRSolutionPack",
+                "phishingEmailResponse-1.0.0"
+            ],
+            "displayName": "{{ createdAlertsID }}",
+            "descriptions": {
+                "singular": "Created Alerts ID"
+            }
+        }
+    ],
+    "system": false,
+    "module": "scenario",
+    "softDeleteable": false,
+    "archivable": false,
+    "paused": false,
+    "partitionBy": "modifyDate",
+    "archivalCriteria": {
+        "keep_primary_data_for": 24,
+        "delete_primary_data_after": 60
+    },
+    "archivalFilters": [],
+    "uuid": "6aff02c6-7d7f-4bea-a450-acf2440ac82f",
+    "recordTags": [
+        "FSRSolutionPack",
+        "phishingEmailResponse-1.0.0"
+    ],
+    "displayName": "{{ title }}",
+    "descriptions": {
+        "singular": "Scenario",
+        "plural": "Scenario"
+    }
+}

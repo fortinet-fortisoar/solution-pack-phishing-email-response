@@ -1,12 +1,13 @@
 {
     "@context": "\/api\/3\/contexts\/StagingModelMetadata",
-    "@id": "\/api\/3\/staging_model_metadatas\/8b8ab257-83cd-4f4a-a2f9-0a3d71b26d3b",
+    "@id": "\/api\/3\/staging_model_metadatas\/6aff02c6-7d7f-4bea-a450-acf2440ac82f",
     "@type": "StagingModelMetadata",
     "type": "scenario",
     "parentType": null,
     "tableName": "scenario",
     "ownable": false,
     "userOwnable": false,
+    "queueable": false,
     "trackable": true,
     "taggable": true,
     "peerReplicable": false,
@@ -16,7 +17,7 @@
     "writable": true,
     "attributes": [
         {
-            "@id": "\/api\/3\/attribute_metadatas\/5066a9f2-71a4-4d8f-829c-8d508c85e1d6",
+            "@id": "\/api\/3\/attribute_metadatas\/2700e9f5-2151-4546-938a-647db9108ef1",
             "@type": "AttributeMetadata",
             "type": "string",
             "name": "configuration",
@@ -54,15 +55,19 @@
             "identifier": null,
             "unique": false,
             "recommend": false,
-            "sattrib": "\/api\/3\/staging_model_metadatas\/8b8ab257-83cd-4f4a-a2f9-0a3d71b26d3b",
-            "uuid": "5066a9f2-71a4-4d8f-829c-8d508c85e1d6",
+            "sattrib": "\/api\/3\/staging_model_metadatas\/6aff02c6-7d7f-4bea-a450-acf2440ac82f",
+            "uuid": "2700e9f5-2151-4546-938a-647db9108ef1",
+            "recordTags": [
+                "FSRSolutionPack",
+                "phishingEmailResponse-1.0.0"
+            ],
             "displayName": "{{ configuration }}",
             "descriptions": {
                 "singular": "Configuration"
             }
         },
         {
-            "@id": "\/api\/3\/attribute_metadatas\/8998145e-f155-4b9e-9a80-1c2b792b2fe4",
+            "@id": "\/api\/3\/attribute_metadatas\/1b86e59e-aa90-4c6a-9d04-77e72e0179f0",
             "@type": "AttributeMetadata",
             "type": "comments",
             "name": "comments",
@@ -98,15 +103,19 @@
             "identifier": false,
             "unique": false,
             "recommend": false,
-            "sattrib": "\/api\/3\/staging_model_metadatas\/8b8ab257-83cd-4f4a-a2f9-0a3d71b26d3b",
-            "uuid": "8998145e-f155-4b9e-9a80-1c2b792b2fe4",
+            "sattrib": "\/api\/3\/staging_model_metadatas\/6aff02c6-7d7f-4bea-a450-acf2440ac82f",
+            "uuid": "1b86e59e-aa90-4c6a-9d04-77e72e0179f0",
+            "recordTags": [
+                "FSRSolutionPack",
+                "phishingEmailResponse-1.0.0"
+            ],
             "displayName": "{{ comments }}",
             "descriptions": {
                 "singular": "Comments"
             }
         },
         {
-            "@id": "\/api\/3\/attribute_metadatas\/974976f1-fe77-40ba-ae04-cbed03a20395",
+            "@id": "\/api\/3\/attribute_metadatas\/e38fc646-dcd2-4feb-b54e-d9c0474aef3e",
             "@type": "AttributeMetadata",
             "type": "string",
             "name": "title",
@@ -145,15 +154,19 @@
             "identifier": false,
             "unique": false,
             "recommend": false,
-            "sattrib": "\/api\/3\/staging_model_metadatas\/8b8ab257-83cd-4f4a-a2f9-0a3d71b26d3b",
-            "uuid": "974976f1-fe77-40ba-ae04-cbed03a20395",
+            "sattrib": "\/api\/3\/staging_model_metadatas\/6aff02c6-7d7f-4bea-a450-acf2440ac82f",
+            "uuid": "e38fc646-dcd2-4feb-b54e-d9c0474aef3e",
+            "recordTags": [
+                "FSRSolutionPack",
+                "phishingEmailResponse-1.0.0"
+            ],
             "displayName": "{{ title }}",
             "descriptions": {
                 "singular": "Title"
             }
         },
         {
-            "@id": "\/api\/3\/attribute_metadatas\/02484bca-2e98-4046-bec8-b85476b1553c",
+            "@id": "\/api\/3\/attribute_metadatas\/42891af9-05da-40cc-b4d0-3b7843dfda07",
             "@type": "AttributeMetadata",
             "type": "string",
             "name": "description",
@@ -191,15 +204,19 @@
             "identifier": false,
             "unique": false,
             "recommend": false,
-            "sattrib": "\/api\/3\/staging_model_metadatas\/8b8ab257-83cd-4f4a-a2f9-0a3d71b26d3b",
-            "uuid": "02484bca-2e98-4046-bec8-b85476b1553c",
+            "sattrib": "\/api\/3\/staging_model_metadatas\/6aff02c6-7d7f-4bea-a450-acf2440ac82f",
+            "uuid": "42891af9-05da-40cc-b4d0-3b7843dfda07",
+            "recordTags": [
+                "FSRSolutionPack",
+                "phishingEmailResponse-1.0.0"
+            ],
             "displayName": "{{ description }}",
             "descriptions": {
                 "singular": "Description"
             }
         },
         {
-            "@id": "\/api\/3\/attribute_metadatas\/7758bc11-fd33-4f0c-b222-c956c8238ee0",
+            "@id": "\/api\/3\/attribute_metadatas\/5cdb974b-2acc-4aee-a344-cf1c1495a548",
             "@type": "AttributeMetadata",
             "type": "object",
             "name": "steps",
@@ -237,15 +254,19 @@
             "identifier": false,
             "unique": false,
             "recommend": false,
-            "sattrib": "\/api\/3\/staging_model_metadatas\/8b8ab257-83cd-4f4a-a2f9-0a3d71b26d3b",
-            "uuid": "7758bc11-fd33-4f0c-b222-c956c8238ee0",
+            "sattrib": "\/api\/3\/staging_model_metadatas\/6aff02c6-7d7f-4bea-a450-acf2440ac82f",
+            "uuid": "5cdb974b-2acc-4aee-a344-cf1c1495a548",
+            "recordTags": [
+                "FSRSolutionPack",
+                "phishingEmailResponse-1.0.0"
+            ],
             "displayName": "{{ steps }}",
             "descriptions": {
                 "singular": "Steps"
             }
         },
         {
-            "@id": "\/api\/3\/attribute_metadatas\/67e62170-3801-4975-92f2-904d02f5ebb2",
+            "@id": "\/api\/3\/attribute_metadatas\/ac055032-6bc2-4fa4-b4b1-ec36322a9b9e",
             "@type": "AttributeMetadata",
             "type": "string",
             "name": "createdAlertsID",
@@ -283,8 +304,12 @@
             "identifier": false,
             "unique": false,
             "recommend": false,
-            "sattrib": "\/api\/3\/staging_model_metadatas\/8b8ab257-83cd-4f4a-a2f9-0a3d71b26d3b",
-            "uuid": "67e62170-3801-4975-92f2-904d02f5ebb2",
+            "sattrib": "\/api\/3\/staging_model_metadatas\/6aff02c6-7d7f-4bea-a450-acf2440ac82f",
+            "uuid": "ac055032-6bc2-4fa4-b4b1-ec36322a9b9e",
+            "recordTags": [
+                "FSRSolutionPack",
+                "phishingEmailResponse-1.0.0"
+            ],
             "displayName": "{{ createdAlertsID }}",
             "descriptions": {
                 "singular": "Created Alerts ID"
@@ -293,7 +318,20 @@
     ],
     "system": false,
     "module": "scenario",
-    "uuid": "8b8ab257-83cd-4f4a-a2f9-0a3d71b26d3b",
+    "softDeleteable": false,
+    "archivable": false,
+    "paused": false,
+    "partitionBy": "modifyDate",
+    "archivalCriteria": {
+        "keep_primary_data_for": 24,
+        "delete_primary_data_after": 60
+    },
+    "archivalFilters": [],
+    "uuid": "6aff02c6-7d7f-4bea-a450-acf2440ac82f",
+    "recordTags": [
+        "FSRSolutionPack",
+        "phishingEmailResponse-1.0.0"
+    ],
     "displayName": "{{ title }}",
     "descriptions": {
         "singular": "Scenario",

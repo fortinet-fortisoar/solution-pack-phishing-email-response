@@ -3,7 +3,7 @@
         "@type": "Scenario",
         "configuration": "Phishing",
         "title": "Phishing Email",
-        "description": "An employee reports a supicious email to InfoSec@Example.com.\n\nObserve the following\n\n* Reported Email contained original email as MSG attachment\n* Reported Informationm (sender, email message) is presented as a handy reference\n* Suspicious email information (sender, reciever, subject, body, header, sender domain etc) is presented for analysing the case\n* Investigate Suspicous Playbook is available to demonstrate various investigation activities such as\n    * Spoofing (by checking sender and return path)\n    * Blacklisted Keyword match (bitcoin in this case)\n  ",
+        "description": "An employee reports a suspicious email to InfoSec@Example.com.\n\nObserve the following\n\n* Reported Email contained original email as MSG attachment\n* Reported Information (sender, email message) is presented as a handy reference\n* Suspicious email information (sender, receiver, subject, body, header, sender domain, etc) is presented for analyzing the case\n* Investigate Suspicious Playbook is available to demonstrate various investigation activities such as\n    * Spoofing (by checking sender and return path)\n    * Blacklisted Keyword match (bitcoin in this case)\n  ",
         "steps": {
             "Steps": [
                 {
@@ -227,13 +227,12 @@
             ]
         },
         "createdAlertsID": null,
-        "comments": [],
         "uuid": "ade532cb-9659-403c-ba4c-812cb460716c",
         "createUser": "\/api\/3\/appliances\/57545210-2adc-472b-a24f-2df6ee8dfe63",
         "createDate": 1643727650,
-        "modifyUser": "\/api\/3\/appliances\/57545210-2adc-472b-a24f-2df6ee8dfe63",
-        "modifyDate": 1644425666,
-        "id": 17,
+        "modifyUser": "\/api\/3\/people\/3451141c-bac6-467c-8d72-85e0fab569ce",
+        "modifyDate": 1644946376.209267,
+        "id": "22",
         "recordTags": [
             "FortiSOAR",
             "Phishing"

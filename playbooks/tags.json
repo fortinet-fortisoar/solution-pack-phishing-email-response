@@ -1,4 +1,5 @@
 [
-    "Scenario",
-    "ManualAction"
+    "ManualAction",
+    "PostCreate",
+    "Subroutine"
 ]

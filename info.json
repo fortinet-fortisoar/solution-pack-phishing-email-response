@@ -6,29 +6,29 @@
     "label": "Phishing Email Response",
     "dependencies": [
         {
-            "name": "sOAREssentials",
+            "name": "fortiSOAREssentials",
             "type": "solutionpack",
-            "label": "SOAR Essentials",
-            "version": "1.0.1",
+            "label": "FortiSOAR Essentials",
+            "version": "1.0.0",
             "minVersion": null
         },
         {
-            "name": "sOCSimulator",
+            "name": "socSimulator",
             "type": "solutionpack",
             "label": "SOC Simulator",
-            "version": "1.0.1",
+            "version": "1.0.0",
             "minVersion": null
         }
     ],
-    "prerequisite": [
-        "Deploy SOAR Essentials Solution Pack",
-        "Deploy SOC Simulator Solution Pack",
-        "Ensure that SOC Simulator connector is configured"
-    ],
+    "prerequisite": [],
+    "category": [],
     "publisher": "Fortinet",
-    "description": "Investigates an alert of type \u2018Suspicious Email\u2019.",
+    "certified": "true",
+    "supportInfo": "support@fortinet.com",
+    "help": "https://github.com/fortinet-fortisoar/solution-pack-phishing-email-response",
+    "description": "Investigates an alert of type \u2018Suspicious Email\u2019 is Phishing or not",
     "fsrMinCompatibility": "7.2.0",
-    "date": "2022-02-09T17:54:18+00:00",
+    "date": "2022-02-15T17:47:21+00:00",
     "exported_from": "master.fortisoar.com",
     "exported_by": "CS Admin",
     "contents": {
@@ -42,9 +42,9 @@
                 "form"
             ]
         },
-        "playbookCollections": [
+        "playbooks": [
             {
-                "name": "16 - Scenario - Phishing Scenario"
+                "name": "04 - Use Case - Phishing Email Response"
             }
         ],
         "recordSets": {

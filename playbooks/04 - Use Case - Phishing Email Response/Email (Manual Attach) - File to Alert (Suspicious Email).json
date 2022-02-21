@@ -113,7 +113,9 @@
     "priority": null,
     "uuid": "ae10e0e9-cc05-4835-b080-e7a4b2ee8bc8",
     "recordTags": [
-        "ManualAction"
+        "ManualAction",
+        "FSRSolutionPack",
+        "phishingEmailResponse-1.0.0"
     ],
     "id": "724",
     "createUser": "\/api\/3\/people\/3451141c-bac6-467c-8d72-85e0fab569ce",

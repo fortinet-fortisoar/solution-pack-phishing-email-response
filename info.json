@@ -6,9 +6,9 @@
     "label": "Phishing Email Response",
     "dependencies": [
         {
-            "name": "fortiSOAREssentials",
+            "name": "sOARFramework",
             "type": "solutionpack",
-            "label": "FortiSOAR Essentials",
+            "label": "SOAR Framework",
             "version": "1.0.0",
             "minVersion": null
         },
@@ -21,30 +21,37 @@
         }
     ],
     "prerequisite": [],
-    "category": [],
     "publisher": "Fortinet",
-    "certified": "true",
-    "supportInfo": "support@fortinet.com",
-    "help": "https://github.com/fortinet-fortisoar/solution-pack-phishing-email-response",
     "description": "Investigates an alert of type \u2018Suspicious Email\u2019 is Phishing or not",
+    "summary": null,
+    "help": "https://github.com/fortinet-fortisoar/solution-pack-phishing-email-response",
+    "category": [],
+    "supportInfo": "support@fortinet.com",
+    "iconLarge": null,
+    "recordTags": [],
     "fsrMinCompatibility": "7.2.0",
-    "date": "2022-02-15T17:47:21+00:00",
-    "exported_from": "master.fortisoar.com",
+    "date": "2022-02-21T12:02:51+00:00",
+    "exported_from": "master.fortisoar.net",
     "exported_by": "CS Admin",
+    "certified": "true",
     "contents": {
-        "module": {
-            "scenario": []
-        },
-        "viewTemplates": {
-            "scenario": [
-                "list",
-                "detail",
-                "form"
-            ]
+        "modules": {
+            "scenario": {
+                "name": "Scenario",
+                "apiName": "scenario"
+            }
         },
         "playbooks": [
             {
                 "name": "04 - Use Case - Phishing Email Response"
+            }
+        ],
+        "globalVariables": [
+            {
+                "id": 2,
+                "name": "Default_Email",
+                "value": "noreply@example.com",
+                "default_value": null
             }
         ],
         "recordSets": {

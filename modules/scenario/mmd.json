@@ -84,7 +84,7 @@
             "gridColumn": false,
             "collection": true,
             "inversedField": "scenario",
-            "ownsRelationship": false,
+            "ownsRelationship": true,
             "validation": {
                 "required": false,
                 "minlength": 0,

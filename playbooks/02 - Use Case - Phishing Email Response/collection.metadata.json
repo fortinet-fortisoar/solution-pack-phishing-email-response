@@ -1,7 +1,7 @@
 {
     "@context": "\/api\/3\/contexts\/WorkflowCollection",
     "@type": "WorkflowCollection",
-    "name": "04 - Use Case - Phishing Email Response",
+    "name": "02 - Use Case - Phishing Email Response",
     "description": null,
     "visible": true,
     "image": null,
@@ -12,8 +12,6 @@
     "modifyUser": "\/api\/3\/people\/3451141c-bac6-467c-8d72-85e0fab569ce",
     "modifyDate": 1644923598.19515,
     "recordTags": [
-        "FSRSolutionPack",
-        "phishingEmailResponse-1.0.0"
     ],
     "deletedAt": null
 }

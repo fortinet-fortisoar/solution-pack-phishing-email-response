@@ -1,7 +1,5 @@
 [
     "ManualAction",
     "PostCreate",
-    "Subroutine",
-    "FSRSolutionPack",
-    "phishingEmailResponse-1.0.0"
+    "Subroutine"
 ]

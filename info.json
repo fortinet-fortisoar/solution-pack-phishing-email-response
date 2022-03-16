@@ -35,15 +35,9 @@
     "exported_by": "CS Admin",
     "certified": "true",
     "contents": {
-        "modules": {
-            "scenario": {
-                "name": "Scenario",
-                "apiName": "scenario"
-            }
-        },
         "playbooks": [
             {
-                "name": "04 - Use Case - Phishing Email Response"
+                "name": "02 - Use Case - Phishing Email Response"
             }
         ],
         "globalVariables": [

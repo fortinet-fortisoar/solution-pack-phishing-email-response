@@ -20,15 +20,14 @@
             "minVersion": null
         }
     ],
-    "prerequisite": [],
+    "prerequisite": null,
     "publisher": "Fortinet",
     "description": "Investigates an alert of type \u2018Suspicious Email\u2019 is Phishing or not",
     "summary": null,
     "help": "https://github.com/fortinet-fortisoar/solution-pack-phishing-email-response",
     "category": [],
     "supportInfo": "support@fortinet.com",
-    "iconLarge": null,
-    "recordTags": [],
+    "iconLarge": null,  
     "fsrMinCompatibility": "7.2.0",
     "date": "2022-02-21T12:02:51+00:00",
     "exported_from": "master.fortisoar.net",

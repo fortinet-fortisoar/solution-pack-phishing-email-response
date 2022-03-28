@@ -1,5 +1,5 @@
 [
     "ManualAction",
-    "PostCreate",
-    "Subroutine"
+    "Subroutine",
+    "PostCreate"
 ]

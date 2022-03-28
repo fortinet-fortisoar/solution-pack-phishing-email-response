@@ -11,7 +11,6 @@
     "remoteExecutableFlag": false,
     "parameters": [],
     "synchronous": false,
-    "lastModifyDate": 1644946499,
     "collection": "\/api\/3\/workflow_collections\/3cb90b29-1258-415c-8f4c-967296bccb15",
     "versions": [],
     "triggerStep": "\/api\/3\/workflow_steps\/913f726b-5194-4cce-b760-cd9fb8b7950b",
@@ -120,7 +119,7 @@
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<p><span class=\"fa fa-exclamation-triangle\" style=\"font-size: 15px; color: #DE7A13;\"><\/span>&nbsp;Malicious content found , tagging alert as <span class=\"badge badge-pill badge-danger\" style=\"background:#ba6204; color: #fff;\"><strong>Phishing<\/strong><\/span>.<\/p>",
+                    "content": "<p>&nbsp;Malicious content found, tagging alert as <span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #fff;\"><strong>Phishing<\/strong><\/span> and closed the Alert.<\/p>\n<p>&nbsp;<\/p>",
                     "records": ""
                 },
                 "resource": {
@@ -128,7 +127,8 @@
                         "recordTags": [
                             "\/api\/3\/tags\/Phishing"
                         ]
-                    }
+                    },
+                    "status": "\/api\/3\/picklists\/fac53e73-8d16-4189-98d5-95fbd1555232"
                 },
                 "_showJson": false,
                 "operation": "Overwrite",
@@ -610,32 +610,12 @@
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<p><strong><span style=\"text-decoration: underline;\">Investigation Summary<\/span><\/strong>:<\/p>\n<ul>\n<li><strong><span style=\"background-color: #008000;\">No<\/span><\/strong> malicious indicators found<\/li>\n<li><strong><span style=\"background-color: #008000;\">No<\/span><\/strong>&nbsp; attempt of spoofing<\/li>\n<li><strong><span style=\"background-color: #008000;\">No<\/span><\/strong>&nbsp; blacklisted keywords found<\/li>\n<li>Alert severity updated to&nbsp;&nbsp;<span style=\"background-color: #339966; color: #ffffff;\"><strong>Low<\/strong>&nbsp;<\/span>due to non malicious content<\/li>\n<\/ul>",
+                    "content": "<p><strong><span style=\"text-decoration: underline;\">Investigation Summary<\/span><\/strong>:<\/p>\n<ul>\n<li><strong><span style=\"background-color: #008000;\">No<\/span><\/strong> malicious indicators found<\/li>\n<li><strong><span style=\"background-color: #008000;\">No<\/span><\/strong>&nbsp; attempt of spoofing<\/li>\n<li><strong><span style=\"background-color: #008000;\">No<\/span><\/strong>&nbsp; blacklisted keywords found<\/li>\n<li>Alert severity updated to&nbsp;&nbsp;<span style=\"background-color: #339966; color: #ffffff;\"><strong>Low<\/strong>&nbsp;<\/span>due to non-malicious content<\/li>\n<li>Closed Alert as false positive&nbsp;<\/li>\n<\/ul>",
                     "records": ""
                 },
                 "resource": {
-                    "state": {
-                        "id": 125,
-                        "@id": "\/api\/3\/picklists\/8675a07f-2d0d-4e3a-89af-4822b8341df8",
-                        "icon": null,
-                        "@type": "Picklist",
-                        "color": null,
-                        "display": "Ready to Investigate",
-                        "listName": "\/api\/3\/picklist_names\/2f9ed741-25fe-475a-9f12-64336288eebf",
-                        "itemValue": "Ready to Investigate",
-                        "orderIndex": 4
-                    },
-                    "severity": {
-                        "id": 66,
-                        "@id": "\/api\/3\/picklists\/58d0753f-f7e4-403b-953c-b0f521eab759",
-                        "icon": null,
-                        "@type": "Picklist",
-                        "color": "#28B35C",
-                        "display": "Low",
-                        "listName": "\/api\/3\/picklist_names\/4e80cba3-032f-48b4-ac03-17e3ec247aac",
-                        "itemValue": "Low",
-                        "orderIndex": 1
-                    }
+                    "state": "\/api\/3\/picklists\/8675a07f-2d0d-4e3a-89af-4822b8341df8",
+                    "severity": "\/api\/3\/picklists\/58d0753f-f7e4-403b-953c-b0f521eab759"
                 },
                 "_showJson": false,
                 "operation": "Overwrite",
@@ -1154,15 +1134,10 @@
     ],
     "priority": null,
     "uuid": "f11ec312-d45b-4d43-b16d-af809d212f2c",
-    "recordTags": [
-        "ManualAction"
-    ],
-    "id": "940",
-    "createUser": "\/api\/3\/people\/3451141c-bac6-467c-8d72-85e0fab569ce",
-    "createDate": 1644923421.30632,
-    "modifyUser": "\/api\/3\/people\/3451141c-bac6-467c-8d72-85e0fab569ce",
-    "modifyDate": 1644946500.297608,
     "owners": [],
     "isPrivate": false,
-    "deletedAt": null
+    "deletedAt": null,
+    "recordTags": [
+        "ManualAction"
+    ]
 }

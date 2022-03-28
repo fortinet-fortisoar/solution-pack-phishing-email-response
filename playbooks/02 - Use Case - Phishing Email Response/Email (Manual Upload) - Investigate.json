@@ -6,7 +6,7 @@
     "tag": null,
     "description": "This playbook will extract email metadata from uploaded email file e.g. mail.eml or mail.msg",
     "isActive": true,
-    "debug": true,
+    "debug": false,
     "singleRecordExecution": false,
     "remoteExecutableFlag": false,
     "parameters": [
@@ -14,7 +14,6 @@
         "file_iri"
     ],
     "synchronous": false,
-    "lastModifyDate": 1644930386,
     "collection": "\/api\/3\/workflow_collections\/3cb90b29-1258-415c-8f4c-967296bccb15",
     "versions": [],
     "triggerStep": "\/api\/3\/workflow_steps\/df1be2cd-d2ea-429b-b6be-0eaf1a8bb51e",
@@ -403,15 +402,10 @@
     ],
     "priority": null,
     "uuid": "c3446061-8177-4098-9b17-0a748713762f",
-    "recordTags": [
-        "PostCreate"
-    ],
-    "id": "726",
-    "createUser": "\/api\/3\/people\/3451141c-bac6-467c-8d72-85e0fab569ce",
-    "createDate": 1644598937.474175,
-    "modifyUser": "\/api\/3\/people\/3451141c-bac6-467c-8d72-85e0fab569ce",
-    "modifyDate": 1644930385.890381,
     "owners": [],
     "isPrivate": false,
-    "deletedAt": null
+    "deletedAt": null,
+    "recordTags": [
+        "PostCreate"
+    ]
 }

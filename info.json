@@ -33,6 +33,9 @@
     "exported_from": "master.fortisoar.net",
     "exported_by": "CS Admin",
     "certified": "true",
+    "recordTags": [
+        "Phishing"
+    ],
     "contents": {
         "playbooks": [
             {

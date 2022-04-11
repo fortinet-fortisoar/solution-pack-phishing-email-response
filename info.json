@@ -26,6 +26,7 @@
     "description": "Investigates an alert of type \u2018Suspicious Email\u2019 is Phishing or not",
     "help": "https://github.com/fortinet-fortisoar/solution-pack-phishing-email-response",
     "category": [],
+    "featured": true,
     "supportInfo": "Fortinet Customer Support",
     "iconLarge": null,
     "recordTags": [

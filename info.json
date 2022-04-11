@@ -21,21 +21,19 @@
         }
     ],
     "prerequisite": null,
+    "certified": "true",
     "publisher": "Fortinet",
     "description": "Investigates an alert of type \u2018Suspicious Email\u2019 is Phishing or not",
-    "summary": null,
     "help": "https://github.com/fortinet-fortisoar/solution-pack-phishing-email-response",
     "category": [],
-    "supportInfo": "support@fortinet.com",
-    "iconLarge": null,  
-    "fsrMinCompatibility": "7.2.0",
-    "date": "2022-02-21T12:02:51+00:00",
-    "exported_from": "master.fortisoar.net",
-    "exported_by": "CS Admin",
-    "certified": "true",
+    "featured": true,
+    "supportInfo": "Fortinet Customer Support",
+    "iconLarge": null,
     "recordTags": [
         "Phishing"
     ],
+    "fsrMinCompatibility": "7.2.0",
+    "date": "2022-04-11T07:07:18+00:00",
     "contents": {
         "playbooks": [
             {
@@ -50,8 +48,12 @@
                 "default_value": null
             }
         ],
-        "recordSets": {
-            "scenario": 1
-        }
+        "recordSets": [
+            {
+                "name": "Scenario",
+                "apiName": "scenario",
+                "count": 1
+            }
+        ]
     }
 }

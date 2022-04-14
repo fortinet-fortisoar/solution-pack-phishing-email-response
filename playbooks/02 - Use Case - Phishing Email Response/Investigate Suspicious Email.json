@@ -159,7 +159,7 @@
                 "SPF_Record": "{% set headers =  vars.input.records[0].emailHeaders | toDict %}{% if headers.header['received-spf'] -%}{{headers.header['received-spf']}}{% elif headers['received-spf'] -%}{{headers['received-spf']}}{%- endif %}",
                 "SuspiciousData": "['Bitcoins','bitcoin','torrent','limewire','bittottent','piratebay']",
                 "sender_return_path": "{{vars.input.records[0].returnPath}}",
-                "sender_email_address": "{{vars.input.records[0].senderEmailAddress}}",
+                "sender_email_address": "{{ vars.input.records[0].senderEmailAddress | regex_search('[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+') }}",
                 "malicious_IndicaorList": "[]"
             },
             "status": null,

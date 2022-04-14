@@ -826,13 +826,15 @@
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<p>&nbsp;- Sender email address '{{vars.sender_email_address}}' do not match with the Return Path '{{vars.sender_return_path}}'.<\/p>\n<p>- Tagging alert as <strong><span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #fff;\">Spoofing<\/span><\/strong>.<\/p>",
+                    "content": "<p>&nbsp;- Sender email address '{{vars.sender_email_address}}' do not match with the Return Path '{{vars.sender_return_path}}'.<\/p>\n<p>- Tagging alert as <strong><span style=\"background: #ba6204; color: #fff;\" class=\"badge badge-pill badge-danger\">Spoofing<\/span><\/strong>.<\/p>",
                     "records": ""
                 },
                 "resource": {
-                    "recordTags": [
-                        "\/api\/3\/tags\/Spoofing"
-                    ]
+                    "__link": {
+                        "recordTags": [
+                            "\/api\/3\/tags\/Spoofing"
+                        ]
+                    }
                 },
                 "_showJson": false,
                 "operation": "Overwrite",
@@ -840,7 +842,7 @@
                 "__recommend": [],
                 "collectionType": "\/api\/3\/alerts",
                 "fieldOperation": {
-                    "recordTags": "Overwrite"
+                    "recordTags": "Append"
                 },
                 "step_variables": {
                     "spoof_set": "true"

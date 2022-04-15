@@ -21,7 +21,7 @@ This Solution Pack ships with following simulation scenarios. [Refer](https://gi
 #### 1. Scenario - Phishing Email
 
 The scenario generates a demo alert of Type 'Suspicious Email'.
-Goto genrated alert and observe the following:
+Goto generated alert and observe the following:
 
 - Reported Email contains original email as MSG attachment
 - Reported Information (sender, email message) is presented as a handy reference

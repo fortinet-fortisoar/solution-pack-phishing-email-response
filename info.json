@@ -23,7 +23,7 @@
     "prerequisite": null,
     "certified": "true",
     "publisher": "Fortinet",
-    "description": "Investigates an alert of type \u2018Suspicious Email\u2019 is Phishing or not",
+    "description": "Phishing Email Response Solution Pack is designed to provide a set of investigation and utility playbooks to respond to suspicous emails. These emails are typically reported by employees in the organization (sent to a SOC common email inbox).",
     "help": "https://github.com/fortinet-fortisoar/solution-pack-phishing-email-response/blob/develop/README.md",
     "category": [],
     "featured": true,

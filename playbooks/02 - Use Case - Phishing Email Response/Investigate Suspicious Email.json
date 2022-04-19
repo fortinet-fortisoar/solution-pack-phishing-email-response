@@ -51,8 +51,8 @@
                 "step_variables": []
             },
             "status": null,
-            "top": "2595",
-            "left": "650",
+            "top": "2680",
+            "left": "1480",
             "stepType": "\/api\/3\/workflow_step_types\/2597053c-e718-44b4-8394-4d40fe26d357",
             "uuid": "2a3beb27-9706-46e0-b24b-0ffe22d70436"
         },
@@ -71,8 +71,8 @@
                 "step_variables": []
             },
             "status": null,
-            "top": "435",
-            "left": "300",
+            "top": "440",
+            "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/0109f35d-090b-4a2b-bd8a-94cbc3508562",
             "uuid": "2c6f9d0b-2d39-4c03-afd2-e26b59e1dafb"
         },
@@ -84,31 +84,10 @@
                 "Not_Permitted_IPs": "{% for var in vars.SPF_Record if vars.SPF_Record %}{{ (var | regex_search('(?<=client-ip=)([\\S]*)(?=;)') )  if  (var | regex_search('(?<=fail)([^,]+)(?i)'))}}{%endfor%}"
             },
             "status": null,
-            "top": "705",
-            "left": "300",
+            "top": "720",
+            "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
             "uuid": "3169def1-5aaf-4cb3-b290-a04d65d383c2"
-        },
-        {
-            "@type": "WorkflowStep",
-            "name": "Block Malicious URL",
-            "description": null,
-            "arguments": {
-                "when": "{{vars.steps.Find_Related_Malicious_Indicators | length > 0}}",
-                "arguments": {
-                    "inputActionReasons": "Block initiated by playbook.",
-                    "inputIndicatorValue": "{{vars.steps.Find_Related_Malicious_Indicators[0].value}}",
-                    "inputIndicatorRecordIRI": "{{vars.steps.Find_Related_Malicious_Indicators[0]['@id']}}"
-                },
-                "apply_async": false,
-                "step_variables": [],
-                "workflowReference": "\/api\/3\/workflows\/7164f14a-5fa6-439b-a9d0-aba48ad8817a"
-            },
-            "status": null,
-            "top": "2595",
-            "left": "300",
-            "stepType": "\/api\/3\/workflow_step_types\/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
-            "uuid": "3cde3337-1478-4c2d-9d03-0cc1e2e1f670"
         },
         {
             "@type": "WorkflowStep",
@@ -143,8 +122,8 @@
                 }
             },
             "status": null,
-            "top": "2730",
-            "left": "475",
+            "top": "2900",
+            "left": "1480",
             "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928722",
             "uuid": "3d4f3e7f-70eb-458e-94b2-3efc078f574f"
         },
@@ -160,11 +139,12 @@
                 "SuspiciousData": "['Bitcoins','bitcoin','torrent','limewire','bittottent','piratebay']",
                 "sender_return_path": "{{vars.input.records[0].returnPath}}",
                 "sender_email_address": "{{ vars.input.records[0].senderEmailAddress | regex_search('[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+') }}",
-                "malicious_IndicaorList": "[]"
+                "malicious_IndicaorList": "[]",
+                "reporter_email_address": "{% if vars.input.records[0].reporter %}{{vars.input.records[0].reporter | regex_search('[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+') }}{% else %}{{ vars.input.records[0].senderEmailAddress | regex_search('[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+') }}{% endif %}"
             },
             "status": null,
-            "top": "165",
-            "left": "300",
+            "top": "160",
+            "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
             "uuid": "4bf37e80-b16e-47ff-817c-a94817a39833"
         },
@@ -202,8 +182,8 @@
                 "step_variables": []
             },
             "status": null,
-            "top": "1245",
-            "left": "300",
+            "top": "1600",
+            "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928770",
             "uuid": "535527eb-e9fa-436b-8f16-c587b0faaf11"
         },
@@ -243,8 +223,8 @@
                 "step_variables": []
             },
             "status": null,
-            "top": "840",
-            "left": "300",
+            "top": "860",
+            "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/2597053c-e718-44b4-8394-4d40fe26d357",
             "uuid": "53e5f453-447e-467c-99db-d0aae943972e"
         },
@@ -253,9 +233,9 @@
             "name": "Check for Drive by Download",
             "description": null,
             "arguments": {
-                "when": "{{vars.steps.Get_URL_Indicators | length > 0}}",
                 "for_each": {
                     "item": "{{vars.steps.Get_URL_Indicators}}",
+                    "parallel": false,
                     "condition": ""
                 },
                 "arguments": {
@@ -266,8 +246,8 @@
                 "workflowReference": "\/api\/3\/workflows\/498775eb-6e03-4dd3-bbe1-f48650599bfd"
             },
             "status": null,
-            "top": "1380",
-            "left": "300",
+            "top": "1900",
+            "left": "640",
             "stepType": "\/api\/3\/workflow_step_types\/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
             "uuid": "5528c64d-323e-4d71-b1ed-afff635c5145"
         },
@@ -278,67 +258,24 @@
             "arguments": {
                 "conditions": [
                     {
-                        "option": "Yes - Investigate",
-                        "step_iri": "\/api\/3\/workflow_steps\/d980f373-6b3d-475c-8827-145eb33f376a",
-                        "condition": "{{ vars.steps.Find_Related_Malicious_Indicators | length > 0 or vars.spoof_set }}",
-                        "step_name": "Check Suspicious Keywords"
-                    },
-                    {
                         "option": "No - Suggest Closure",
                         "default": true,
-                        "step_iri": "\/api\/3\/workflow_steps\/5f89172c-2d28-4990-b91a-797f8a51a8fb",
-                        "step_name": "Investigate False Positive"
+                        "step_iri": "\/api\/3\/workflow_steps\/a19162b3-bc80-4010-bd2a-6fd4116e1617",
+                        "step_name": "Close Alert"
+                    },
+                    {
+                        "option": "Yes - Block Indicators",
+                        "step_iri": "\/api\/3\/workflow_steps\/e1e73259-c176-4382-9a39-3e0730282f30",
+                        "condition": "{{ vars.malicious_IndicaorList | length > 0 }}",
+                        "step_name": "Approval to Block Malicious Indicators"
                     }
                 ]
             },
             "status": null,
-            "top": "1785",
-            "left": "300",
+            "top": "2320",
+            "left": "1140",
             "stepType": "\/api\/3\/workflow_step_types\/12254cf5-5db7-4b1a-8cb1-3af081924b28",
             "uuid": "56948a43-81dd-4759-9615-c709398634fe"
-        },
-        {
-            "@type": "WorkflowStep",
-            "name": "Want to Investigate False Positive Email Alert",
-            "description": null,
-            "arguments": {
-                "type": "DecisionBased",
-                "input": {
-                    "schema": {
-                        "title": "Investigate False Positive Email Alert",
-                        "description": "<p>Email alert do not contain any known malicious content and its not a spoofing attempt. Do you still want to continue investigation?<\/p>",
-                        "inputVariables": []
-                    }
-                },
-                "record": "{{ vars.input.records[0][\"@id\"] }}",
-                "owner_detail": {
-                    "isAssigned": false
-                },
-                "step_variables": [],
-                "response_mapping": {
-                    "options": [
-                        {
-                            "option": "No",
-                            "primary": true,
-                            "step_iri": "\/api\/3\/workflow_steps\/a19162b3-bc80-4010-bd2a-6fd4116e1617"
-                        },
-                        {
-                            "option": "Yes",
-                            "step_iri": "\/api\/3\/workflow_steps\/d980f373-6b3d-475c-8827-145eb33f376a"
-                        }
-                    ],
-                    "duplicateOption": false
-                },
-                "email_notification": {
-                    "enabled": false,
-                    "smtpParameters": []
-                }
-            },
-            "status": null,
-            "top": "1920",
-            "left": "135",
-            "stepType": "\/api\/3\/workflow_step_types\/fc04082a-d7dc-4299-96fb-6837b1baa0fe",
-            "uuid": "5f89172c-2d28-4990-b91a-797f8a51a8fb"
         },
         {
             "@type": "WorkflowStep",
@@ -370,14 +307,14 @@
                 "step_variables": []
             },
             "status": null,
-            "top": "1650",
-            "left": "475",
+            "top": "2180",
+            "left": "940",
             "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928722",
             "uuid": "5fd55764-5e2f-4e1e-b263-f7aae31a4c38"
         },
         {
             "@type": "WorkflowStep",
-            "name": "Send Response Email to Sender",
+            "name": "Send Suspicious Response Email to Sender",
             "description": null,
             "arguments": {
                 "message": {
@@ -388,23 +325,13 @@
                     "records": "{{vars.input.records[0]['@id']}}"
                 },
                 "resource": {
-                    "to": "{{vars.sender_email_address}}",
+                    "to": "{{vars.reporter_email_address}}",
                     "body": "Hello,\n<br>\n<br>\nWe are reaching out to you regarding your email.subject <i>\"{{vars.input.records[0].emailSubject}}\"<\/i> Based on the information and email provided, we determined that this is a <b>Phishing Type email<\/b> and it is <b>Suspicious<\/b>.\n\n<br>\nIf you see another email with the same characteristics, please forward the suspicious email to <i>infosec@example.com<\/i> and delete it from your mailbox.\n<br> \n<br>\n\nWe appreciate your diligence in being cautious, and we thank you for bringing this to our attention.",
                     "from": "{{globalVars.Default_Email}}",
                     "alerts": "{{vars.input.records[0]['@id']}}",
                     "subject": "Response to the Phishing Email",
                     "__replace": "",
-                    "msgDirection": {
-                        "id": 275,
-                        "@id": "\/api\/3\/picklists\/9f0a2594-2390-4086-9b6f-c7165c70ce27",
-                        "icon": null,
-                        "@type": "Picklist",
-                        "color": null,
-                        "display": "Sending",
-                        "listName": "\/api\/3\/picklist_names\/09b97c81-669a-4ac8-8668-920913f3329b",
-                        "itemValue": "Sending",
-                        "orderIndex": 3
-                    },
+                    "msgDirection": "\/api\/3\/picklists\/9f0a2594-2390-4086-9b6f-c7165c70ce27",
                     "communications": "{{vars.steps.Send_Acknowledge_Email_to_Sender['@id']}}"
                 },
                 "_showJson": false,
@@ -417,8 +344,8 @@
                 "step_variables": []
             },
             "status": null,
-            "top": "2865",
-            "left": "475",
+            "top": "3040",
+            "left": "1480",
             "stepType": "\/api\/3\/workflow_step_types\/2597053c-e718-44b4-8394-4d40fe26d357",
             "uuid": "761eb7dc-bfca-4523-a46c-a7b0bd29a4ed"
         },
@@ -457,8 +384,8 @@
                 }
             },
             "status": null,
-            "top": "1110",
-            "left": "300",
+            "top": "1460",
+            "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928770",
             "uuid": "885cc479-725c-44cf-a6c1-084a367fd935"
         },
@@ -501,8 +428,8 @@
                 "step_variables": []
             },
             "status": null,
-            "top": "570",
-            "left": "300",
+            "top": "580",
+            "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928722",
             "uuid": "8c142bf0-bc97-4683-85da-3076748e060a"
         },
@@ -512,22 +439,10 @@
             "description": null,
             "arguments": {
                 "resource": {
-                    "type": {
-                        "id": 247,
-                        "@id": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
-                        "icon": null,
-                        "uuid": "ff599189-3eeb-4c86-acb0-a7915e85ac3b",
-                        "@type": "Picklist",
-                        "color": null,
-                        "display": "Comment",
-                        "@context": "\/api\/3\/contexts\/Picklist",
-                        "listName": "\/api\/3\/picklist_names\/0841c1eb-a0a3-4abd-b29c-9f68e4d9b14f",
-                        "itemValue": "Comment",
-                        "orderIndex": 1
-                    },
+                    "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "alerts": "['{{vars.input.records[0]['@id']}}']",
                     "people": [],
-                    "content": "<p>{% if vars.foundList | length != 0 %}<\/p>\n<p><span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #fff;\"><strong>Suspicious keyword matched<\/strong><\/span><\/p>\n<p>- Matched keywords: {{vars.foundList | join(' , ')}}<\/p>\n<p>{% else %}<\/p>\n<p>- No keywords matched<\/p>\n<p>{% endif %}<\/p>",
+                    "content": "<p>{% if vars.foundList | length != 0 %}<\/p>\n<p><span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #fff;\"><strong>Suspicious keyword found in email body<\/strong><\/span><\/p>\n<p>- Matched keywords: {{vars.foundList | join(' , ')}}<\/p>\n<p>{% else %}<\/p>\n<p>- Suspicious keywords not found in email body<\/p>\n<p>{% endif %}<\/p>",
                     "__replace": "",
                     "isImportant": false,
                     "peopleUpdated": false
@@ -542,8 +457,8 @@
                 "step_variables": []
             },
             "status": null,
-            "top": "2190",
-            "left": "475",
+            "top": "1300",
+            "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/2597053c-e718-44b4-8394-4d40fe26d357",
             "uuid": "8d02d41b-3ef0-4a42-b50b-4a73662d9677"
         },
@@ -587,6 +502,17 @@
                                 "value": "Symantec Email.Cloud",
                                 "operator": "neq",
                                 "_operator": "neq"
+                            },
+                            {
+                                "type": "object",
+                                "field": "status",
+                                "value": "\/api\/3\/picklists\/7de816ff-7140-4ee5-bd05-93ce22002146",
+                                "_value": {
+                                    "@id": "\/api\/3\/picklists\/7de816ff-7140-4ee5-bd05-93ce22002146",
+                                    "display": "Open",
+                                    "itemValue": "Open"
+                                },
+                                "operator": "eq"
                             }
                         ]
                     }
@@ -596,14 +522,14 @@
                 "singleRecordExecution": true
             },
             "status": null,
-            "top": "30",
-            "left": "300",
+            "top": "40",
+            "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
             "uuid": "913f726b-5194-4cce-b760-cd9fb8b7950b"
         },
         {
             "@type": "WorkflowStep",
-            "name": "Update Alert Severity to Low",
+            "name": "Close Alert",
             "description": null,
             "arguments": {
                 "message": {
@@ -615,7 +541,9 @@
                 },
                 "resource": {
                     "state": "\/api\/3\/picklists\/8675a07f-2d0d-4e3a-89af-4822b8341df8",
-                    "severity": "\/api\/3\/picklists\/58d0753f-f7e4-403b-953c-b0f521eab759"
+                    "status": "\/api\/3\/picklists\/fac53e73-8d16-4189-98d5-95fbd1555232",
+                    "severity": "\/api\/3\/picklists\/58d0753f-f7e4-403b-953c-b0f521eab759",
+                    "closureReason": "\/api\/3\/picklists\/2b0112f6-4746-4dab-ada6-a8cd1e675572"
                 },
                 "_showJson": false,
                 "operation": "Overwrite",
@@ -629,8 +557,8 @@
                 "step_variables": []
             },
             "status": null,
-            "top": "2055",
-            "left": "125",
+            "top": "2440",
+            "left": "940",
             "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928722",
             "uuid": "a19162b3-bc80-4010-bd2a-6fd4116e1617"
         },
@@ -643,14 +571,16 @@
                 "input": {
                     "schema": {
                         "title": "Mark as Drive by Download?",
-                        "description": "{% if vars.steps.Get_URL_Indicators | length <= 0 %}\nThere are no URL indicators found\n{%else%}\nPlease find summary of URL details below - \n<p>{%for i in vars.steps.Check_for_Drive_by_Download %}<\/p>\nURL: {{i.URL}}<br>\nSummary: {{i.Summary}} <br>\n<p>{%endfor%}<\/p>\n {%endif%}",
+                        "description": "Please find summary of URL details below - \n<p>{%for i in vars.steps.Check_for_Drive_by_Download %}<\/p>\nURL: {{i.URL}}<br>\nSummary: {{i.Summary}} <br>\n<p>{%endfor%}<\/p>",
                         "inputVariables": []
                     }
                 },
                 "record": "{{ vars.input.records[0][\"@id\"] }}",
+                "resources": "alerts",
                 "owner_detail": {
                     "isAssigned": false
                 },
+                "isRecordLinked": true,
                 "step_variables": [],
                 "response_mapping": {
                     "options": [
@@ -672,8 +602,8 @@
                 }
             },
             "status": null,
-            "top": "1515",
-            "left": "300",
+            "top": "2020",
+            "left": "640",
             "stepType": "\/api\/3\/workflow_step_types\/fc04082a-d7dc-4299-96fb-6837b1baa0fe",
             "uuid": "b73f4874-574d-4a5b-aca5-097b44288ff1"
         },
@@ -690,23 +620,13 @@
                     "records": "{{vars.input.records[0]['@id']}}"
                 },
                 "resource": {
-                    "to": "{{vars.sender_email_address}}",
+                    "to": "{{vars.reporter_email_address}}",
                     "body": "\u00a0We acknowledge the receipt of a suspicious email having the subject <i>\"{{vars.input.records[0].emailSubject}}\"<\/i>.",
                     "from": "{{globalVars.Default_Email}}",
                     "alerts": "{{vars.input.records[0]['@id']}}",
                     "subject": "Thank you for your submission",
                     "__replace": "",
-                    "msgDirection": {
-                        "id": 275,
-                        "@id": "\/api\/3\/picklists\/9f0a2594-2390-4086-9b6f-c7165c70ce27",
-                        "icon": null,
-                        "@type": "Picklist",
-                        "color": null,
-                        "display": "Sending",
-                        "listName": "\/api\/3\/picklist_names\/09b97c81-669a-4ac8-8668-920913f3329b",
-                        "itemValue": "Sending",
-                        "orderIndex": 3
-                    }
+                    "msgDirection": "\/api\/3\/picklists\/9f0a2594-2390-4086-9b6f-c7165c70ce27"
                 },
                 "_showJson": false,
                 "operation": "Overwrite",
@@ -719,7 +639,7 @@
             },
             "status": null,
             "top": "300",
-            "left": "300",
+            "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/2597053c-e718-44b4-8394-4d40fe26d357",
             "uuid": "cc0d45e1-897c-4b61-a3ef-5acf4e8418e4"
         },
@@ -759,8 +679,8 @@
                 "step_variables": []
             },
             "status": null,
-            "top": "2460",
-            "left": "300",
+            "top": "2660",
+            "left": "1140",
             "stepType": "\/api\/3\/workflow_step_types\/2597053c-e718-44b4-8394-4d40fe26d357",
             "uuid": "ceaae747-aa0b-4d30-9caa-d10ac0c11d9e"
         },
@@ -772,8 +692,8 @@
                 "__dummy": "{%for item in vars.SuspiciousData if item in vars.emailbody %} {{vars.foundList.append(item)}} {%endfor%}"
             },
             "status": null,
-            "top": "2055",
-            "left": "475",
+            "top": "1160",
+            "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
             "uuid": "d980f373-6b3d-475c-8827-145eb33f376a"
         },
@@ -811,8 +731,8 @@
                 }
             },
             "status": null,
-            "top": "2325",
-            "left": "475",
+            "top": "2540",
+            "left": "1320",
             "stepType": "\/api\/3\/workflow_step_types\/fc04082a-d7dc-4299-96fb-6837b1baa0fe",
             "uuid": "e1e73259-c176-4382-9a39-3e0730282f30"
         },
@@ -821,12 +741,12 @@
             "name": "Add Spoofing Tag",
             "description": null,
             "arguments": {
-                "when": "{{vars.input.records[0].senderEmailAddress != vars.sender_return_path}}",
+                "when": "{{vars.sender_email_address != vars.sender_return_path}}",
                 "message": {
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<p>&nbsp;- Sender email address '{{vars.sender_email_address}}' do not match with the Return Path '{{vars.sender_return_path}}'.<\/p>\n<p>- Tagging alert as <strong><span style=\"background: #ba6204; color: #fff;\" class=\"badge badge-pill badge-danger\">Spoofing<\/span><\/strong>.<\/p>",
+                    "content": "<p>&nbsp;- Sender email address '{{vars.sender_email_address}}' do not match with the Return Path '{{vars.sender_return_path}}'.<\/p>\n<p>- Tagging alert as <strong><span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #fff;\">Spoofing<\/span><\/strong>.<\/p>",
                     "records": ""
                 },
                 "resource": {
@@ -849,8 +769,8 @@
                 }
             },
             "status": null,
-            "top": "975",
-            "left": "300",
+            "top": "1000",
+            "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928722",
             "uuid": "f69ddf5e-0cc9-40ca-87bb-c3ebc3b714c4"
         },
@@ -859,7 +779,6 @@
             "name": "Update summary",
             "description": null,
             "arguments": {
-                "when": "{{vars.steps.Get_URL_Indicators | length > 0}}",
                 "message": {
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
@@ -883,22 +802,102 @@
                 "step_variables": []
             },
             "status": null,
-            "top": "1650",
-            "left": "125",
+            "top": "2320",
+            "left": "640",
             "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928722",
             "uuid": "f7248c0e-cf81-49d5-818f-c85d7324be70"
+        },
+        {
+            "@type": "WorkflowStep",
+            "name": "Has URL Indicators",
+            "description": null,
+            "arguments": {
+                "conditions": [
+                    {
+                        "option": "Yes",
+                        "step_iri": "\/api\/3\/workflow_steps\/5528c64d-323e-4d71-b1ed-afff635c5145",
+                        "condition": "{{ vars.steps.Get_URL_Indicators | length > 0 }}",
+                        "step_name": "Check for Drive by Download"
+                    },
+                    {
+                        "option": "No",
+                        "default": true,
+                        "step_iri": "\/api\/3\/workflow_steps\/56948a43-81dd-4759-9615-c709398634fe",
+                        "step_name": "Has Malicious Content"
+                    }
+                ]
+            },
+            "status": null,
+            "top": "1740",
+            "left": "860",
+            "stepType": "\/api\/3\/workflow_step_types\/12254cf5-5db7-4b1a-8cb1-3af081924b28",
+            "uuid": "94af8aba-0367-42de-a5f8-2b166f3e7bf0"
+        },
+        {
+            "@type": "WorkflowStep",
+            "name": "Send Closure Response Email to Reporter",
+            "description": null,
+            "arguments": {
+                "message": {
+                    "tags": [],
+                    "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
+                    "tenant": "{{vars.input.records[0].tenant['@id']}}",
+                    "content": "<p>Response email with the subject \"{{vars.result.subject}}\" is sent to the sender '{{vars.sender_email_address}}'.<\/p>",
+                    "records": "{{vars.input.records[0]['@id']}}"
+                },
+                "resource": {
+                    "to": "{{vars.reporter_email_address}}",
+                    "body": "Hello,\n<br>\n<br>\nWe are reaching out to you regarding your email.subject <i>\"{{vars.input.records[0].emailSubject}}\"<\/i> Based on the information and email provided, we determined that this is a <b>Not Phishing Type email<\/b>.\n<br>\n\nWe appreciate your diligence in being cautious, and we thank you for bringing this to our attention.",
+                    "from": "{{globalVars.Default_Email}}",
+                    "alerts": "{{vars.input.records[0]['@id']}}",
+                    "subject": "Response to the Phishing Email",
+                    "__replace": "",
+                    "msgDirection": "\/api\/3\/picklists\/9f0a2594-2390-4086-9b6f-c7165c70ce27",
+                    "communications": "{{vars.steps.Send_Acknowledge_Email_to_Sender['@id']}}"
+                },
+                "_showJson": false,
+                "operation": "Overwrite",
+                "collection": "\/api\/3\/communication",
+                "__recommend": [],
+                "fieldOperation": {
+                    "recordTags": "Overwrite"
+                },
+                "step_variables": []
+            },
+            "status": null,
+            "top": "2560",
+            "left": "940",
+            "stepType": "\/api\/3\/workflow_step_types\/2597053c-e718-44b4-8394-4d40fe26d357",
+            "uuid": "aedd87a3-56bb-429e-a41b-cccff99f4fac"
+        },
+        {
+            "@type": "WorkflowStep",
+            "name": "Block Malicious Indicators",
+            "description": null,
+            "arguments": {
+                "for_each": {
+                    "item": "{{vars.steps.Find_Related_Malicious_Indicators}}",
+                    "parallel": false,
+                    "condition": ""
+                },
+                "arguments": {
+                    "indicator_type": "{{vars.item.typeofindicator.itemValue}}",
+                    "indicator_value": "{{vars.item.value}}",
+                    "indicator_record_iri": "{{vars.item['@id']}}",
+                    "indicator_block_reason": "Block initiated by playbook."
+                },
+                "apply_async": false,
+                "step_variables": [],
+                "workflowReference": "\/api\/3\/workflows\/1a1cac48-567a-4066-b0d1-c63457226f12"
+            },
+            "status": null,
+            "top": "2800",
+            "left": "1140",
+            "stepType": "\/api\/3\/workflow_step_types\/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
+            "uuid": "b2ee1793-72a8-4194-992f-38ea0b5371f8"
         }
     ],
     "routes": [
-        {
-            "@type": "WorkflowRoute",
-            "name": "Continue If Malicious Content -> Investigate False Positive",
-            "targetStep": "\/api\/3\/workflow_steps\/5f89172c-2d28-4990-b91a-797f8a51a8fb",
-            "sourceStep": "\/api\/3\/workflow_steps\/56948a43-81dd-4759-9615-c709398634fe",
-            "label": "No - Suggest Closure",
-            "isExecuted": false,
-            "uuid": "079440e8-71b3-40a0-90e0-8262e1df62a8"
-        },
         {
             "@type": "WorkflowRoute",
             "name": "Start Investigation -> Get Non Permitted IP",
@@ -907,15 +906,6 @@
             "label": null,
             "isExecuted": false,
             "uuid": "0d626c08-f9dd-411f-aa2e-8222620c6d24"
-        },
-        {
-            "@type": "WorkflowRoute",
-            "name": "Request Approved -> Block Malicious URL",
-            "targetStep": "\/api\/3\/workflow_steps\/3cde3337-1478-4c2d-9d03-0cc1e2e1f670",
-            "sourceStep": "\/api\/3\/workflow_steps\/ceaae747-aa0b-4d30-9caa-d10ac0c11d9e",
-            "label": null,
-            "isExecuted": false,
-            "uuid": "142bc91b-6300-4a43-b508-16b470510509"
         },
         {
             "@type": "WorkflowRoute",
@@ -937,30 +927,12 @@
         },
         {
             "@type": "WorkflowRoute",
-            "name": "Investigate False Positive -> Continue",
-            "targetStep": "\/api\/3\/workflow_steps\/d980f373-6b3d-475c-8827-145eb33f376a",
-            "sourceStep": "\/api\/3\/workflow_steps\/5f89172c-2d28-4990-b91a-797f8a51a8fb",
-            "label": "Yes",
-            "isExecuted": false,
-            "uuid": "2d98f308-8471-4f58-9fb6-710699357f87"
-        },
-        {
-            "@type": "WorkflowRoute",
             "name": "Check for Drive by Download -> mark drive by download",
             "targetStep": "\/api\/3\/workflow_steps\/b73f4874-574d-4a5b-aca5-097b44288ff1",
             "sourceStep": "\/api\/3\/workflow_steps\/5528c64d-323e-4d71-b1ed-afff635c5145",
             "label": null,
             "isExecuted": false,
             "uuid": "53cc2542-8d28-40c3-bd1d-66eee64f08c6"
-        },
-        {
-            "@type": "WorkflowRoute",
-            "name": "Add note for Suspicious Words -> Approval to Block Malicious Indicators",
-            "targetStep": "\/api\/3\/workflow_steps\/e1e73259-c176-4382-9a39-3e0730282f30",
-            "sourceStep": "\/api\/3\/workflow_steps\/8d02d41b-3ef0-4a42-b50b-4a73662d9677",
-            "label": null,
-            "isExecuted": false,
-            "uuid": "55345625-d7bf-43c7-b604-bd96b2696756"
         },
         {
             "@type": "WorkflowRoute",
@@ -973,15 +945,6 @@
         },
         {
             "@type": "WorkflowRoute",
-            "name": "Get URL Indicators -> Check for Drive by Download",
-            "targetStep": "\/api\/3\/workflow_steps\/5528c64d-323e-4d71-b1ed-afff635c5145",
-            "sourceStep": "\/api\/3\/workflow_steps\/535527eb-e9fa-436b-8f16-c587b0faaf11",
-            "label": null,
-            "isExecuted": false,
-            "uuid": "5abb70f1-6d3d-4734-86b9-0fe345f71483"
-        },
-        {
-            "@type": "WorkflowRoute",
             "name": "Approval to Block Malicious Indicators -> Request Approved",
             "targetStep": "\/api\/3\/workflow_steps\/ceaae747-aa0b-4d30-9caa-d10ac0c11d9e",
             "sourceStep": "\/api\/3\/workflow_steps\/e1e73259-c176-4382-9a39-3e0730282f30",
@@ -991,30 +954,12 @@
         },
         {
             "@type": "WorkflowRoute",
-            "name": "Add Spoofing Tag -> Copy  of Find Malicious Indicators",
-            "targetStep": "\/api\/3\/workflow_steps\/885cc479-725c-44cf-a6c1-084a367fd935",
-            "sourceStep": "\/api\/3\/workflow_steps\/f69ddf5e-0cc9-40ca-87bb-c3ebc3b714c4",
-            "label": null,
-            "isExecuted": false,
-            "uuid": "8379cd30-fff1-4b6c-8703-538781da2e2f"
-        },
-        {
-            "@type": "WorkflowRoute",
             "name": "Start -> Configuration",
             "targetStep": "\/api\/3\/workflow_steps\/4bf37e80-b16e-47ff-817c-a94817a39833",
             "sourceStep": "\/api\/3\/workflow_steps\/913f726b-5194-4cce-b760-cd9fb8b7950b",
             "label": null,
             "isExecuted": false,
             "uuid": "8f0e44c9-3654-4a28-bfab-0263cbf7b3ad"
-        },
-        {
-            "@type": "WorkflowRoute",
-            "name": "Investigate False Positive -> Set Severity",
-            "targetStep": "\/api\/3\/workflow_steps\/a19162b3-bc80-4010-bd2a-6fd4116e1617",
-            "sourceStep": "\/api\/3\/workflow_steps\/5f89172c-2d28-4990-b91a-797f8a51a8fb",
-            "label": "No",
-            "isExecuted": false,
-            "uuid": "9865c116-d8ce-473e-a6d0-25293154caf6"
         },
         {
             "@type": "WorkflowRoute",
@@ -1033,24 +978,6 @@
             "label": null,
             "isExecuted": false,
             "uuid": "be0d3872-e971-4764-8358-f8eb02fe221e"
-        },
-        {
-            "@type": "WorkflowRoute",
-            "name": "Continue If Malicious Content -> Continue",
-            "targetStep": "\/api\/3\/workflow_steps\/d980f373-6b3d-475c-8827-145eb33f376a",
-            "sourceStep": "\/api\/3\/workflow_steps\/56948a43-81dd-4759-9615-c709398634fe",
-            "label": "Yes - Investigate",
-            "isExecuted": false,
-            "uuid": "c52196b4-ffe8-4b28-9439-e0c30bcd7f8a"
-        },
-        {
-            "@type": "WorkflowRoute",
-            "name": "Configuration -> Reply to Sender",
-            "targetStep": "\/api\/3\/workflow_steps\/cc0d45e1-897c-4b61-a3ef-5acf4e8418e4",
-            "sourceStep": "\/api\/3\/workflow_steps\/4bf37e80-b16e-47ff-817c-a94817a39833",
-            "label": null,
-            "isExecuted": false,
-            "uuid": "c68a4602-c4b4-40a4-a896-263ac1683eb3"
         },
         {
             "@type": "WorkflowRoute",
@@ -1090,15 +1017,6 @@
         },
         {
             "@type": "WorkflowRoute",
-            "name": "Block Malicious URL -> Add Phishing Tag",
-            "targetStep": "\/api\/3\/workflow_steps\/3d4f3e7f-70eb-458e-94b2-3efc078f574f",
-            "sourceStep": "\/api\/3\/workflow_steps\/3cde3337-1478-4c2d-9d03-0cc1e2e1f670",
-            "label": null,
-            "isExecuted": false,
-            "uuid": "f05b0046-d57e-4589-a7bb-ef83172cda02"
-        },
-        {
-            "@type": "WorkflowRoute",
             "name": "Check Blacklisted Keywords -> Add note for Blacklisted Words",
             "targetStep": "\/api\/3\/workflow_steps\/8d02d41b-3ef0-4a42-b50b-4a73662d9677",
             "sourceStep": "\/api\/3\/workflow_steps\/d980f373-6b3d-475c-8827-145eb33f376a",
@@ -1132,6 +1050,105 @@
             "label": null,
             "isExecuted": false,
             "uuid": "ffe0cd5c-9982-49dd-8c2f-539fc09339cc"
+        },
+        {
+            "@type": "WorkflowRoute",
+            "name": "Get URL Indicators -> Has URL Indicators",
+            "targetStep": "\/api\/3\/workflow_steps\/94af8aba-0367-42de-a5f8-2b166f3e7bf0",
+            "sourceStep": "\/api\/3\/workflow_steps\/535527eb-e9fa-436b-8f16-c587b0faaf11",
+            "label": null,
+            "isExecuted": false,
+            "uuid": "0b22c3b0-63a9-487f-b72d-8a7426846318"
+        },
+        {
+            "@type": "WorkflowRoute",
+            "name": "Has URL Indicators -> Check for Drive by Download",
+            "targetStep": "\/api\/3\/workflow_steps\/5528c64d-323e-4d71-b1ed-afff635c5145",
+            "sourceStep": "\/api\/3\/workflow_steps\/94af8aba-0367-42de-a5f8-2b166f3e7bf0",
+            "label": "Yes",
+            "isExecuted": false,
+            "uuid": "d1d7c4b9-f50a-4b74-8fb5-364ab5391de5"
+        },
+        {
+            "@type": "WorkflowRoute",
+            "name": "Has URL Indicators -> Has Malicious Content",
+            "targetStep": "\/api\/3\/workflow_steps\/56948a43-81dd-4759-9615-c709398634fe",
+            "sourceStep": "\/api\/3\/workflow_steps\/94af8aba-0367-42de-a5f8-2b166f3e7bf0",
+            "label": "No",
+            "isExecuted": false,
+            "uuid": "cc187cfc-fe28-4cb2-99e7-43c3bda6ee2f"
+        },
+        {
+            "@type": "WorkflowRoute",
+            "name": "Add Spoofing Tag -> Check Suspicious Keywords",
+            "targetStep": "\/api\/3\/workflow_steps\/d980f373-6b3d-475c-8827-145eb33f376a",
+            "sourceStep": "\/api\/3\/workflow_steps\/f69ddf5e-0cc9-40ca-87bb-c3ebc3b714c4",
+            "label": null,
+            "isExecuted": false,
+            "uuid": "b3d6d6df-ebe5-4b41-bc74-cfa09c7c39af"
+        },
+        {
+            "@type": "WorkflowRoute",
+            "name": "Add Note for Suspicious keywords -> Find Related Malicious Indicators",
+            "targetStep": "\/api\/3\/workflow_steps\/885cc479-725c-44cf-a6c1-084a367fd935",
+            "sourceStep": "\/api\/3\/workflow_steps\/8d02d41b-3ef0-4a42-b50b-4a73662d9677",
+            "label": null,
+            "isExecuted": false,
+            "uuid": "1b2cdc59-5ff1-4cd6-873d-982c37c73866"
+        },
+        {
+            "@type": "WorkflowRoute",
+            "name": "Has Malicious Content -> Approval to Block Malicious Indicators",
+            "targetStep": "\/api\/3\/workflow_steps\/e1e73259-c176-4382-9a39-3e0730282f30",
+            "sourceStep": "\/api\/3\/workflow_steps\/56948a43-81dd-4759-9615-c709398634fe",
+            "label": "Yes - Block Indicators",
+            "isExecuted": false,
+            "uuid": "adfab497-4634-4118-8bf9-640accdb99f4"
+        },
+        {
+            "@type": "WorkflowRoute",
+            "name": "Configuration -> Send Acknowledge Email to Sender",
+            "targetStep": "\/api\/3\/workflow_steps\/cc0d45e1-897c-4b61-a3ef-5acf4e8418e4",
+            "sourceStep": "\/api\/3\/workflow_steps\/4bf37e80-b16e-47ff-817c-a94817a39833",
+            "label": null,
+            "isExecuted": false,
+            "uuid": "24760e67-cce7-4b1b-9186-63144e96f728"
+        },
+        {
+            "@type": "WorkflowRoute",
+            "name": "Close Alert -> Copy of Send Response Email to Sender",
+            "targetStep": "\/api\/3\/workflow_steps\/aedd87a3-56bb-429e-a41b-cccff99f4fac",
+            "sourceStep": "\/api\/3\/workflow_steps\/a19162b3-bc80-4010-bd2a-6fd4116e1617",
+            "label": null,
+            "isExecuted": false,
+            "uuid": "a94f4bf8-4bef-48cc-94fc-2c5e147f1318"
+        },
+        {
+            "@type": "WorkflowRoute",
+            "name": "Has Malicious Content -> Close Alert",
+            "targetStep": "\/api\/3\/workflow_steps\/a19162b3-bc80-4010-bd2a-6fd4116e1617",
+            "sourceStep": "\/api\/3\/workflow_steps\/56948a43-81dd-4759-9615-c709398634fe",
+            "label": "No - Suggest Closure",
+            "isExecuted": false,
+            "uuid": "254a658c-b00d-46da-9421-92fc4aeb7483"
+        },
+        {
+            "@type": "WorkflowRoute",
+            "name": "Add Not for Request Approved -> Block Malicious Indicators",
+            "targetStep": "\/api\/3\/workflow_steps\/b2ee1793-72a8-4194-992f-38ea0b5371f8",
+            "sourceStep": "\/api\/3\/workflow_steps\/ceaae747-aa0b-4d30-9caa-d10ac0c11d9e",
+            "label": null,
+            "isExecuted": false,
+            "uuid": "c1978165-6aa7-4aab-a0e7-007ecc53b433"
+        },
+        {
+            "@type": "WorkflowRoute",
+            "name": "Block Malicious Indicators -> Add Phishing Tag to Alert",
+            "targetStep": "\/api\/3\/workflow_steps\/3d4f3e7f-70eb-458e-94b2-3efc078f574f",
+            "sourceStep": "\/api\/3\/workflow_steps\/b2ee1793-72a8-4194-992f-38ea0b5371f8",
+            "label": null,
+            "isExecuted": false,
+            "uuid": "817d09c8-55a3-4e5c-8bd2-09d279cfdb32"
         }
     ],
     "priority": null,

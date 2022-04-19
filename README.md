@@ -12,25 +12,35 @@
 
 Configure Email ingestion using Connectors such as Microsoft Exchange. Ingestion process creates an alert of type 'Suspicious Email', and then triggers the response workflow.
 
-Refer to Simulation Scenarion - Phishign Email to experience the use case without any email configuration.
+Refer to Simulation Scenarios - Phishing Email to experience the use case without any email configuration.
 
 ### Usage 
 
 This Solution Pack ships with following simulation scenarios. [Refer](https://github.com/fortinet-fortisoar/solution-pack-soc-simulator/blob/develop/docs/solution-pack-guide.md) to Simulate Scenario documentation to undersand how to Simulate and Reset Scenario.
 
-#### 1. Scenario - Phishing Email
+#### 1. Scenario: Phishing Email
 
-The scenario generates a demo alert of Type 'Suspicious Email'.
-Goto generated alert and observe the following:
+The scenario generate a demo alert of Type 'Suspicious Email'.
 
-- Reported Email contains original email as MSG attachment
+Goto genrated alert and observe the following:
+
 - Reported Information (sender, email message) is presented as a handy reference
 - Suspicious email information (sender, receiver, subject, body, header, sender domain, etc) is presented for analyzing the case
 
-Launch "Investigate Suspicious Email" Playbook and observe various investigation activities such as
+
+#### 2. Scenario: Email (Manual Upload) - Investigate
+Using this scenario Analyst can generate the 'Suspicious Email' alert by manually uploading the email file (*.eml or *.msg).
+
+The genertated 'Suspicious Email' alert launch "Email (Manual Upload) - Investigate" playbook which will extract email metadata from uploaded email file and map with alert fields.
+
+Goto genertated alert and observe the following:
+- Reported Email contains original email as msg/eml attachment
+- Reported Information (sender, email message) is presented as a handy reference
+- Suspicious email information (sender, receiver, subject, body, header, sender domain, etc) is presented for analyzing the case
+
+**Investigate Suspicious Email**:  Launch "Investigate Suspicious Email" Playbook and observe various investigation activities such as
 - Spoofing (by checking sender and return path)
 - Blacklisted Keyword match (bitcoin in this case)
-
 
 ## Prerequisites
 **Solution Pack Name**|**Purpose**|**Doc Link**|
@@ -52,3 +62,4 @@ Launch "Investigate Suspicious Email" Playbook and observe various investigation
     |2|Email (Manual Upload) - Investigate|This playbook will extract email metadata from uploaded email file e.g. mail.eml or mail.msg|
     |3|Email (Manual Attach) - File to Alert (Suspicious Email)|This playbook allows to attach an email to alert of type suspicious email and investigates|
     |4|Email (Manual Upload) - Extract Attachments|This playbook will extract attachments, create indicators and link to parent alert|
+    |5|Generate Phishing Email Alert|Generate a Phishing Email alert|

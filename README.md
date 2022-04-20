@@ -25,7 +25,7 @@ The scenario generate a demo alert of Type 'Suspicious Email'.
 Goto genrated alert and observe the following:
 
 - Reported Information (sender, email message) is presented as a handy reference
-- Suspicious email information (sender, receiver, subject, body, header, sender domain, etc) is presented for analyzing the case
+- Suspicious email information (sender, receiver, subject, body, header, sender domain, etc) is presented for analyzing the case.
 
 
 #### 2. Scenario: Email (Manual Upload) - Investigate
@@ -54,7 +54,7 @@ Goto genertated alert and observe the following:
 2. Record Set(s)
     - Scenario: Phishing Email
 3. Playbook Collection(s)
-    - 02 - Use Case - Phishing Email Response (4): 
+    - 02 - Use Case - Phishing Email Response (5): 
     
     **SN**|**Playbook Name**|**Description**|
     | :- | :- | :- |
@@ -63,3 +63,5 @@ Goto genertated alert and observe the following:
     |3|Email (Manual Attach) - File to Alert (Suspicious Email)|This playbook allows to attach an email to alert of type suspicious email and investigates|
     |4|Email (Manual Upload) - Extract Attachments|This playbook will extract attachments, create indicators and link to parent alert|
     |5|Generate Phishing Email Alert|Generate a Phishing Email alert|
+
+    **Warning:** It is recommended to clone these Playbooks before any customizations to avoid loss of information while upgrading the Solution Pack.

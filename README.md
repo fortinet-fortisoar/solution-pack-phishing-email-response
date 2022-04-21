@@ -11,13 +11,13 @@
 
 ### Introduction
 *Phishing Email Response Solution Pack* is designed to provides a set of investigation playbooks which can be used to respond to suspicious emails.
-Configure Email ingestion using Connectors such as Microsoft Exchange.
+> Configure Email ingestion using Connectors such as Microsoft Exchange.
 
 ### Usage
 
- [Refer](https://github.com/fortinet-fortisoar/solution-pack-soc-simulator/blob/develop/docs/solution-pack-guide.md) to Simulate Scenario documentation to undersand how to Simulate and Reset Scenario.
+> [Refer](https://github.com/fortinet-fortisoar/solution-pack-soc-simulator/blob/develop/docs/solution-pack-guide.md) to Simulate Scenario documentation to undersand how to Simulate and Reset Scenario.
 
-This Solution Pack ships with following simulation scenarios.
+This Solution Pack ships with following simulation scenario;
 
 #### 1. Scenario: Phishing Email
 This scenario generates an example alert of Type 'Suspicious Email' in FortiSOAR Alerts module.
@@ -36,7 +36,7 @@ Navigate to generated alert and note the following:
 - Alert field are mapped with information from email, such as sender email Id, reporter email Id, any attachment, etc.
 - User can then execute OOB investigation playbook against alert 'Investigate Suspicious Email' which refer email information (sender, receiver, subject, body, header, sender domain, etc) is for analyzing the case and suggesting remediation action.
 
-**Investigate Suspicious Email**: User can launch "Investigate Suspicious Email" playbook from an alert. This playbook will perform following automated tasks:
+**Investigating Suspicious Email**: User can launch "Investigate Suspicious Email" playbook from an alert. This playbook will perform following automated tasks:
 - Sends an email acknowledging reporter of suspicious email about ongoing investigation 
 - Performs Spoofing and SPF checks
 - Checks for particular keyword (user can configure same in playbook)

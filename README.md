@@ -10,42 +10,39 @@
 ## Overview
 
 ### Introduction
-
-*Phishing Email Response Solution Pack* is designed to provide a set of investigation and utility playbooks to respond to suspicous emails. These emails are typically reported by employees in the organization (sent to a SOC common email inbox).
-
-Configure Email ingestion using Connectors such as Microsoft Exchange. Ingestion process creates an alert of type 'Suspicious Email', and then triggers the response workflow.
-
-Refer to Simulation Scenarios - Phishing Email to experience the use case without any email configuration.
+*Phishing Email Response Solution Pack* is designed to provides a set of investigation playbooks which can be used to respond to suspicious emails.
+Configure Email ingestion using Connectors such as Microsoft Exchange.
 
 ### Usage
 
-This Solution Pack ships with following simulation scenarios. [Refer](https://github.com/fortinet-fortisoar/solution-pack-soc-simulator/blob/develop/docs/solution-pack-guide.md) to Simulate Scenario documentation to undersand how to Simulate and Reset Scenario.
+ [Refer](https://github.com/fortinet-fortisoar/solution-pack-soc-simulator/blob/develop/docs/solution-pack-guide.md) to Simulate Scenario documentation to undersand how to Simulate and Reset Scenario.
+
+This Solution Pack ships with following simulation scenarios.
 
 #### 1. Scenario: Phishing Email
+This scenario generates an example alert of Type 'Suspicious Email' in FortiSOAR Alerts module.
+Navigate to  demo alert and note the following:
 
-The scenario generate a demo alert of Type 'Suspicious Email'.
+- Demo alert created is an example of a default email ingestion using Data Ingestion Feature
+- Alert field are mapped with information from an email, such as sender email id, reporter email id, any attachment, etc. 
+- User can then execute OOB investigation playbook against alert 'Investigate Suspicious Email' which refer email information (sender, receiver, subject, body, header, sender domain, etc) is for analyzing the case and suggesting remediation action.
 
-Goto genrated alert and observe the following:
+#### 2. Utility Playbook: Email (Manual Upload) - Investigate
 
-- Reported Information (sender, email message) is presented as a handy reference
-- Suspicious email information (sender, receiver, subject, body, header, sender domain, etc) is presented for analyzing the case.
+This playbook adds an action to alert of Type "Suspicious Email", which allows user to attach an exported email file, either in .eml or .msg file format to alert. 
+The moment above alert is created, the playbook will extract email metadata from uploaded email file and map with alert fields.
+Navigate to generated alert and note the following:
+- Attached  Email, if it contains an attachment, its extracted and then correlated as IOC 
+- Alert field are mapped with information from email, such as sender email Id, reporter email Id, any attachment, etc.
+- User can then execute OOB investigation playbook against alert 'Investigate Suspicious Email' which refer email information (sender, receiver, subject, body, header, sender domain, etc) is for analyzing the case and suggesting remediation action.
 
-#### 2. Scenario: Email (Manual Upload) - Investigate
-
-Using this scenario Analyst can generate the 'Suspicious Email' alert by manually uploading the email file (*.eml or*.msg).
-
-The genertated 'Suspicious Email' alert launch "Email (Manual Upload) - Investigate" playbook which will extract email metadata from uploaded email file and map with alert fields.
-
-Goto genertated alert and observe the following:
-
-- Reported Email contains original email as msg/eml attachment
-- Reported Information (sender, email message) is presented as a handy reference
-- Suspicious email information (sender, receiver, subject, body, header, sender domain, etc) is presented for analyzing the case
-
-**Investigate Suspicious Email**:  Launch "Investigate Suspicious Email" Playbook and observe various investigation activities such as
-
-- Spoofing (by checking sender and return path)
-- Blacklisted Keyword match (bitcoin in this case)
+**Investigate Suspicious Email**: User can launch "Investigate Suspicious Email" playbook from an alert. This playbook will perform following automated tasks:
+- Sends an email acknowledging reporter of suspicious email about ongoing investigation 
+- Performs Spoofing and SPF checks
+- Checks for particular keyword (user can configure same in playbook)
+- If URL IOCs are found, it will prompt user suggesting to mark this phishing attempt as 'Drive by Download'. User will be presented with more information about URLs
+- User will be again prompted to review and then a suggestion to block malicious IOCs will presented
+- Playbook finally will send out an acknowledge to reporter of suspicious email with investigation summary
 
 ## Prerequisites
 

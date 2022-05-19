@@ -24,5 +24,5 @@ The use-case deals with containment and investigation procedures once the end-us
 
 # Next Steps
 
-| [Installation](https://github.com/fortinet-fortisoar/solution-pack-sunburst-attack/blob/develop/docs/setup.md#installation) | [Configuration](https://github.com/fortinet-fortisoar/solution-pack-sunburst-attack/blob/develop/docs/setup.md#configuration) | [Usage](https://github.com/fortinet-fortisoar/solution-pack-sunburst-attack/blob/develop/docs/usage.md) | [Contents](https://github.com/fortinet-fortisoar/solution-pack-sunburst-attack/blob/develop/docs/contents.md) |
+| [Installation](https://github.com/fortinet-fortisoar/solution-pack-phishing-email-response/blob/develop/docs/setup.md#installation) | [Configuration](https://github.com/fortinet-fortisoar/solution-pack-phishing-email-response/blob/develop/docs/setup.md#configuration) | [Usage](https://github.com/fortinet-fortisoar/solution-pack-phishing-email-response/blob/develop/docs/usage.md) | [Contents](https://github.com/fortinet-fortisoar/solution-pack-phishing-email-response/blob/develop/docs/contents.md) |
 |--------------------------------------------|----------------------------------------------|------------------------|------------------------------|

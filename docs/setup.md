@@ -1,4 +1,4 @@
-| [Home](https://github.com/fortinet-fortisoar/solution-pack-sunburst-attack/blob/develop/README.md) |
+| [Home](https://github.com/fortinet-fortisoar/solution-pack-phishing-email-response/blob/develop/README.md) |
 |--------------------------------------------|
 
 # Installation

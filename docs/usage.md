@@ -5,7 +5,7 @@
 
 Refer to [Simulate Scenario documentation](https://github.com/fortinet-fortisoar/solution-pack-soc-simulator/blob/develop/docs/solution-pack-guide.md) to understand how to simulate and reset scenarios.
 
-To understand the process FortiSOAR follows to respond to phishing emails, we have included a scenario &mdash; **Phishing Email Response** with this solution pack. Refer to the section [Phishing Email Scenario](#phishing-email-scenario) to understand the how this solution pack automation addresses your needs.
+To understand the process FortiSOAR follows to respond to phishing emails, we have included a scenario &mdash; **Phishing Email Response** with this solution pack. Refer to the section *Phishing Email Scenario* to understand how this solution pack's automation addresses your needs.
 
 ## Phishing Email Scenario
 This scenario generates an example alert of Type *Suspicious Email* in FortiSOAR's **Alerts** module.

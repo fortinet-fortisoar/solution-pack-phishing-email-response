@@ -22,7 +22,7 @@ The **Phishing Email Response** solution pack contains the following resources.
 |02 - Use Case - Phishing Email Response (5) |
 | :- |
 
-**Playbook Name**|**Description**|
+|Playbook Name|Description|
 | :- | :- |
 |Investigate Suspicious Email|Investigates an alert of type 'Suspicious Email'|
 |Email (Manual Upload) - Investigate|This playbook will extract email metadata from uploaded email file e.g. mail.eml or mail.msg|

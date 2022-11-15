@@ -24,7 +24,7 @@
     "certified": "true",
     "publisher": "Fortinet",
     "description": "Phishing Email Response Solution Pack is designed to provide a set of investigation and utility playbooks to respond to suspicous emails. These emails are typically reported by employees in the organization (sent to a SOC common email inbox).",
-    "help": "https://github.com/fortinet-fortisoar/solution-pack-phishing-email-response/blob/develop/README.md",
+    "help": "https://github.com/fortinet-fortisoar/solution-pack-phishing-email-response/blob/release/1.0.1/README.md",
     "category": [],
     "featured": true,
     "supportInfo": "Fortinet Customer Support",

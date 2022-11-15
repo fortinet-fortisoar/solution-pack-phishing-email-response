@@ -2,6 +2,7 @@
     "ManualAction",
     "Subroutine",
     "PostCreate",
+    "Alert",
     "Demo",
-    "Alert"
+    "fortinet-fortisandbox"
 ]

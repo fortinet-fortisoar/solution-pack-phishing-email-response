@@ -29,5 +29,6 @@ The **Phishing Email Response** solution pack contains the following resources.
 | Email (Manual Upload) - Investigate                      | Extracts email metadata from an uploaded email file                   |
 | Email (Manual Attach) - File to Alert (Suspicious Email) | Attaches emails to alerts of type *Suspicious Email* and investigates |
 | Email (Manual Upload) - Extract Attachments              | Extracts attachments, creates indicators, and links to parent alert   |
+| Indicator (Type URL) - Get Reputation (Fortinet Sandbox) | Retrieves the reputation of indicators of type ‘URL’ using Fortinet FortiSandbox. |
 
 >**Warning:** We recommend that you clone these playbooks before customizing to avoid loss of information while upgrading the solution pack.

@@ -54,6 +54,7 @@
             "top": "2680",
             "left": "1480",
             "stepType": "\/api\/3\/workflow_step_types\/2597053c-e718-44b4-8394-4d40fe26d357",
+            "group": null,
             "uuid": "2a3beb27-9706-46e0-b24b-0ffe22d70436"
         },
         {
@@ -74,6 +75,7 @@
             "top": "440",
             "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+            "group": null,
             "uuid": "2c6f9d0b-2d39-4c03-afd2-e26b59e1dafb"
         },
         {
@@ -87,6 +89,7 @@
             "top": "720",
             "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+            "group": null,
             "uuid": "3169def1-5aaf-4cb3-b290-a04d65d383c2"
         },
         {
@@ -125,6 +128,7 @@
             "top": "2900",
             "left": "1480",
             "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928722",
+            "group": null,
             "uuid": "3d4f3e7f-70eb-458e-94b2-3efc078f574f"
         },
         {
@@ -146,6 +150,7 @@
             "top": "160",
             "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+            "group": null,
             "uuid": "4bf37e80-b16e-47ff-817c-a94817a39833"
         },
         {
@@ -185,6 +190,7 @@
             "top": "1600",
             "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928770",
+            "group": null,
             "uuid": "535527eb-e9fa-436b-8f16-c587b0faaf11"
         },
         {
@@ -226,6 +232,7 @@
             "top": "860",
             "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/2597053c-e718-44b4-8394-4d40fe26d357",
+            "group": null,
             "uuid": "53e5f453-447e-467c-99db-d0aae943972e"
         },
         {
@@ -243,12 +250,14 @@
                 },
                 "apply_async": false,
                 "step_variables": [],
-                "workflowReference": "\/api\/3\/workflows\/498775eb-6e03-4dd3-bbe1-f48650599bfd"
+                "pass_input_record": true,
+                "workflowReference": "\/api\/3\/workflows\/8c2bc725-c89e-4695-a2e9-63855f28b892"
             },
             "status": null,
             "top": "1900",
             "left": "640",
             "stepType": "\/api\/3\/workflow_step_types\/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
+            "group": null,
             "uuid": "5528c64d-323e-4d71-b1ed-afff635c5145"
         },
         {
@@ -275,6 +284,7 @@
             "top": "2320",
             "left": "1140",
             "stepType": "\/api\/3\/workflow_step_types\/12254cf5-5db7-4b1a-8cb1-3af081924b28",
+            "group": null,
             "uuid": "56948a43-81dd-4759-9615-c709398634fe"
         },
         {
@@ -310,6 +320,7 @@
             "top": "2180",
             "left": "940",
             "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928722",
+            "group": null,
             "uuid": "5fd55764-5e2f-4e1e-b263-f7aae31a4c38"
         },
         {
@@ -347,6 +358,7 @@
             "top": "3040",
             "left": "1480",
             "stepType": "\/api\/3\/workflow_step_types\/2597053c-e718-44b4-8394-4d40fe26d357",
+            "group": null,
             "uuid": "761eb7dc-bfca-4523-a46c-a7b0bd29a4ed"
         },
         {
@@ -387,6 +399,7 @@
             "top": "1460",
             "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928770",
+            "group": null,
             "uuid": "885cc479-725c-44cf-a6c1-084a367fd935"
         },
         {
@@ -431,6 +444,7 @@
             "top": "580",
             "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928722",
+            "group": null,
             "uuid": "8c142bf0-bc97-4683-85da-3076748e060a"
         },
         {
@@ -460,6 +474,7 @@
             "top": "1300",
             "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/2597053c-e718-44b4-8394-4d40fe26d357",
+            "group": null,
             "uuid": "8d02d41b-3ef0-4a42-b50b-4a73662d9677"
         },
         {
@@ -525,6 +540,7 @@
             "top": "40",
             "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+            "group": null,
             "uuid": "913f726b-5194-4cce-b760-cd9fb8b7950b"
         },
         {
@@ -560,6 +576,7 @@
             "top": "2440",
             "left": "940",
             "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928722",
+            "group": null,
             "uuid": "a19162b3-bc80-4010-bd2a-6fd4116e1617"
         },
         {
@@ -605,6 +622,7 @@
             "top": "2020",
             "left": "640",
             "stepType": "\/api\/3\/workflow_step_types\/fc04082a-d7dc-4299-96fb-6837b1baa0fe",
+            "group": null,
             "uuid": "b73f4874-574d-4a5b-aca5-097b44288ff1"
         },
         {
@@ -641,6 +659,7 @@
             "top": "300",
             "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/2597053c-e718-44b4-8394-4d40fe26d357",
+            "group": null,
             "uuid": "cc0d45e1-897c-4b61-a3ef-5acf4e8418e4"
         },
         {
@@ -682,6 +701,7 @@
             "top": "2660",
             "left": "1140",
             "stepType": "\/api\/3\/workflow_step_types\/2597053c-e718-44b4-8394-4d40fe26d357",
+            "group": null,
             "uuid": "ceaae747-aa0b-4d30-9caa-d10ac0c11d9e"
         },
         {
@@ -695,6 +715,7 @@
             "top": "1160",
             "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+            "group": null,
             "uuid": "d980f373-6b3d-475c-8827-145eb33f376a"
         },
         {
@@ -734,6 +755,7 @@
             "top": "2540",
             "left": "1320",
             "stepType": "\/api\/3\/workflow_step_types\/fc04082a-d7dc-4299-96fb-6837b1baa0fe",
+            "group": null,
             "uuid": "e1e73259-c176-4382-9a39-3e0730282f30"
         },
         {
@@ -772,6 +794,7 @@
             "top": "1000",
             "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928722",
+            "group": null,
             "uuid": "f69ddf5e-0cc9-40ca-87bb-c3ebc3b714c4"
         },
         {
@@ -805,6 +828,7 @@
             "top": "2320",
             "left": "640",
             "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928722",
+            "group": null,
             "uuid": "f7248c0e-cf81-49d5-818f-c85d7324be70"
         },
         {
@@ -831,6 +855,7 @@
             "top": "1740",
             "left": "860",
             "stepType": "\/api\/3\/workflow_step_types\/12254cf5-5db7-4b1a-8cb1-3af081924b28",
+            "group": null,
             "uuid": "94af8aba-0367-42de-a5f8-2b166f3e7bf0"
         },
         {
@@ -868,6 +893,7 @@
             "top": "2560",
             "left": "940",
             "stepType": "\/api\/3\/workflow_step_types\/2597053c-e718-44b4-8394-4d40fe26d357",
+            "group": null,
             "uuid": "aedd87a3-56bb-429e-a41b-cccff99f4fac"
         },
         {
@@ -894,6 +920,7 @@
             "top": "2800",
             "left": "1140",
             "stepType": "\/api\/3\/workflow_step_types\/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
+            "group": null,
             "uuid": "b2ee1793-72a8-4194-992f-38ea0b5371f8"
         }
     ],
@@ -1151,6 +1178,7 @@
             "uuid": "817d09c8-55a3-4e5c-8bd2-09d279cfdb32"
         }
     ],
+    "groups": [],
     "priority": null,
     "uuid": "f11ec312-d45b-4d43-b16d-af809d212f2c",
     "owners": [],

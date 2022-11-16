@@ -34,7 +34,7 @@ When executed, this playbook prompts you to attach an email file in `.eml` or `.
 
 >**NOTE**: To see this playbook **Attach Email** in action, first create an alert of type *Suspicious Email*.
 
-The playbook, on creation of the alert, extracts metadata from the uploaded email file and maps that metadata with alerts' fields.
+When executed, this playbook prompts you to attach an email file in `.eml` or `.msg` format, to the alert.
 
 As soon as the upload is complete, the enrichment process starts. A notification informs that the indicators are being enriched. Once the enrichment completes, navigate to generated alert and note the following:
 - Attached  Email, if it contains an attachment, its extracted and then correlated as an indicator 

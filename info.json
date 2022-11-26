@@ -20,7 +20,7 @@
             "minVersion": null
         }
     ],
-    "prerequisite": null,
+    "prerequisite": "- Configure the Fortinet FortiSandbox Connector",
     "certified": "true",
     "publisher": "Fortinet",
     "description": "Phishing Email Response Solution Pack is designed to provide a set of investigation and utility playbooks to respond to suspicous emails. These emails are typically reported by employees in the organization (sent to a SOC common email inbox).",

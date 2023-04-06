@@ -298,8 +298,9 @@
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<p>Tagging alert as Potential&nbsp; <span style=\"background: #ba6204; color: #fff;\" class=\"badge badge-pill badge-danger\"><strong>DriveByDownloadAttack<\/strong><\/span>.<\/p>\n<p>&nbsp;<\/p>\n<p>{%for i in vars.steps.Check_for_Drive_by_Download %}<\/p>\n<p>URL: {{i.URL}}<br>Summary: {{i.Summary}}<\/p>\n<p>{%endfor%}<\/p>",
-                    "records": ""
+                    "content": "<p>Tagging alert as Potential&nbsp; <span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #fff;\"><strong>DriveByDownloadAttack<\/strong><\/span>.<\/p>\n<p>&nbsp;<\/p>\n<p>{%for i in vars.steps.Check_for_Drive_by_Download %}<\/p>\n<p>URL: {{i.url}}<br \/>Summary: {{i.enrichment_summary}}<\/p>\n<p>{%endfor%}<\/p>",
+                    "records": "",
+                    "parentstepid": "\/api\/3\/workflow_steps\/f69ddf5e-0cc9-40ca-87bb-c3ebc3b714c4"
                 },
                 "resource": {
                     "__link": {
@@ -895,15 +896,16 @@
         },
         {
             "@type": "WorkflowStep",
-            "name": "Update summary",
+            "name": "Update Summary",
             "description": null,
             "arguments": {
                 "message": {
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<p>URL Summary<\/p>\n<p>{%for i in vars.steps.Check_for_Drive_by_Download %}<\/p>\n<p>URL: {{i.URL}}<br>Summary: {{i.Summary}}<\/p>\n<p>{%endfor%}<\/p>",
-                    "records": ""
+                    "content": "<p>URL Summary<\/p>\n<p>{%for i in vars.steps.Check_for_Drive_by_Download %}<\/p>\n<p>URL: {{i.url}}<br \/>Summary: {{i.enrichment_summary}}<\/p>\n<p>{%endfor%}<\/p>",
+                    "records": "",
+                    "parentstepid": "\/api\/3\/workflow_steps\/f69ddf5e-0cc9-40ca-87bb-c3ebc3b714c4"
                 },
                 "resource": {
                     "__link": {

@@ -664,6 +664,8 @@
                 },
                 "apply_async": false,
                 "step_variables": [],
+                "pass_parent_env": false,
+                "pass_input_record": true,
                 "workflowReference": "\/api\/3\/workflows\/1a1cac48-567a-4066-b0d1-c63457226f12"
             },
             "status": null,

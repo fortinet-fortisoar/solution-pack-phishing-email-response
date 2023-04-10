@@ -101,8 +101,9 @@
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<p>&nbsp;Malicious content found, tagging alert as <span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #fff;\"><strong>Phishing<\/strong><\/span> and closed the Alert.<\/p>\n<p>&nbsp;<\/p>",
-                    "records": ""
+                    "content": "<p>&nbsp;Malicious content found, tagging alert as <span style=\"background: #ba6204; color: #fff;\" class=\"badge badge-pill badge-danger\"><strong>Phishing<\/strong><\/span> and closed the Alert.<\/p>\n<p>&nbsp;<\/p>",
+                    "records": "",
+                    "parentstepid": "\/api\/3\/workflow_steps\/f7248c0e-cf81-49d5-818f-c85d7324be70"
                 },
                 "resource": {
                     "__link": {
@@ -110,7 +111,8 @@
                             "\/api\/3\/tags\/Phishing"
                         ]
                     },
-                    "status": "\/api\/3\/picklists\/fac53e73-8d16-4189-98d5-95fbd1555232"
+                    "status": "\/api\/3\/picklists\/fac53e73-8d16-4189-98d5-95fbd1555232",
+                    "emailClassification": "\/api\/3\/picklists\/a1e5c01d-f703-4fa4-a5c4-b3a22f7591ab"
                 },
                 "_showJson": false,
                 "operation": "Overwrite",
@@ -298,8 +300,9 @@
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<p>Tagging alert as Potential&nbsp; <span style=\"background: #ba6204; color: #fff;\" class=\"badge badge-pill badge-danger\"><strong>DriveByDownloadAttack<\/strong><\/span>.<\/p>\n<p>&nbsp;<\/p>\n<p>{%for i in vars.steps.Check_for_Drive_by_Download %}<\/p>\n<p>URL: {{i.URL}}<br>Summary: {{i.Summary}}<\/p>\n<p>{%endfor%}<\/p>",
-                    "records": ""
+                    "content": "<p>Tagging alert as Potential&nbsp; <span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #fff;\"><strong>DriveByDownloadAttack<\/strong><\/span>.<\/p>\n<p>&nbsp;<\/p>\n<p>{%for i in vars.steps.Check_for_Drive_by_Download %}<\/p>\n<p>URL: {{i.url}}<br \/>Summary: {{i.enrichment_summary}}<\/p>\n<p>{%endfor%}<\/p>",
+                    "records": "",
+                    "parentstepid": "\/api\/3\/workflow_steps\/f69ddf5e-0cc9-40ca-87bb-c3ebc3b714c4"
                 },
                 "resource": {
                     "__link": {
@@ -664,6 +667,8 @@
                 },
                 "apply_async": false,
                 "step_variables": [],
+                "pass_parent_env": false,
+                "pass_input_record": true,
                 "workflowReference": "\/api\/3\/workflows\/1a1cac48-567a-4066-b0d1-c63457226f12"
             },
             "status": null,
@@ -893,15 +898,16 @@
         },
         {
             "@type": "WorkflowStep",
-            "name": "Update summary",
+            "name": "Update Summary",
             "description": null,
             "arguments": {
                 "message": {
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<p>URL Summary<\/p>\n<p>{%for i in vars.steps.Check_for_Drive_by_Download %}<\/p>\n<p>URL: {{i.URL}}<br>Summary: {{i.Summary}}<\/p>\n<p>{%endfor%}<\/p>",
-                    "records": ""
+                    "content": "<p>URL Summary<\/p>\n<p>{%for i in vars.steps.Check_for_Drive_by_Download %}<\/p>\n<p>URL: {{i.url}}<br \/>Summary: {{i.enrichment_summary}}<\/p>\n<p>{%endfor%}<\/p>",
+                    "records": "",
+                    "parentstepid": "\/api\/3\/workflow_steps\/f69ddf5e-0cc9-40ca-87bb-c3ebc3b714c4"
                 },
                 "resource": {
                     "__link": {

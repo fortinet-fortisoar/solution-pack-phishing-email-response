@@ -1,7 +1,7 @@
 {
     "@type": "Workflow",
     "triggerLimit": null,
-    "name": "Generate Phishing Email Alert",
+    "name": "Scenario - Generate Phishing Email Alert",
     "aliasName": null,
     "tag": null,
     "description": "Generate a Phishing Email alert",
@@ -204,6 +204,7 @@
     "deletedAt": null,
     "recordTags": [
         "Alert",
-        "Demo"
+        "Demo",
+        "Scenario"
     ]
 }

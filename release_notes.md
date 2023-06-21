@@ -1,3 +1,3 @@
 # What's New
 
-- The playbook "Investigate Suspicious Email" will be triggered for unresolved "Suspicious Email" type alerts
+- The "Investigate Suspicious Email" playbook will only be visible and executable for unresolved alerts of the "Suspicious Email" type.

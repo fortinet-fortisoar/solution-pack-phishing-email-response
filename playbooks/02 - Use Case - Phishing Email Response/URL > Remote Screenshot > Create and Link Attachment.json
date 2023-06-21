@@ -145,6 +145,7 @@
             "description": null,
             "arguments": {
                 "route": "e4cb71e9-fa54-4844-ba87-325569f9bb8e",
+                "title": "Get URL Screenshot",
                 "resources": [
                     "alerts"
                 ],

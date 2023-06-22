@@ -517,22 +517,15 @@
                                 "operator": "eq"
                             },
                             {
-                                "type": "primitive",
-                                "field": "source",
-                                "value": "Symantec Email.Cloud",
-                                "operator": "neq",
-                                "_operator": "neq"
-                            },
-                            {
                                 "type": "object",
                                 "field": "status",
-                                "value": "\/api\/3\/picklists\/7de816ff-7140-4ee5-bd05-93ce22002146",
+                                "value": "\/api\/3\/picklists\/fac53e73-8d16-4189-98d5-95fbd1555232",
                                 "_value": {
-                                    "@id": "\/api\/3\/picklists\/7de816ff-7140-4ee5-bd05-93ce22002146",
-                                    "display": "Open",
-                                    "itemValue": "Open"
+                                    "@id": "\/api\/3\/picklists\/fac53e73-8d16-4189-98d5-95fbd1555232",
+                                    "display": "Closed",
+                                    "itemValue": "Closed"
                                 },
-                                "operator": "eq"
+                                "operator": "neq"
                             }
                         ]
                     }

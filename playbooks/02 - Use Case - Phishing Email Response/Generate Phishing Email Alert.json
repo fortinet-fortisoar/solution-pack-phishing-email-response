@@ -130,7 +130,7 @@
             "name": "Return Record IRI",
             "description": null,
             "arguments": {
-                "@id": "{{[vars.steps.Create_Communications_Record[0]['@id'], vars.steps.Create_Record[0]['@id']]}}"
+                "@id": "{{[ vars.steps.Create_Record[0]['@id'], vars.steps.Create_Communications_Record[0]['@id'] ]}}"
             },
             "status": null,
             "top": "570",

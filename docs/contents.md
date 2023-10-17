@@ -29,6 +29,16 @@ The **Phishing Email Response** solution pack contains the following resources.
 | Email (Manual Upload) - Investigate                                    | Extracts email metadata from an uploaded email file                               |
 | Email (Manual Attach) - File to Alert (Suspicious Email)               | Attaches emails to alerts of type *Suspicious Email* and investigates             |
 | Email (Manual Upload) - Extract Attachments                            | Extracts attachments, creates indicators, and links to parent alert               |
-| URL > FortiSandbox > Enrichment<sup>New</sup>                          | Retrieves the reputation of indicators of type 'URL' using Fortinet FortiSandbox. |
+| URL > FortiSandbox > Enrichment                                        | Retrieves the reputation of indicators of type 'URL' using Fortinet FortiSandbox. |
+| URL > Remote Screenshot > Create and Link Attachment<sup>New</sup>     | Generates and links attachment records for screenshots of all the URLs associated with the alert. |
+| URL > Remote Screenshot > Get URL Screenshot<sup>New</sup>             | Retrieves a screenshot of the given URL associated with alert.                    |
 
 >**Warning:** We recommend you clone these playbooks before customizing to avoid information loss while upgrading the solution pack.
+
+## Connector
+
+| Connector               | Description                                                                                                            |
+|:------------------------|:-----------------------------------------------------------------------------------------------------------------------|
+| Remote Screenshot | To take screenshots of the URL associated with alert |
+
+>**Note:** It is recommended to set up this connector on the agent.

@@ -4,7 +4,7 @@
     "name": "URL > Remote Screenshot > Create and Link Attachment",
     "aliasName": null,
     "tag": null,
-    "description": "Generates and links attachment records for all the URLs associated with the alert",
+    "description": "Generates and links attachment records for screenshots of all the URLs associated with the alert.",
     "isActive": true,
     "debug": false,
     "singleRecordExecution": false,

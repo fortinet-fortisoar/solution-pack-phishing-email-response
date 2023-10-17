@@ -1,0 +1,15 @@
+[
+    {
+        "name": "screenshot",
+        "label": "Remote Screenshot",
+        "category": [
+            "Utilities"
+        ],
+        "description": "Screenshot connector provide you functionality to take screenshot of URLs, Emails, MSG Files, and EML Files.",
+        "publisher": "Fortinet",
+        "operation_roles": [],
+        "configurations": [],
+        "dataImports": [],
+        "install_mode": "rpm"
+    }
+]

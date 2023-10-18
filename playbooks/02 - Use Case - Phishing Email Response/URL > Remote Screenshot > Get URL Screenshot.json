@@ -4,7 +4,7 @@
     "name": "URL > Remote Screenshot > Get URL Screenshot",
     "aliasName": null,
     "tag": null,
-    "description": "Retrieves a screenshot of the the given URL",
+    "description": "Retrieves a screenshot of the given URL associated with alert.",
     "isActive": true,
     "debug": false,
     "singleRecordExecution": false,

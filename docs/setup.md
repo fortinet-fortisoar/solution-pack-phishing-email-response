@@ -24,3 +24,7 @@ For optimal performance of the **Phishing Email Response** solution pack, you mu
     - To configure and use the VirusTotal connector as a source of threat intelligence, refer to [Configuring Virus Total](https://docs.fortinet.com/document/fortisoar/2.1.0/virustotal/166/virustotal-v2-1-0#Configuration_parameters)
 - An email ingestion process to periodically read emails from a designated inbox and convert them into alerts in FortiSOAR
     - To configure and use the Microsoft Exchange connector for email ingestion, refer to [Configuring Exchange Connector](https://docs.fortinet.com/document/fortisoar/3.4.0/exchange/1/exchange-v3-4-0#Configuring_the_connector)
+
+# Next Steps
+| [Usage](./usage.md) | [Contents](./contents.md) |
+|---------------------|---------------------------|

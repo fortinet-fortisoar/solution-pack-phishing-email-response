@@ -38,3 +38,7 @@ When executed, this playbook prompts you to attach an email file in `.eml` or `.
 As soon as the upload is complete, the enrichment process starts. A notification informs that the indicators are being enriched. Once the enrichment completes, navigate to generated alert and note the following:
 - Attached  Email, if it contains an attachment, its extracted and then correlated as an indicator 
 - Alert fields are mapped with information from the email, such as sender email Id, reporter email Id, and attachment &ndash; if any
+
+# Next Steps
+| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Contents](./contents.md) |
+| ----------------------------------------- | ------------------------------------------- | --------------------------- |

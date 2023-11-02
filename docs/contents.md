@@ -42,3 +42,7 @@ The **Phishing Email Response** solution pack contains the following resources.
 | Remote Screenshot | Captures screenshots of the URLs associated with suspicious email |
 
 >**Note:** It is *highly recommended* to set up this connector on the agent.
+
+# Next Steps
+| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Usage](./usage.md) |
+| ----------------------------------------- | ------------------------------------------- | --------------------- |

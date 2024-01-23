@@ -198,7 +198,7 @@
                 "input": {
                     "schema": {
                         "title": "Approval - Block Malicious Indicators",
-                        "description": "<p>Please approve blocking of malicious indicators:-<\/p>\n<p>{% for i in vars.malicious_IndicaorList %}<\/p>\n<p>{{i[0]}} :: {{i[1]}}<\/p>\n<p>{%endfor%}<\/p>",
+                        "description": "<p>Please approve blocking of malicious indicators:-<\/p>\n<p>{% for i in vars.malicious_indicator_list %}<\/p>\n<p>{{i[0]}} :: {{i[1]}}<\/p>\n<p>{%endfor%}<\/p>",
                         "inputVariables": []
                     }
                 },
@@ -325,7 +325,7 @@
                 "type": "InputBased",
                 "input": {
                     "schema": {
-                        "title": "Close Alert ?",
+                        "title": "Close Alert?",
                         "description": "Kindly close the alert for immediate resolution or continue with the investigation as needed.",
                         "inputVariables": [
                             {
@@ -337,7 +337,7 @@
                                 "formType": "text",
                                 "required": false,
                                 "_expanded": true,
-                                "defaultValue": null,
+                                "defaultValue": "",
                                 "_previousName": "",
                                 "jinjaExpressionView": true,
                                 "useRecordFieldDefault": false
@@ -393,44 +393,6 @@
         },
         {
             "@type": "WorkflowStep",
-            "name": "Close Alert as False Positive",
-            "description": null,
-            "arguments": {
-                "message": {
-                    "tags": [],
-                    "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
-                    "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<ul>\n<li>Alert severity updated to <span style=\"background: #2aba42; color: #ffffff; padding: 0.1em 0.4em;\" class=\"badge badge-pill badge-danger\"> Low&nbsp;<\/span><\/li>\n<li>Marked Alert as false positive with reason\n<ul>\n<li>{{vars.steps.Mark_Alerts_as_Phishing.input.reason}}<\/li>\n<\/ul>\n<\/li>\n<\/ul>",
-                    "records": "",
-                    "parentstepid": "\/api\/3\/workflow_steps\/f7248c0e-cf81-49d5-818f-c85d7324be70"
-                },
-                "resource": {
-                    "severity": "\/api\/3\/picklists\/58d0753f-f7e4-403b-953c-b0f521eab759",
-                    "closureNotes": "{{vars.steps.Mark_Alerts_as_Phishing.input.reason}}",
-                    "closureReason": "\/api\/3\/picklists\/2b0112f6-4746-4dab-ada6-a8cd1e675572"
-                },
-                "_showJson": false,
-                "operation": "Overwrite",
-                "collection": "{{vars.input.records[0]['@id']}}",
-                "__recommend": [],
-                "tagsOperation": "OverwriteTags",
-                "collectionType": "\/api\/3\/alerts",
-                "fieldOperation": {
-                    "recordTags": "Overwrite"
-                },
-                "step_variables": {
-                    "closure_reason": "{{\"Closure Reason\" | picklist(\"False Positive\", \"@id\")}}"
-                }
-            },
-            "status": null,
-            "top": "2420",
-            "left": "300",
-            "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928722",
-            "group": null,
-            "uuid": "a19162b3-bc80-4010-bd2a-6fd4116e1617"
-        },
-        {
-            "@type": "WorkflowStep",
             "name": "Close the Alert",
             "description": null,
             "arguments": {
@@ -447,6 +409,7 @@
                         "recordTags": []
                     },
                     "status": "\/api\/3\/picklists\/fac53e73-8d16-4189-98d5-95fbd1555232",
+                    "closureNotes": "{{vars.closure_notes}}",
                     "closureReason": "{{vars.closure_reason}}"
                 },
                 "_showJson": false,
@@ -478,7 +441,7 @@
                 "SuspiciousData": "['Bitcoins','bitcoin','torrent','limewire','bittottent','piratebay']",
                 "sender_return_path": "{{vars.input.records[0].returnPath | regex_search('[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+')}}",
                 "sender_email_address": "{{ vars.input.records[0].senderEmailAddress | regex_search('[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+') }}",
-                "malicious_IndicaorList": "[]",
+                "malicious_indicator_list": "[]",
                 "reporter_email_address": "{% if vars.input.records[0].reporter %}{{vars.input.records[0].reporter | regex_search('[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+') }}{% else %}{{ vars.input.records[0].senderEmailAddress | regex_search('[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+') }}{% endif %}"
             },
             "status": null,
@@ -487,35 +450,6 @@
             "stepType": "\/api\/3\/workflow_step_types\/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
             "group": null,
             "uuid": "4bf37e80-b16e-47ff-817c-a94817a39833"
-        },
-        {
-            "@type": "WorkflowStep",
-            "name": "Continue Investigation",
-            "description": null,
-            "arguments": {
-                "resource": {
-                    "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
-                    "alerts": "{{vars.input.records[0]['@id']}}",
-                    "people": [],
-                    "content": "<p>Need further investigation, due to reason<\/p>\n<ul>\n<li>{{vars.steps.Mark_Alerts_as_Phishing.input.reason}}<\/li>\n<\/ul>",
-                    "__replace": "",
-                    "isImportant": false,
-                    "peopleUpdated": false
-                },
-                "operation": "Overwrite",
-                "collection": "\/api\/3\/comments",
-                "__recommend": [],
-                "fieldOperation": {
-                    "recordTags": "Overwrite"
-                },
-                "step_variables": []
-            },
-            "status": null,
-            "top": "3340",
-            "left": "260",
-            "stepType": "\/api\/3\/workflow_step_types\/2597053c-e718-44b4-8394-4d40fe26d357",
-            "group": null,
-            "uuid": "73d4e395-f08b-42be-a6a0-4178c3ada227"
         },
         {
             "@type": "WorkflowStep",
@@ -570,7 +504,7 @@
                 },
                 "module": "indicators?$limit=30",
                 "step_variables": {
-                    "__dummy": "{% if(vars.result | length !=0) %}\n{% for i in vars.result %}\n{% set in_type = i.typeofindicator.itemValue %}\n{% set in_value= i.value %}\n{% set iitem=[in_type,in_value] %}\n{{vars.malicious_IndicaorList.append(iitem)}}\n{%endfor%} {%else%} No  Malicious Indicator Found\n{%endif%}",
+                    "__dummy": "{% if(vars.result | length !=0) %}\n{% for i in vars.result %}\n{% set in_type = i.typeofindicator.itemValue %}\n{% set in_value= i.value %}\n{% set iitem=[in_type,in_value] %}\n{{vars.malicious_indicator_list.append(iitem)}}\n{%endfor%} {%else%} No  Malicious Indicator Found\n{%endif%}",
                     "malicious_indicator_check_message": "Malicious Indicator(s) were {%if vars.steps.Find_Related_Malicious_Indicators | length == 0 %} <span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff; padding: 0.1em 0.4em;\">not found <\/span>{%else%}<span class=\"badge badge-pill badge-danger\" style=\"background: #FF0000; color: #ffffff; padding: 0.1em 0.4em;\"> found <\/span>{%endif%}"
                 }
             },
@@ -647,7 +581,7 @@
                     {
                         "option": "Yes - Block Indicators",
                         "step_iri": "\/api\/3\/workflow_steps\/e1e73259-c176-4382-9a39-3e0730282f30",
-                        "condition": "{{ vars.malicious_IndicaorList | length > 0 }}",
+                        "condition": "{{ vars.malicious_indicator_list | length > 0 }}",
                         "step_name": "Approval to Block Malicious Indicators"
                     },
                     {
@@ -703,7 +637,7 @@
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<ul>\n<li>Alert severity updated to <span class=\"badge badge-pill badge-danger\" style=\"background: #FF0000; color: #ffffff; padding: 0.1em 0.4em;\"> Critical <\/span><\/li>\n<li>Marked Alert as Phishing with below reason:\n<ul>\n<li>{{vars.steps.Mark_Alerts_as_Phishing.input.reason}}<\/li>\n<\/ul>\n<\/li>\n<\/ul>",
+                    "content": "<ul>\n<li>Alert severity updated to <span style=\"background: #FF0000; color: #ffffff; padding: 0.1em 0.4em;\" class=\"badge badge-pill badge-danger\"> Critical <\/span><\/li>\n<li>Marked Alert as Phishing with below reason:\n<ul>\n<li>{{vars.steps.Mark_Alerts_as_Phishing.input.reason}}<\/li>\n<\/ul>\n<\/li>\n<\/ul>",
                     "records": "",
                     "parentstepid": "\/api\/3\/workflow_steps\/f7248c0e-cf81-49d5-818f-c85d7324be70"
                 },
@@ -713,8 +647,6 @@
                             "\/api\/3\/tags\/Phishing"
                         ]
                     },
-                    "status": "\/api\/3\/picklists\/fac53e73-8d16-4189-98d5-95fbd1555232",
-                    "closureNotes": "{{vars.steps.Mark_Alerts_as_Phishing.input.reason}}",
                     "emailClassification": "\/api\/3\/picklists\/a1e5c01d-f703-4fa4-a5c4-b3a22f7591ab"
                 },
                 "_showJson": false,
@@ -726,6 +658,7 @@
                     "recordTags": "Append"
                 },
                 "step_variables": {
+                    "closure_notes": "{{vars.steps.Mark_Alerts_as_Phishing.input.reason}}",
                     "closure_reason": "{{\"Closure Reason\" | picklist(\"Resolved\", \"@id\")}}"
                 }
             },
@@ -894,6 +827,35 @@
         },
         {
             "@type": "WorkflowStep",
+            "name": "Note for Continue Investigation",
+            "description": null,
+            "arguments": {
+                "resource": {
+                    "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
+                    "alerts": "{{vars.input.records[0]['@id']}}",
+                    "people": [],
+                    "content": "<p>Need further investigation, due to reason<\/p>\n<ul>\n<li>{{vars.steps.Close_Alert.input.reason}}<\/li>\n<\/ul>",
+                    "__replace": "",
+                    "isImportant": false,
+                    "peopleUpdated": false
+                },
+                "operation": "Overwrite",
+                "collection": "\/api\/3\/comments",
+                "__recommend": [],
+                "fieldOperation": {
+                    "recordTags": "Overwrite"
+                },
+                "step_variables": []
+            },
+            "status": null,
+            "top": "3340",
+            "left": "260",
+            "stepType": "\/api\/3\/workflow_step_types\/2597053c-e718-44b4-8394-4d40fe26d357",
+            "group": null,
+            "uuid": "73d4e395-f08b-42be-a6a0-4178c3ada227"
+        },
+        {
+            "@type": "WorkflowStep",
             "name": "Note for Request Approved",
             "description": null,
             "arguments": {
@@ -999,11 +961,12 @@
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
                     "content": "<p>Response email with the subject \"{{vars.result.subject}}\" is sent to the sender '{{vars.sender_email_address}}'.<\/p>",
-                    "records": "{{vars.input.records[0]['@id']}}"
+                    "records": "{{vars.input.records[0]['@id']}}",
+                    "parentstepid": "\/api\/3\/workflow_steps\/f7248c0e-cf81-49d5-818f-c85d7324be70"
                 },
                 "resource": {
                     "to": "{{vars.reporter_email_address}}",
-                    "body": "Hello,\n<br>\n<br>\nWe are reaching out to you regarding your email.subject <i>\"{{vars.input.records[0].emailSubject}}\"<\/i> Based on the information and email provided, we determined that this is a <b>Not Phishing Type email<\/b>.\n<br>\n\nWe appreciate your diligence in being cautious, and we thank you for bringing this to our attention.",
+                    "body": "Hello,\n<br>\nWe are reaching out to you regarding your email.subject <i>\"{{vars.input.records[0].emailSubject}}\"<\/i> Based on the information and email provided, we determined that this is a <b>Not Phishing Type email<\/b>.\n<br>\nWe appreciate your diligence in being cautious, and we thank you for bringing this to our attention.",
                     "from": "{{globalVars.Default_Email}}",
                     "alerts": "{{vars.input.records[0]['@id']}}",
                     "subject": "Response to the Phishing Email",
@@ -1042,7 +1005,7 @@
                 },
                 "resource": {
                     "to": "{{vars.reporter_email_address}}",
-                    "body": "Hello,\n<br>\n<br>\nWe are reaching out to you regarding your email.subject <i>\"{{vars.input.records[0].emailSubject}}\"<\/i> Based on the information and email provided, we determined that this is a <b>Phishing Type email<\/b> and it is <b>Suspicious<\/b>.\n\n<br>\nIf you see another email with the same characteristics, please forward the suspicious email to <i>infosec@example.com<\/i> and delete it from your mailbox.\n<br> \n<br>\n\nWe appreciate your diligence in being cautious, and we thank you for bringing this to our attention.",
+                    "body": "Hello,\n<br>\nWe are reaching out to you regarding your email.subject <i>\"{{vars.input.records[0].emailSubject}}\"<\/i> Based on the information and email provided, we determined that this is a <b>Phishing Type email<\/b> and it is <b>Suspicious<\/b>.\n<br>\nIf you see another email with the same characteristics, please forward the suspicious email to <i>infosec@example.com<\/i> and delete it from your mailbox.\n<br>\nWe appreciate your diligence in being cautious, and we thank you for bringing this to our attention.",
                     "from": "{{globalVars.Default_Email}}",
                     "alerts": "{{vars.input.records[0]['@id']}}",
                     "subject": "Response to the Phishing Email",
@@ -1205,6 +1168,43 @@
             "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928722",
             "group": null,
             "uuid": "8c142bf0-bc97-4683-85da-3076748e060a"
+        },
+        {
+            "@type": "WorkflowStep",
+            "name": "Update Severity to Low",
+            "description": null,
+            "arguments": {
+                "message": {
+                    "tags": [],
+                    "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
+                    "tenant": "{{vars.input.records[0].tenant['@id']}}",
+                    "content": "<ul>\n<li>Alert severity updated to <span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff; padding: 0.1em 0.4em;\"> Low&nbsp;<\/span><\/li>\n<li>Marked Alert as false positive with reason\n<ul>\n<li>{{vars.steps.Mark_Alerts_as_Phishing.input.reason}}<\/li>\n<\/ul>\n<\/li>\n<\/ul>",
+                    "records": "",
+                    "parentstepid": "\/api\/3\/workflow_steps\/f7248c0e-cf81-49d5-818f-c85d7324be70"
+                },
+                "resource": {
+                    "severity": "\/api\/3\/picklists\/58d0753f-f7e4-403b-953c-b0f521eab759"
+                },
+                "_showJson": false,
+                "operation": "Overwrite",
+                "collection": "{{vars.input.records[0]['@id']}}",
+                "__recommend": [],
+                "tagsOperation": "OverwriteTags",
+                "collectionType": "\/api\/3\/alerts",
+                "fieldOperation": {
+                    "recordTags": "Overwrite"
+                },
+                "step_variables": {
+                    "closure_notes": "{{vars.steps.Mark_Alerts_as_Phishing.input.reason}}",
+                    "closure_reason": "{{\"Closure Reason\" | picklist(\"False Positive\", \"@id\")}}"
+                }
+            },
+            "status": null,
+            "top": "2420",
+            "left": "300",
+            "stepType": "\/api\/3\/workflow_step_types\/b593663d-7d13-40ce-a3a3-96dece928722",
+            "group": null,
+            "uuid": "a19162b3-bc80-4010-bd2a-6fd4116e1617"
         },
         {
             "@type": "WorkflowStep",

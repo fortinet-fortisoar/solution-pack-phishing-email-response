@@ -24,7 +24,7 @@
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<p>Tagging alert as Potential&nbsp; <span style=\"background: #ba6204; color: #fff;\" class=\"badge badge-pill badge-danger\"><strong>DriveByDownloadAttack<\/strong><\/span>, as the analyst observed <em>\" {{vars.steps.Mark_Drive_by_Download.input.reason}}\"<\/em><\/p>",
+                    "content": "<p>Tagging alert as Potential <span style=\"background: #ba6204; color: #fff;\" class=\"badge badge-pill badge-danger\"><strong>DriveByDownloadAttack<\/strong><\/span>, as the analyst observed <em>\"{{vars.steps.Mark_Drive_by_Download.input.reason}}\"<\/em><\/p>",
                     "records": "",
                     "parentstepid": "\/api\/3\/workflow_steps\/f69ddf5e-0cc9-40ca-87bb-c3ebc3b714c4"
                 },
@@ -44,7 +44,7 @@
                     "recordTags": "Append"
                 },
                 "step_variables": {
-                    "drive_by_download_check_message": "Alert tagged as Potential <span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #fff; padding: 0.1em 0.4em;\"><strong>DriveByDownloadAttack<\/strong><\/span>, as the analyst observed <em>\" {{vars.steps.Mark_Drive_by_Download.input.reason}}\"<\/em>"
+                    "drive_by_download_check_message": "Alert tagged as Potential <span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #fff; padding: 1px 7px;\"><strong>DriveByDownloadAttack<\/strong><\/span>, as the analyst observed <em>\" {{vars.steps.Mark_Drive_by_Download.input.reason}}\"<\/em>"
                 }
             },
             "status": null,
@@ -63,7 +63,7 @@
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "alerts": "{{vars.input.records[0]['@id']}}",
                     "people": [],
-                    "content": "<p><span style=\"background: #2aba42; color: #ffffff;\" class=\"badge badge-pill badge-danger\"> No <\/span>&nbsp;attempt of spoofing identified<\/p>",
+                    "content": "<p><span style=\"background: #2aba42; color: #ffffff; padding: 2px 7px;\" class=\"badge badge-pill badge-danger\"> No Spoofing<\/span> attempt identified<\/p>",
                     "__replace": "",
                     "isImportant": false,
                     "peopleUpdated": false
@@ -75,7 +75,7 @@
                     "recordTags": "Overwrite"
                 },
                 "step_variables": {
-                    "spoof_check_message": "<p>Attempt of spoofing was <span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff; padding: 0.1em 0.4em;\"> not found <\/span>&nbsp;<\/p>"
+                    "spoof_check_message": "<p><span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff; padding: 1px 7px;\"> No Spoofing<\/span> attempt identified<\/p>"
                 }
             },
             "status": null,
@@ -88,13 +88,13 @@
         {
             "@type": "WorkflowStep",
             "name": "Add Note for SPF Records",
-            "description": "<span style=\"background-color: #e67e23;\">",
+            "description": null,
             "arguments": {
                 "resource": {
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "alerts": "['{{vars.input.records[0]['@id']}}']",
                     "people": [],
-                    "content": "<p>{% if vars.SPF_Record | length == 0 -%}SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #FFFF00; color: #000000;\"><strong><span style=\"background-color: #ffff00;\"> Not Found<\/span><br><\/strong><\/span><\/p>\n<p>{% else -%}{% if vars.Not_Permitted_IPs_for_SPF_Fail | length != 0 -%}<\/p>\n<p>SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #FF0000; color: #ffffff;\"><strong><span style=\"background-color: #ff0000;\"> Failed <br><\/span><\/strong><\/span> due to non-permitted IP(s)<\/p>\n<p>&nbsp;<\/p>\n<p><strong>{% for ip in [vars.Not_Permitted_IPs_for_SPF_Fail] -%}IP: {{ ip }}{% endfor -%}<\/strong><\/p>\n<p>{% elif vars.Not_Permitted_IPs_for_SPF_SoftFail | length != 0 -%}<\/p>\n<p>SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #E67E23; color: #ffffff;\"><strong><span style=\"background-color: #e67e23;\"> Soft Failed<\/span><\/strong><\/span> due to non-permitted IP(s)<\/p>\n<p>&nbsp;<\/p>\n<p><strong>{% for ip in [vars.Not_Permitted_IPs_for_SPF_SoftFail] -%}IP: {{ ip }}{% endfor -%}<\/strong><\/p>\n<p>{% else -%}SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff;\"> Passed<\/span><\/p>\n<p>{% endif -%}{% endif %}<\/p>",
+                    "content": "<p>{% if vars.SPF_Record | length == 0 -%}SPF check <span style=\"background: #FFFF00; color: #000000; padding: 2px 7px;\" class=\"badge badge-pill badge-danger\"><strong>Not Found</strong></span></p>\n<p>{% else -%}{% if vars.Not_Permitted_IPs_for_SPF_Fail | length != 0 -%}</p>\n<p>SPF check <span style=\"background: #FF0000; color: #ffffff; padding: 2px 7px;\" class=\"badge badge-pill badge-danger\"><strong>Failed</strong></span> due to non-permitted IP(s)</p>\n<p>&nbsp;</p>\n<p><strong>{% for ip in [vars.Not_Permitted_IPs_for_SPF_Fail] -%}IP: {{ ip }}{% endfor -%}</strong></p>\n<p>{% elif vars.Not_Permitted_IPs_for_SPF_SoftFail | length != 0 -%}</p>\n<p>SPF check <span style=\"background: #E67E23; color: #ffffff; padding: 2px 7px;\" class=\"badge badge-pill badge-danger\"><strong>Soft Failed</strong></span> due to non-permitted IP(s)</p>\n<p>&nbsp;</p>\n<p><strong>{% for ip in [vars.Not_Permitted_IPs_for_SPF_SoftFail] -%}IP: {{ ip }}{% endfor -%}</strong></p>\n<p>{% else -%}SPF check <span style=\"background: #2aba42; color: #ffffff; padding: 2px 7px;\" class=\"badge badge-pill badge-danger\"> Passed</span></p>\n<p>{% endif -%}{% endif %}</p>",
                     "__replace": "",
                     "isImportant": false,
                     "peopleUpdated": false
@@ -107,8 +107,7 @@
                     "recordTags": "Overwrite"
                 },
                 "step_variables": {
-                    "test": "{% if vars.SPF_Record | length == 0 -%}SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #FFFF00; color: #000000; padding: 0.1em 0.4em;\"><span style=\"background-color: #ffff00;\"> Not Found<br><\/span><\/span>{% else -%}{% if vars.Not_Permitted_IPs_for_SPF_Fail | length != 0 -%} SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #FF0000; color: #ffffff; padding: 0.1em 0.4em;\"><span style=\"background-color: #ff0000;\"> Failed <br><\/span><\/span> due to non-permitted IP(s) {% elif vars.Not_Permitted_IPs_for_SPF_SoftFail | length != 0 -%} SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #E67E23; color: #ffffff; padding: 0.1em 0.4em;\"> Soft Failed <\/span> due to non-permitted IP(s) {% else -%} SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff; padding: 0.1em 0.4em;\"> Passed<\/span>{% endif -%}{% endif %}",
-                    "spf_check_message": "{% if vars.SPF_Record | length == 0 -%}SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #FFFF00; color: #000000;\"><span style=\"background-color: #ffff00;\"> Not Found<br><\/span><\/span>{% else -%}{% if vars.Not_Permitted_IPs_for_SPF_Fail | length != 0 -%} SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #FF0000; color: #ffffff;\"><span style=\"background-color: #ff0000;\"> Failed <br><\/span><\/span> due to non-permitted IP(s) {% elif vars.Not_Permitted_IPs_for_SPF_SoftFail | length != 0 -%} SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #E67E23; color: #ffffff;\"> Soft Failed <\/span> due to non-permitted IP(s) {% else -%} SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff; padding: 0.1em 0.4em;\"> Passed<\/span>{% endif -%}{% endif %}"
+                    "spf_check_message": "{% if vars.SPF_Record | length == 0 -%}SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #FFFF00; color: #000000; padding: 1px 7px;\"><span style=\"background-color: #ffff00;\"> Not Found<br><\/span><\/span>{% else -%}{% if vars.Not_Permitted_IPs_for_SPF_Fail | length != 0 -%} SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #FF0000; color: #ffffff; padding: 1px 7px;\"><span style=\"background-color: #ff0000;\"> Failed <br><\/span><\/span> due to non-permitted IP(s) {% elif vars.Not_Permitted_IPs_for_SPF_SoftFail | length != 0 -%} SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #E67E23; color: #ffffff; padding: 1px 7px;\"> Soft Failed <\/span> due to non-permitted IP(s) {% else -%} SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff; padding: 1px 7px;\"> Passed<\/span>{% endif -%}{% endif %}"
                 }
             },
             "status": null,
@@ -127,7 +126,7 @@
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "alerts": "['{{vars.input.records[0]['@id']}}']",
                     "people": [],
-                    "content": "<p>{% if vars.foundList | length != 0 %}<\/p>\n<p><span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #fff;\"><strong>Suspicious keyword found in email body<\/strong><\/span><\/p>\n<p>- Matched keywords: {{vars.foundList | join(' , ')}}<\/p>\n<p>{% else %}<\/p>\n<p>Suspicious keywords&nbsp;<span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff;\"> not found <\/span> in email body<\/p>\n<p>{% endif %}<\/p>",
+                    "content": "<p>{% if vars.foundList | length != 0 %}<\/p>\n<p><span style=\"background: #ba6204; color: #fff; padding: 2px 7px;\" class=\"badge badge-pill badge-danger\"><strong>Suspicious keyword found in email body<\/strong><\/span><\/p>\n<p>- Matched keywords: {{vars.foundList | join(' , ')}}<\/p>\n<p>{% else %}<\/p>\n<p>Suspicious keywords <span style=\"background: #2aba42; color: #ffffff; padding: 2px 7px;\" class=\"badge badge-pill badge-danger\">Not Found<\/span> in email body<\/p>\n<p>{% endif %}<\/p>",
                     "__replace": "",
                     "isImportant": false,
                     "peopleUpdated": false
@@ -140,7 +139,7 @@
                     "recordTags": "Overwrite"
                 },
                 "step_variables": {
-                    "suspicious_keyword_check_message": "{% if vars.foundList | length != 0 %}Suspicious keyword <span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #fff; padding: 0.1em 0.4em;\"><strong> found <\/strong><\/span> in email body{% else %}Suspicious keywords <span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff; padding: 0.1em 0.4em;\"> not found <\/span> in email body{% endif %}"
+                    "suspicious_keyword_check_message": "{% if vars.foundList | length != 0 %}Suspicious keyword <span class=\"badge badge-pill badge-danger\" style=\"background: #FF0000; color: #fff; padding: 1px 7px;\"><strong>Found<\/strong><\/span> in email body{% else %}Suspicious keywords <span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff; padding: 1px 7px;\">Not Found<\/span> in email body{% endif %}"
                 }
             },
             "status": null,
@@ -159,7 +158,7 @@
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<p>&nbsp;- Sender email address '{{vars.sender_email_address}}' do not match with the Return Path '{{vars.sender_return_path}}'.<\/p>\n<p>- Tagging alert as <strong><span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #fff;\">Spoofing<\/span><\/strong>.<\/p>",
+                    "content": "<p>Sender email address '{{vars.sender_email_address}}' do not match with the Return Path '{{vars.sender_return_path}}'.<\/p>\n<p>- Tagging alert as <strong><span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #fff;\">Spoofing<\/span><\/strong>.<\/p>",
                     "records": "",
                     "parentstepid": "\/api\/3\/workflow_steps\/8c142bf0-bc97-4683-85da-3076748e060a"
                 },
@@ -179,7 +178,7 @@
                     "recordTags": "Append"
                 },
                 "step_variables": {
-                    "spoof_check_message": "<p>Spoofing has been <span class=\"badge badge-pill badge-danger\" style=\"background: #FF0000; color: #ffffff; padding: 0.1em 0.4em;\"> positively <\/span> identified and acknowledged<\/p>"
+                    "spoof_check_message": "<p>Spoofing has been <span class=\"badge badge-pill badge-danger\" style=\"background: #FF0000; color: #ffffff; padding: 1px 7px;\">Positively<\/span> identified and acknowledged<\/p>"
                 }
             },
             "status": null,
@@ -198,7 +197,7 @@
                 "input": {
                     "schema": {
                         "title": "Approval - Block Malicious Indicators",
-                        "description": "<p>Please approve blocking of malicious indicators:-<\/p>\n<p>{% for i in vars.malicious_indicator_list %}<\/p>\n<p>{{i[0]}} :: {{i[1]}}<\/p>\n<p>{%endfor%}<\/p>",
+                        "description": "<p>Please approve blocking of malicious indicators:<\/p>\n<p>{% for i in vars.malicious_indicator_list %}<\/p>\n<p>{{i[0]}} :: {{i[1]}}<\/p>\n<p>{%endfor%}<\/p>",
                         "inputVariables": []
                     }
                 },
@@ -400,7 +399,7 @@
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<ul>\n<li>Closed the Alert with below reason\n<ul>\n<li>{{vars.steps.Close_Alert.input.reason}}<\/li>\n<\/ul>\n<\/li>\n<\/ul>",
+                    "content": "<p>Closed the alert with the following reason:<\/p>\n<ul>\n<li>{{vars.steps.Close_Alert.input.reason}}<\/li>\n<\/ul>",
                     "records": "",
                     "parentstepid": "\/api\/3\/workflow_steps\/f7248c0e-cf81-49d5-818f-c85d7324be70"
                 },
@@ -441,8 +440,8 @@
                 "SuspiciousData": "['Bitcoins','bitcoin','torrent','limewire','bittottent','piratebay']",
                 "sender_return_path": "{{vars.input.records[0].returnPath | regex_search('[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+')}}",
                 "sender_email_address": "{{ vars.input.records[0].senderEmailAddress | regex_search('[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+') }}",
-                "malicious_indicator_list": "[]",
-                "reporter_email_address": "{% if vars.input.records[0].reporter %}{{vars.input.records[0].reporter | regex_search('[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+') }}{% else %}{{ vars.input.records[0].senderEmailAddress | regex_search('[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+') }}{% endif %}"
+                "reporter_email_address": "{% if vars.input.records[0].reporter %}{{vars.input.records[0].reporter | regex_search('[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+') }}{% else %}{{ vars.input.records[0].senderEmailAddress | regex_search('[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+') }}{% endif %}",
+                "malicious_indicator_list": "[]"
             },
             "status": null,
             "top": "165",
@@ -457,9 +456,9 @@
             "description": null,
             "arguments": {
                 "params": {
-                    "value": "<table class=\"margin-bottom-lg\">\n<tbody>\n{% if vars.input.records[0].domain %}\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 10pt;\">Domain<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 10pt;\">{{vars.input.records[0].domain}}<\/span><\/td>\n<\/tr>\n{% endif %}\n{% if vars.input.records[0].sourceIp %}\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 10pt;\">Source IP<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 10pt;\">{{vars.input.records[0].sourceIp}}<\/span><\/td>\n<\/tr>\n{% endif %}\n{% if vars.input.records[0].destinationIp %}\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 10pt;\">Destination IP<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 10pt;\">{{vars.input.records[0].destinationIp}}<\/span><\/td>\n<\/tr>\n{% endif %}\n{% if vars.input.records[0].fileHash %}\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 10pt;\">File Hash<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 10pt;\">{{vars.input.records[0].fileHash}}<\/span><\/td>\n<\/tr>\n{% endif %}\n{% if vars.input.records[0].computerName %}\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 10pt;\">Computer Name<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 10pt;\">{{vars.input.records[0].computerName}}<\/span><\/td>\n<\/tr>\n{% endif %}\n{% if vars.input.records[0].processName %}\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 10pt;\">Process<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 10pt;\">{{vars.input.records[0].processName}}<\/span><\/td>\n<\/tr>\n{% endif %}\n{% if vars.input.records[0].sourceProcess %}\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 10pt;\">Source Process<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 10pt;\">{{vars.input.records[0].sourceProcess}}<\/span><\/td>\n<\/tr>\n{% endif %}\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 10pt;\">Sender<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 10pt;\">{{vars.input.records[0].senderEmailAddress.split('<')[-1] | replace(\">\",\"\")}}<\/span><\/td>\n<\/tr>\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 10pt;\">Recipient<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 10pt;\">{{vars.input.records[0].recipientEmailAddress}}<\/span><\/td>\n<\/tr>\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 10pt;\">Subject<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 10pt;\">{{vars.input.records[0].emailSubject}}<\/span><\/td>\n<\/tr>\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 10pt;\">Return Path<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 10pt;\">{{vars.input.records[0].returnPath}}<\/span><\/td>\n<\/tr>\n<\/tbody>\n<\/table>"
+                    "value": "<table class=\"margin-bottom-lg\">\n<tbody>\n{% if vars.input.records[0].domain %}\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 12px;\">Domain<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 12px;\">{{vars.input.records[0].domain}}<\/span><\/td>\n<\/tr>\n{% endif %}\n{% if vars.input.records[0].sourceIp %}\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 12px;\">Source IP<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 12px;\">{{vars.input.records[0].sourceIp}}<\/span><\/td>\n<\/tr>\n{% endif %}\n{% if vars.input.records[0].destinationIp %}\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 12px;\">Destination IP<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 12px;\">{{vars.input.records[0].destinationIp}}<\/span><\/td>\n<\/tr>\n{% endif %}\n{% if vars.input.records[0].fileHash %}\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 12px;\">File Hash<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 12px;\">{{vars.input.records[0].fileHash}}<\/span><\/td>\n<\/tr>\n{% endif %}\n{% if vars.input.records[0].computerName %}\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 12px;\">Computer Name<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 12px;\">{{vars.input.records[0].computerName}}<\/span><\/td>\n<\/tr>\n{% endif %}\n{% if vars.input.records[0].processName %}\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 12px;\">Process<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 12px;\">{{vars.input.records[0].processName}}<\/span><\/td>\n<\/tr>\n{% endif %}\n{% if vars.input.records[0].sourceProcess %}\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 12px;\">Source Process<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 12px;\">{{vars.input.records[0].sourceProcess}}<\/span><\/td>\n<\/tr>\n{% endif %}\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 12px;\">Sender<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 12px;\">{{vars.input.records[0].senderEmailAddress.split('<')[-1] | replace(\">\",\"\")}}<\/span><\/td>\n<\/tr>\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 12px;\">Recipient<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 12px;\">{{vars.input.records[0].recipientEmailAddress}}<\/span><\/td>\n<\/tr>\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 12px;\">Subject<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 12px;\">{{vars.input.records[0].emailSubject}}<\/span><\/td>\n<\/tr>\n<tr style=\"height: 16px;\">\n<td style=\"border: 1px solid white; text-align: left; width: 135px; height: 16px;\"><span style=\"font-size: 12px;\">Return Path<\/span><\/td>\n<td style=\"border: 1px solid white; text-align: left; width: 370px; height: 16px;\"><span style=\"font-size: 12px;\">{{vars.input.records[0].returnPath}}<\/span><\/td>\n<\/tr>\n<\/tbody>\n<\/table>"
                 },
-                "version": "3.2.0",
+                "version": "3.2.6",
                 "connector": "cyops_utilities",
                 "operation": "format_richtext",
                 "operationTitle": "Utils: Format as RichText (Markdown)",
@@ -505,7 +504,7 @@
                 "module": "indicators?$limit=30",
                 "step_variables": {
                     "__dummy": "{% if(vars.result | length !=0) %}\n{% for i in vars.result %}\n{% set in_type = i.typeofindicator.itemValue %}\n{% set in_value= i.value %}\n{% set iitem=[in_type,in_value] %}\n{{vars.malicious_indicator_list.append(iitem)}}\n{%endfor%} {%else%} No  Malicious Indicator Found\n{%endif%}",
-                    "malicious_indicator_check_message": "Malicious Indicator(s) were {%if vars.steps.Find_Related_Malicious_Indicators | length == 0 %} <span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff; padding: 0.1em 0.4em;\">not found <\/span>{%else%}<span class=\"badge badge-pill badge-danger\" style=\"background: #FF0000; color: #ffffff; padding: 0.1em 0.4em;\"> found <\/span>{%endif%}"
+                    "malicious_indicator_check_message": "Malicious Indicator(s) were {%if vars.steps.Find_Related_Malicious_Indicators | length == 0 %} <span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff; padding: 1px 7px;\">Not Found <\/span>{%else%}<span class=\"badge badge-pill badge-danger\" style=\"background: #FF0000; color: #ffffff; padding: 1px 7px;\"> Found <\/span>{%endif%}"
                 }
             },
             "status": null,
@@ -637,7 +636,7 @@
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<ul>\n<li>Alert severity updated to <span style=\"background: #FF0000; color: #ffffff; padding: 0.1em 0.4em;\" class=\"badge badge-pill badge-danger\"> Critical <\/span><\/li>\n<li>Marked Alert as Phishing with below reason:\n<ul>\n<li>{{vars.steps.Mark_Alerts_as_Phishing.input.reason}}<\/li>\n<\/ul>\n<\/li>\n<\/ul>",
+                    "content": "<p>- Alert severity updated to&nbsp;<span class=\"badge badge-pill badge-danger\" style=\"background: #FF0000; color: #ffffff; padding: 2px 7px;\"> Critical <\/span><\/p>\n<p>- Marked Alert as Phishing with below reason:<\/p>\n<ul>\n<li>{{vars.steps.Mark_Alerts_as_Phishing.input.reason}}<\/li>\n<\/ul>",
                     "records": "",
                     "parentstepid": "\/api\/3\/workflow_steps\/f7248c0e-cf81-49d5-818f-c85d7324be70"
                 },
@@ -761,7 +760,7 @@
                 "input": {
                     "schema": {
                         "title": "Mark as Drive by Download?",
-                        "description": "A **drive-by download** is the discreet installation of software on a user's device without consent, exploiting browser or plugin vulnerabilities when visiting a compromised website via a manipulated URL.\n\nKindly verify whether the provided URL could lead to a drive-by download attack and take appropriate action accordingly.\n<br>\nPlease find summary of URL details below - \n<br>\n<p>{%for i in vars.steps.Check_for_Drive_by_Download %}<\/p>\nURL: {{i.url}}<br>\nSummary: {{i.enrichment_summary}} <br>\n<p>{%endfor%}<\/p>",
+                        "description": "A **Drive-by Download** is the discreet installation of software on a user's device without consent, exploiting browser or plugin vulnerabilities when visiting a compromised website via a manipulated URL.<br>\nKindly verify whether the provided URL could lead to a drive-by download attack and take appropriate action accordingly.<br>\nPlease find summary of URL details below - <br>\n<p>{%for i in vars.steps.Check_for_Drive_by_Download %}<\/p>\nURL: {{i.url}}<br>\nSummary: {{i.enrichment_summary}} <br>\n<p>{%endfor%}<\/p>",
                         "inputVariables": [
                             {
                                 "name": "reason",
@@ -834,7 +833,7 @@
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "alerts": "{{vars.input.records[0]['@id']}}",
                     "people": [],
-                    "content": "<p>Need further investigation, due to reason<\/p>\n<ul>\n<li>{{vars.steps.Close_Alert.input.reason}}<\/li>\n<\/ul>",
+                    "content": "<p>Requires additional investigation for the following reason:<\/p>\n<ul>\n<li>{{vars.steps.Close_Alert.input.reason}}<\/li>\n<\/ul>",
                     "__replace": "",
                     "isImportant": false,
                     "peopleUpdated": false
@@ -863,7 +862,7 @@
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "alerts": "{{vars.input.records[0]['@id']}}",
                     "people": [],
-                    "content": "<p>- Request to block indicators is&nbsp; <span style=\"background: #28B35C; color: #fff;\" class=\"badge badge-success\"> Approved<\/span><\/p>\n<p>- Proceeding with block procedure<\/p>",
+                    "content": "<p>- Request to block indicators is <span class=\"badge badge-success\" style=\"background: #28B35C; color: #fff;\">Approved<\/span><\/p>\n<p>- Proceeding with block procedure<\/p>",
                     "__replace": "",
                     "isImportant": false,
                     "peopleUpdated": false
@@ -893,7 +892,7 @@
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "alerts": "{{vars.input.records[0]['@id']}}",
                     "people": [],
-                    "content": "<p><span style=\"font-size: 15px; color: #DE7A13;\" class=\"fa fa-exclamation-triangle\"><\/span>&nbsp;Request to block indicators is <span style=\"background:#f0a313; color: black;\" class=\"badge badge-success\"> denied<\/span><\/p>",
+                    "content": "<p>Request to block indicators is <span class=\"badge badge-success\" style=\"background: #f0a313; color: black;\">Denied<\/span><\/p>",
                     "__replace": "",
                     "isImportant": false,
                     "peopleUpdated": false
@@ -1133,24 +1132,15 @@
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<p>Investigating Potential {{vars.input.records[0].type.itemValue}} reported by&nbsp; <strong>{{vars.input.records[0].reporter}}<\/strong>, with following fields of interest.<\/p>\n<div>\n<div>{{vars.steps.Create_Suspicious_Email_Table.data['formatted_string']}}<\/div>\n<\/div>",
-                    "records": "{{vars.input.records[0]['@id']}}"
+                    "content": "<p>Investigating Potential {{vars.input.records[0].type.itemValue}} reported by&nbsp; <strong>{{vars.input.records[0].reporter}}<\/strong>, with following fields of interest.<\/p>\n<p>&nbsp;<\/p>\n<p>{{vars.steps.Create_Suspicious_Email_Table.data['formatted_string']}}<\/p>",
+                    "records": "{{vars.input.records[0]['@id']}}",
+                    "parentstepid": "\/api\/3\/workflow_steps\/cc0d45e1-897c-4b61-a3ef-5acf4e8418e4"
                 },
                 "resource": {
                     "__link": {
                         "communications": "{{vars.steps.Send_Acknowledge_Email_to_Sender['@id']}}"
                     },
-                    "status": {
-                        "id": 113,
-                        "@id": "\/api\/3\/picklists\/758925e7-629c-46d8-89db-fb36f5fbe88a",
-                        "icon": null,
-                        "@type": "Picklist",
-                        "color": null,
-                        "display": "Investigating",
-                        "listName": "\/api\/3\/picklist_names\/33e964a9-d607-49f2-813c-7ce46141815a",
-                        "itemValue": "Investigating",
-                        "orderIndex": 2
-                    }
+                    "status": "\/api\/3\/picklists\/758925e7-629c-46d8-89db-fb36f5fbe88a"
                 },
                 "_showJson": false,
                 "operation": "Append",
@@ -1178,7 +1168,7 @@
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<ul>\n<li>Alert severity updated to <span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff; padding: 0.1em 0.4em;\"> Low&nbsp;<\/span><\/li>\n<li>Marked Alert as false positive with reason\n<ul>\n<li>{{vars.steps.Mark_Alerts_as_Phishing.input.reason}}<\/li>\n<\/ul>\n<\/li>\n<\/ul>",
+                    "content": "<p>- Alert severity updated to <span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff; padding: 2px 7px;\">Low<\/span><\/p>\n<p>- Marked Alert as false positive with reason:<\/p>\n<ul>\n<li>{{vars.steps.Mark_Alerts_as_Phishing.input.reason}}<\/li>\n<\/ul>",
                     "records": "",
                     "parentstepid": "\/api\/3\/workflow_steps\/f7248c0e-cf81-49d5-818f-c85d7324be70"
                 },
@@ -1215,7 +1205,7 @@
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<p><span style=\"background: #2aba42; color: #ffffff;\" class=\"badge badge-pill badge-danger\"> No <\/span>&nbsp;Drive-by Download attack was observed by the URLs:<\/p>\n<p>{% for i in vars.steps.Get_URL_Indicators %}<\/p>\n<ul>\n<li>{{i.value}}<\/li>\n<\/ul>\n<p>{%endfor%}<\/p>\n<p>&nbsp;<\/p>",
+                    "content": "<p><strong>Drive-by Download<\/strong> attack was <span style=\"background: #2aba42; color: #ffffff; padding: 2px 7px;\" class=\"badge badge-pill badge-danger\">Not Observed<\/span> for the URLs:<\/p>\n<p>{% for i in vars.steps.Get_URL_Indicators %}<\/p>\n<ul>\n<li>{{i.value}}<\/li>\n<\/ul>\n<p>{%endfor%}<\/p>",
                     "records": "",
                     "parentstepid": "\/api\/3\/workflow_steps\/f69ddf5e-0cc9-40ca-87bb-c3ebc3b714c4"
                 },
@@ -1233,7 +1223,7 @@
                     "recordTags": "Append"
                 },
                 "step_variables": {
-                    "drive_by_download_check_message": "Drive-by Download attack was <span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff;\"> not observed <\/span> for the URLs."
+                    "drive_by_download_check_message": "Drive-by Download attack was <span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff; padding: 1px 7px;\">Not Observed<\/span> for the URLs."
                 }
             },
             "status": null,
@@ -1283,7 +1273,7 @@
             "label": null,
             "isExecuted": false,
             "group": null,
-            "uuid": "cbb034f7-aef9-4df8-bdf8-f031abd0fd9f"
+            "uuid": "c991e4fa-8a2b-4946-a473-a20e97235883"
         },
         {
             "@type": "WorkflowRoute",
@@ -1347,16 +1337,6 @@
         },
         {
             "@type": "WorkflowRoute",
-            "name": "Check Blacklisted Keywords -> Add note for Blacklisted Words",
-            "targetStep": "\/api\/3\/workflow_steps\/8d02d41b-3ef0-4a42-b50b-4a73662d9677",
-            "sourceStep": "\/api\/3\/workflow_steps\/d980f373-6b3d-475c-8827-145eb33f376a",
-            "label": null,
-            "isExecuted": false,
-            "group": null,
-            "uuid": "fa1b4c87-3b9b-47e2-b7b3-828e10d1d7d7"
-        },
-        {
-            "@type": "WorkflowRoute",
             "name": "Check for Drive by Download -> Mark Drive by Download",
             "targetStep": "\/api\/3\/workflow_steps\/b73f4874-574d-4a5b-aca5-097b44288ff1",
             "sourceStep": "\/api\/3\/workflow_steps\/e8c8ecfa-2a71-42f5-816d-f8af4d42a57c",
@@ -1364,6 +1344,16 @@
             "isExecuted": false,
             "group": null,
             "uuid": "1ca56900-b3f6-4255-9d62-155b4adb20ab"
+        },
+        {
+            "@type": "WorkflowRoute",
+            "name": "Check Suspicious Keywords -> Add Note for Suspicious keywords",
+            "targetStep": "\/api\/3\/workflow_steps\/8d02d41b-3ef0-4a42-b50b-4a73662d9677",
+            "sourceStep": "\/api\/3\/workflow_steps\/d980f373-6b3d-475c-8827-145eb33f376a",
+            "label": null,
+            "isExecuted": false,
+            "group": null,
+            "uuid": "7baac75b-7252-4669-b1ce-426b86277dc1"
         },
         {
             "@type": "WorkflowRoute",
@@ -1427,13 +1417,13 @@
         },
         {
             "@type": "WorkflowRoute",
-            "name": "Get Non Permitted IP -> Add note for SPF Records",
+            "name": "Get Non Permitted IP -> Add Note for SPF Records",
             "targetStep": "\/api\/3\/workflow_steps\/53e5f453-447e-467c-99db-d0aae943972e",
             "sourceStep": "\/api\/3\/workflow_steps\/3169def1-5aaf-4cb3-b290-a04d65d383c2",
             "label": null,
             "isExecuted": false,
             "group": null,
-            "uuid": "ffe0cd5c-9982-49dd-8c2f-539fc09339cc"
+            "uuid": "5738b48b-e164-49c5-bd53-87917c1b00ea"
         },
         {
             "@type": "WorkflowRoute",
@@ -1443,7 +1433,7 @@
             "label": null,
             "isExecuted": false,
             "group": null,
-            "uuid": "0b22c3b0-63a9-487f-b72d-8a7426846318"
+            "uuid": "a5dc33ff-81b9-49ff-bb31-6dfea82a5b55"
         },
         {
             "@type": "WorkflowRoute",
@@ -1597,13 +1587,13 @@
         },
         {
             "@type": "WorkflowRoute",
-            "name": "Start Investigation -> Get Non Permitted IP",
+            "name": "Start Suspicious Email Investigation -> Get Non Permitted IP",
             "targetStep": "\/api\/3\/workflow_steps\/3169def1-5aaf-4cb3-b290-a04d65d383c2",
             "sourceStep": "\/api\/3\/workflow_steps\/8c142bf0-bc97-4683-85da-3076748e060a",
             "label": null,
             "isExecuted": false,
             "group": null,
-            "uuid": "0d626c08-f9dd-411f-aa2e-8222620c6d24"
+            "uuid": "3138782d-a80f-43f7-8014-979a7f4ff6ad"
         },
         {
             "@type": "WorkflowRoute",

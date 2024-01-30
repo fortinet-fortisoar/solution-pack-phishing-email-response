@@ -120,6 +120,14 @@
             "description": null,
             "arguments": {
                 "when": "{{vars.attachmentIRIList | length > 0}}",
+                "message": {
+                    "tags": [],
+                    "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
+                    "tenant": "",
+                    "thread": false,
+                    "content": "<p>Screenshots for URL indicators are available in the below attachment records:<\/p>\n<p>{% for item in vars.attachmentIRIList %}&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a href=\"\/modules\/attachments\/{{(item|fromIRI).uuid}}\" target=\"_blank\" rel=\"noopener\">Attachment#{{(item|fromIRI).id}}<\/a><br>{% endfor %}<\/p>\n<p>&nbsp;<\/p>",
+                    "records": ""
+                },
                 "resource": {
                     "__link": {
                         "attachments": "{{vars.attachmentIRIList}}"

@@ -677,7 +677,7 @@
                 "input": {
                     "schema": {
                         "title": "Mark Alert as Phishing?",
-                        "description": "<p><strong><span style=\"text-decoration: underline;\">Investigation Summary<\/span><\/strong>:<\/p>\n<br>\n\n* {{vars.spf_check_message}}\n* {{vars.spoof_check_message}}\n* {{vars.suspicious_keyword_check_message}}\n* {{vars.drive_by_download_check_message}}\n* {{vars.malicious_indicator_check_message}}",
+                        "description": "<p><strong><span style=\"text-decoration: underline;\">Investigation Summary</span></strong>:</p>\n<br>\n\n* {{vars.spf_check_message}}\n* {{vars.spoof_check_message}}\n* {{vars.suspicious_keyword_check_message}}\n{% if vars.drive_by_download_check_message %}* {{vars.drive_by_download_check_message}}{%endif%}\n* {{vars.malicious_indicator_check_message}}",
                         "inputVariables": [
                             {
                                 "name": "reason",
@@ -760,7 +760,7 @@
                 "input": {
                     "schema": {
                         "title": "Mark as Drive by Download?",
-                        "description": "A **Drive-by Download** is the discreet installation of software on a user's device without consent, exploiting browser or plugin vulnerabilities when visiting a compromised website via a manipulated URL.<br>\nKindly verify whether the provided URL could lead to a drive-by download attack and take appropriate action accordingly.<br>\nPlease find summary of URL details below - <br>\n<p>{%for i in vars.steps.Check_for_Drive_by_Download %}<\/p>\nURL: {{i.url}}<br>\nSummary: {{i.enrichment_summary}} <br>\n<p>{%endfor%}<\/p>",
+                        "description": "A **Drive-by Download** is the discreet installation of software on a user's device without consent, exploiting browser or plugin vulnerabilities when visiting a compromised website via a manipulated URL.<br>\nKindly verify whether the following URL(s) could lead to a drive-by download attack and take appropriate action accordingly.<br><br>\n<p>{%for i in vars.steps.Check_for_Drive_by_Download %}</p>\n<b><i>URL:</i></b> {{i.url}}<br>\n<b><i>Summary:</i></b> {{i.enrichment_summary}} <br>\n<p>{%endfor%}</p>",
                         "inputVariables": [
                             {
                                 "name": "reason",

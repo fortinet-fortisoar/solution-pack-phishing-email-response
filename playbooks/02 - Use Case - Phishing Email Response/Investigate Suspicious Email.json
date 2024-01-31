@@ -677,7 +677,7 @@
                 "input": {
                     "schema": {
                         "title": "Mark Alert as Phishing?",
-                        "description": "<p><strong><span style=\"text-decoration: underline;\">Investigation Summary<\/span><\/strong>:<\/p>\n<br>\n\n* {{vars.spf_check_message}}\n* {{vars.spoof_check_message}}\n* {{vars.suspicious_keyword_check_message}}\n* {{vars.drive_by_download_check_message}}\n* {{vars.malicious_indicator_check_message}}",
+                        "description": "<p><strong><span style=\"text-decoration: underline;\">Investigation Summary</span></strong>:</p>\n<br>\n\n* {{vars.spf_check_message}}\n* {{vars.spoof_check_message}}\n* {{vars.suspicious_keyword_check_message}}\n{% if vars.drive_by_download_check_message %}* {{vars.drive_by_download_check_message}}{%endif%}\n* {{vars.malicious_indicator_check_message}}",
                         "inputVariables": [
                             {
                                 "name": "reason",

@@ -63,7 +63,7 @@
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "alerts": "{{vars.input.records[0]['@id']}}",
                     "people": [],
-                    "content": "<p><span style=\"background: #2aba42; color: #ffffff; padding: 2px 7px;\" class=\"badge badge-pill badge-danger\"> No Spoofing<\/span> attempt identified<\/p>",
+                    "content": "<p><span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff; padding: 2px 7px;\"> No Spoofing<\/span> attempt identified<\/p>",
                     "__replace": "",
                     "isImportant": false,
                     "peopleUpdated": false
@@ -94,7 +94,7 @@
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "alerts": "['{{vars.input.records[0]['@id']}}']",
                     "people": [],
-                    "content": "<p>{% if vars.SPF_Record | length == 0 -%}SPF check <span style=\"background: #FFFF00; color: #000000; padding: 2px 7px;\" class=\"badge badge-pill badge-danger\"><strong>Not Found</strong></span></p>\n<p>{% else -%}{% if vars.Not_Permitted_IPs_for_SPF_Fail | length != 0 -%}</p>\n<p>SPF check <span style=\"background: #FF0000; color: #ffffff; padding: 2px 7px;\" class=\"badge badge-pill badge-danger\"><strong>Failed</strong></span> due to non-permitted IP(s)</p>\n<p>&nbsp;</p>\n<p><strong>{% for ip in [vars.Not_Permitted_IPs_for_SPF_Fail] -%}IP: {{ ip }}{% endfor -%}</strong></p>\n<p>{% elif vars.Not_Permitted_IPs_for_SPF_SoftFail | length != 0 -%}</p>\n<p>SPF check <span style=\"background: #E67E23; color: #ffffff; padding: 2px 7px;\" class=\"badge badge-pill badge-danger\"><strong>Soft Failed</strong></span> due to non-permitted IP(s)</p>\n<p>&nbsp;</p>\n<p><strong>{% for ip in [vars.Not_Permitted_IPs_for_SPF_SoftFail] -%}IP: {{ ip }}{% endfor -%}</strong></p>\n<p>{% else -%}SPF check <span style=\"background: #2aba42; color: #ffffff; padding: 2px 7px;\" class=\"badge badge-pill badge-danger\"> Passed</span></p>\n<p>{% endif -%}{% endif %}</p>",
+                    "content": "<p>{% if vars.SPF_Record | length == 0 -%}SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #dbc030; color: #000000; padding: 2px 7px;\"><strong>Not Found<\/strong><\/span><\/p>\n<p>{% else -%}{% if vars.Not_Permitted_IPs_for_SPF_Fail | length != 0 -%}<\/p>\n<p>SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #FF0000; color: #ffffff; padding: 2px 7px;\"><strong>Failed<\/strong><\/span> due to non-permitted IP(s)<\/p>\n<p>&nbsp;<\/p>\n<p><strong>{% for ip in [vars.Not_Permitted_IPs_for_SPF_Fail] -%}IP: {{ ip }}{% endfor -%}<\/strong><\/p>\n<p>{% elif vars.Not_Permitted_IPs_for_SPF_SoftFail | length != 0 -%}<\/p>\n<p>SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #ffffff; padding: 2px 7px;\"><strong>Soft Failed<\/strong><\/span> due to non-permitted IP(s)<\/p>\n<p>&nbsp;<\/p>\n<p><strong>{% for ip in [vars.Not_Permitted_IPs_for_SPF_SoftFail] -%}IP: {{ ip }}{% endfor -%}<\/strong><\/p>\n<p>{% else -%}SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff; padding: 2px 7px;\"> Passed<\/span><\/p>\n<p>{% endif -%}{% endif %}<\/p>",
                     "__replace": "",
                     "isImportant": false,
                     "peopleUpdated": false
@@ -107,7 +107,7 @@
                     "recordTags": "Overwrite"
                 },
                 "step_variables": {
-                    "spf_check_message": "{% if vars.SPF_Record | length == 0 -%}SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #FFFF00; color: #000000; padding: 1px 7px;\"><span style=\"background-color: #ffff00;\"> Not Found<br><\/span><\/span>{% else -%}{% if vars.Not_Permitted_IPs_for_SPF_Fail | length != 0 -%} SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #FF0000; color: #ffffff; padding: 1px 7px;\"><span style=\"background-color: #ff0000;\"> Failed <br><\/span><\/span> due to non-permitted IP(s) {% elif vars.Not_Permitted_IPs_for_SPF_SoftFail | length != 0 -%} SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #E67E23; color: #ffffff; padding: 1px 7px;\"> Soft Failed <\/span> due to non-permitted IP(s) {% else -%} SPF check <span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff; padding: 1px 7px;\"> Passed<\/span>{% endif -%}{% endif %}"
+                    "spf_check_message": "{% if vars.SPF_Record | length == 0 -%}SPF(Sender Policy Framework) check <span class=\"badge badge-pill badge-danger\" style=\"background: #FFFF00; color: #000000; padding: 1px 7px;\"><span style=\"background-color: #ffff00;\"> Not Found<br><\/span><\/span>{% else -%}{% if vars.Not_Permitted_IPs_for_SPF_Fail | length != 0 -%} SPF (Sender Policy Framework) check <span class=\"badge badge-pill badge-danger\" style=\"background: #FF0000; color: #ffffff; padding: 1px 7px;\"><span style=\"background-color: #ff0000;\"> Failed <br><\/span><\/span> due to non-permitted IP(s) {% elif vars.Not_Permitted_IPs_for_SPF_SoftFail | length != 0 -%} SPF (Sender Policy Framework) check <span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #ffffff; padding: 1px 7px;\"> Soft Failed <\/span> due to non-permitted IP(s) {% else -%} SPF (Sender Policy Framework) check <span class=\"badge badge-pill badge-danger\" style=\"background: #2aba42; color: #ffffff; padding: 1px 7px;\"> Passed<\/span>{% endif -%}{% endif %}"
                 }
             },
             "status": null,
@@ -158,7 +158,7 @@
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "{{vars.input.records[0].tenant['@id']}}",
-                    "content": "<p>Sender email address '{{vars.sender_email_address}}' do not match with the Return Path '{{vars.sender_return_path}}'.<\/p>\n<p>- Tagging alert as <strong><span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #fff;\">Spoofing<\/span><\/strong>.<\/p>",
+                    "content": "<p>Sender email address '{{vars.sender_email_address}}' do not match with the Return Path '{{vars.sender_return_path}}'.<\/p>\n<p>- Tagging alert as <strong><span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #fff; padding: 2px 7px;\">Spoofing<\/span><\/strong>.<\/p>",
                     "records": "",
                     "parentstepid": "\/api\/3\/workflow_steps\/8c142bf0-bc97-4683-85da-3076748e060a"
                 },
@@ -331,13 +331,23 @@
                                 "name": "reason",
                                 "type": "string",
                                 "label": "Reason",
+                                "title": "Text Area",
+                                "usable": false,
                                 "tooltip": "",
                                 "dataType": "text",
-                                "formType": "text",
+                                "formType": "textarea",
                                 "required": false,
                                 "_expanded": true,
-                                "defaultValue": "",
-                                "_previousName": "",
+                                "mmdUpdate": false,
+                                "collection": false,
+                                "searchable": false,
+                                "templateUrl": "app\/components\/form\/fields\/json.html",
+                                "defaultValue": null,
+                                "_previousName": "reason",
+                                "playbookField": true,
+                                "lengthConstraint": false,
+                                "allowedEncryption": true,
+                                "allowedGridColumn": false,
                                 "jinjaExpressionView": true,
                                 "useRecordFieldDefault": false
                             }
@@ -677,7 +687,7 @@
                 "input": {
                     "schema": {
                         "title": "Mark Alert as Phishing?",
-                        "description": "<p><strong><span style=\"text-decoration: underline;\">Investigation Summary</span></strong>:</p>\n<br>\n\n* {{vars.spf_check_message}}\n* {{vars.spoof_check_message}}\n* {{vars.suspicious_keyword_check_message}}\n{% if vars.drive_by_download_check_message %}* {{vars.drive_by_download_check_message}}{%endif%}\n* {{vars.malicious_indicator_check_message}}",
+                        "description": "<h6 class=\"text-underline\" style=\"margin: 0.5em 0 0.5em;\">Investigation Summary<\/h6>\n<br>\n\n* {{vars.spf_check_message}}\n* {{vars.spoof_check_message}}\n* {{vars.suspicious_keyword_check_message}}\n{% if vars.drive_by_download_check_message %}* {{vars.drive_by_download_check_message}}{%endif%}\n* {{vars.malicious_indicator_check_message}}",
                         "inputVariables": [
                             {
                                 "name": "reason",
@@ -766,13 +776,23 @@
                                 "name": "reason",
                                 "type": "string",
                                 "label": "Reason",
+                                "title": "Text Area",
+                                "usable": false,
                                 "tooltip": "The reason for categorizing this alert as a Drive-by Download",
                                 "dataType": "text",
-                                "formType": "text",
+                                "formType": "textarea",
                                 "required": true,
                                 "_expanded": true,
+                                "mmdUpdate": false,
+                                "collection": false,
+                                "searchable": false,
+                                "templateUrl": "app\/components\/form\/fields\/json.html",
                                 "defaultValue": null,
-                                "_previousName": "driveByDownloadReason",
+                                "_previousName": "reason",
+                                "playbookField": true,
+                                "lengthConstraint": false,
+                                "allowedEncryption": true,
+                                "allowedGridColumn": false,
                                 "jinjaExpressionView": true,
                                 "useRecordFieldDefault": false
                             }
@@ -862,7 +882,7 @@
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "alerts": "{{vars.input.records[0]['@id']}}",
                     "people": [],
-                    "content": "<p>- Request to block indicators is <span class=\"badge badge-success\" style=\"background: #28B35C; color: #fff;\">Approved<\/span><\/p>\n<p>- Proceeding with block procedure<\/p>",
+                    "content": "<p>- Request to block indicators is <span class=\"badge badge-success\" style=\"background: #28B35C; color: #fff; padding: 2px 7px;\">Approved<\/span><\/p>\n<p>- Proceeding with block procedure<\/p>",
                     "__replace": "",
                     "isImportant": false,
                     "peopleUpdated": false
@@ -892,7 +912,7 @@
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "alerts": "{{vars.input.records[0]['@id']}}",
                     "people": [],
-                    "content": "<p>Request to block indicators is <span class=\"badge badge-success\" style=\"background: #f0a313; color: black;\">Denied<\/span><\/p>",
+                    "content": "<p>Request to block indicators is <span class=\"badge badge-success\" style=\"background: #f0a313; color: black; padding: 2px 7px;\">Denied<\/span><\/p>",
                     "__replace": "",
                     "isImportant": false,
                     "peopleUpdated": false

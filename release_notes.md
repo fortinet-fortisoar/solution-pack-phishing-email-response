@@ -6,6 +6,8 @@
     - The "Investigate Suspicious Email" playbook will only be visible and executable for unresolved alerts of the "Suspicious Email" type.
     - The "Email Classification" value for the valid malicious "Suspicious Email" alert will be updated to "Phishing"
     - The Return Path field value is now getting updated correctly
+    - Enhanced the guidance by refining the descriptions of all "Manual Input" steps
+    - Improved all the comments for better readability and clarity
 
 2. Generate Phishing Email Alert Playbook
     - The "Generate Phishing Email Alert" playbook has been renamed to "Scenario - Generate Phishing Email Alert"

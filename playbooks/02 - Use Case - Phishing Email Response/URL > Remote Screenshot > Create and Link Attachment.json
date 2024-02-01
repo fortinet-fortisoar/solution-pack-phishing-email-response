@@ -246,8 +246,8 @@
                 "type": "InputBased",
                 "input": {
                     "schema": {
-                        "title": "URL Screenshot Confirmation",
-                        "description": "<span data-tomark-pass=\"\" style=\"font-size: 15px; color: #DE7A13;\" class=\"fa fa-exclamation-triangle\"><\/span>&nbsp;Warning: Taking screenshots of URLs may expose your system to potential security risks. Do you still want to proceed?\n&nbsp;\n**Note:** It is *highly recommended* to set up Remote Screenshot connector on the agent to access URLs securely. ",
+                        "title": "Screenshot URL",
+                        "description": "<span data-tomark-pass=\"\" style=\"font-size: 15px; color: #DE7A13;\" class=\"fa fa-exclamation-triangle\"><\/span>&nbsp;Warning: Taking a screenshot of these *possibly malicious* URL may expose your system to security risks. Do you want to proceed?\n&nbsp;\n**Note:** We recommend setting up the [Remote Screenshot](https:\/\/fortisoar.contenthub.fortinet.com\/\/detail.html?entity=screenshot&version=1.0.0&type=connector) connector on the agent to securely access URLs. ",
                         "inputVariables": []
                     }
                 },

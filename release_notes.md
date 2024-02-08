@@ -1,20 +1,27 @@
 # What's New
 
-## Playbook Changes:
+## Playbook Enhancements
 
-1. Investigate Suspicious Email Playbook
-    - The "Investigate Suspicious Email" playbook will only be visible and executable for unresolved alerts of the "Suspicious Email" type.
-    - The "Email Classification" value for the valid malicious "Suspicious Email" alert will be updated to "Phishing"
-    - The Return Path field value is now getting updated correctly
-    - Enhanced the guidance by refining the descriptions of all "Manual Input" steps
-    - Improved all the comments for better readability and clarity
+### Investigate Suspicious Email
 
-2. Generate Phishing Email Alert Playbook
-    - The "Generate Phishing Email Alert" playbook has been renamed to "Scenario - Generate Phishing Email Alert"
+- The playbook becomes visible and executable only for unresolved alerts of the type **_Suspicious Email_**.
 
-3. URL > Remote Screenshot > Create and Link Attachment
-    - This is newly added playbooks that generates and links attachment records for th screenshots of all the URLs associated with the alert
+- *Suspicious Email* alerts found to be malicious (*true positive*) now have the **Email Classification** as *`Phishing`*.
 
-4. URL > Remote Screenshot > Get URL Screenshot Playbook
-    - This is newly added playbooks that retrieves a screenshot of the URL found in suspicious email
+- *Manual Input* steps have refined descriptions to enhance understanding.
 
+    - A manual input, triggered by this playbook, displays the investigation summary and asks the users if the investigated alert is *`Phishing`* or *`False Positive`*.
+
+- The *Comments* have been improved for better readability and clarity.
+
+### Generate Phishing Email Alert
+
+- This playbook has been renamed to **Scenario - Generate Phishing Email Alert**.
+
+- Optimized the field mapping values on the sample record created.
+
+### URL > Remote Screenshot > Create and Link Attachment
+
+- A new playbook that captures screenshots of URL indicators, creates attachment records, and links them to the respective alert.
+
+    - For this, a new playbook **URL > Remote Screenshot > Get URL Screenshot** is triggered to capture screenshots of URL indicators linked to an alert of type **_Suspicious Email_**.

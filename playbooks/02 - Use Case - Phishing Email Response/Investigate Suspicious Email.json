@@ -198,7 +198,7 @@
                 "input": {
                     "schema": {
                         "title": "Approval - Block Malicious Indicators",
-                        "description": "{% if vars.blocked_iocs | length > 0%}\n###### **Malicious Indicators - Already Blocked:**\n{% for i in vars.blocked_iocs %}\n* {{i[0]}} - {{i[1]}}\n{%endfor%}\n{% endif %}\n###### **Malicious Indicators - Pending Blocking Approval:**\n{% for i in vars.unblocked_iocs %}\n* {{i[0]}} - {{i[1]}}\n{%endfor%}\n<p><span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #fff; padding: 2px 7px;\"><strong>Action Required:<\/strong><\/span>&nbsp;Please review and approve the blocking of the listed indicators.<\/p>",
+                        "description": "{% if vars.blocked_iocs | length > 0%}\n###### **Malicious Indicators - Already Blocked:**\n{% for i in vars.blocked_iocs %}\n* {{i[0]}} - {{i[1]}}\n{%endfor%}\n{% endif %}\n###### **Malicious Indicators - Pending Block Approval:**\n{% for i in vars.unblocked_iocs %}\n* {{i[0]}} - {{i[1]}}\n{%endfor%}\n<p><span class=\"badge badge-pill badge-danger\" style=\"background: #ba6204; color: #fff; padding: 2px 7px;\"><strong>Action Required:<\/strong><\/span>&nbsp;Please review and approve the blocking of the listed indicators.<\/p>",
                         "inputVariables": []
                     }
                 },
@@ -215,12 +215,12 @@
                 "response_mapping": {
                     "options": [
                         {
-                            "option": "Approved",
+                            "option": "Approve",
                             "primary": true,
                             "step_iri": "\/api\/3\/workflow_steps\/ceaae747-aa0b-4d30-9caa-d10ac0c11d9e"
                         },
                         {
-                            "option": "Denied",
+                            "option": "Deny",
                             "step_iri": "\/api\/3\/workflow_steps\/2a3beb27-9706-46e0-b24b-0ffe22d70436"
                         }
                     ],

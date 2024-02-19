@@ -17,12 +17,14 @@ The use case deals with investigation and containment procedures that come into 
 - Inline, as a forwarded email
 
 This solution pack, along with its included playbooks, investigates suspicious emails for:
-- **Spoofing** - by checking sender and reply-to address
-- **Suspicious terms** - terms like bitcoin, free money, or free membership
+
+- **SPF Status** - Validates the Sender Policy Framework status
+- **Spoofing** - Validates the sender and reply-to address
+- **Suspicious terms** - Checks for presence of terms like *`bitcoin`*, *`free money`*, or *`free membership`*
 
 Moreover, you can manually upload emails in `.eml` or `.msg` format to investigate and enrich extracted indicators.
 
-Following is a demonstration video on how to use the Phishing Email Response solution pack:
+Following is a demonstration video on how to use the **Phishing Email Response** solution pack:
 
 [![](./docs/res/phishing-email-response-thumbnail.png)](https://www.youtube.com/watch?v=Ch6yTGiES7I)
 **Video: Using Phishing Response Solution Pack**

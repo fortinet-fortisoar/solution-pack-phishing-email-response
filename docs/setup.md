@@ -22,12 +22,16 @@ For optimal performance of the **Phishing Email Response** solution pack, you mu
 
 - Threat intelligence connectors to enrich the context of a given indicator
     - To configure and use the VirusTotal connector as a source of threat intelligence, refer to [Configuring Virus Total](https://docs.fortinet.com/document/fortisoar/2.1.0/virustotal/166/virustotal-v2-1-0#Configuration_parameters)
+
 - An email ingestion process to periodically read emails from a designated inbox and convert them into alerts in FortiSOAR
     - To configure and use the Microsoft Exchange connector for email ingestion, refer to [Configuring Exchange Connector](https://docs.fortinet.com/document/fortisoar/3.4.0/exchange/1/exchange-v3-4-0#Configuring_the_connector)
+
 - Capture screenshots of the URLs associated with suspicious email
     - To configure and use the Remote Screenshot connector, refer to [Configuring Remote Screenshot Connector](http://docs.fortinet.com/document/fortisoar/1.0.0/remote-screenshot/591#Configuring_the_connector)
-    >**Note:** It is *highly recommended* to set up Remote Screenshot connector on the agent.
+
+        > **NOTE**: We recommend setting up this connector on the agent.
 
 # Next Steps
+
 | [Usage](./usage.md) | [Contents](./contents.md) |
 |---------------------|---------------------------|

@@ -90,6 +90,8 @@
                 },
                 "apply_async": false,
                 "step_variables": [],
+                "pass_parent_env": false,
+                "pass_input_record": true,
                 "workflowReference": "\/api\/3\/workflows\/c3446061-8177-4098-9b17-0a748713762f"
             },
             "status": null,
@@ -108,6 +110,7 @@
             "sourceStep": "\/api\/3\/workflow_steps\/5f7cf823-1b90-4215-b79c-a3859b67e10d",
             "label": null,
             "isExecuted": false,
+            "group": null,
             "uuid": "1b099d83-f1c5-403b-a409-609b7b289942"
         }
     ],

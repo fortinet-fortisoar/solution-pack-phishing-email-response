@@ -142,6 +142,8 @@
                 },
                 "apply_async": true,
                 "step_variables": [],
+                "pass_parent_env": false,
+                "pass_input_record": true,
                 "workflowReference": "\/api\/3\/workflows\/9cc4c22a-a72c-40bf-9336-23c3093734f9"
             },
             "status": null,
@@ -160,51 +162,21 @@
                     "tags": [],
                     "type": "\/api\/3\/picklists\/ff599189-3eeb-4c86-acb0-a7915e85ac3b",
                     "tenant": "",
-                    "content": "<p><span class=\"fa fa-exclamation-triangle\"  style=\"font-size: 15px; color: yellow;\"><\/span>&nbsp; Linked email file <strong><span style=\"background-color: #ffff99; color: #0000ff;\">{{vars.steps.Download_File_For_Processing.data.filename}}<\/span><\/strong><\/p>",
+                    "content": "<p><span class=\"fa fa-exclamation-triangle\" style=\"font-size: 15px; color: yellow;\"><\/span>&nbsp; Linked email file <strong><span style=\"background-color: #ffff99; color: #0000ff;\">{{vars.steps.Download_File_For_Processing.data.filename}}<\/span><\/strong><\/p>",
                     "records": ""
                 },
                 "resource": {
-                    "state": {
-                        "id": 220,
-                        "@id": "\/api\/3\/picklists\/a1bac09b-1441-45aa-ad1b-c88744e48e72",
-                        "icon": null,
-                        "@type": "Picklist",
-                        "color": null,
-                        "display": "New",
-                        "listName": "\/api\/3\/picklist_names\/2f9ed741-25fe-475a-9f12-64336288eebf",
-                        "itemValue": "New",
-                        "orderIndex": 0
-                    },
+                    "state": "\/api\/3\/picklists\/a1bac09b-1441-45aa-ad1b-c88744e48e72",
                     "source": "Manual Upload",
-                    "status": {
-                        "id": 21,
-                        "@id": "\/api\/3\/picklists\/7de816ff-7140-4ee5-bd05-93ce22002146",
-                        "icon": null,
-                        "@type": "Picklist",
-                        "color": null,
-                        "display": "Open",
-                        "listName": "\/api\/3\/picklist_names\/33e964a9-d607-49f2-813c-7ce46141815a",
-                        "itemValue": "Open",
-                        "orderIndex": 1
-                    },
+                    "status": "\/api\/3\/picklists\/7de816ff-7140-4ee5-bd05-93ce22002146",
                     "emailTo": "{{vars.steps.Extract_Metadata.data.headers.to | replace('[','')| replace(']','')}}",
                     "fileHash": "{% if vars.steps.Extract_Metadata.data.attachments | json_query(\"[*].metadata.md5\") | join(',') %}{{vars.steps.Extract_Metadata.data.attachments | json_query(\"[*].metadata.md5\") | join(', ')}}{%else%}NA{% endif%}",
-                    "severity": {
-                        "id": 67,
-                        "@id": "\/api\/3\/picklists\/b3c20a3a-ecfd-4adc-a225-0205968e6793",
-                        "icon": null,
-                        "@type": "Picklist",
-                        "color": "#D2AC1A",
-                        "display": "Medium",
-                        "listName": "\/api\/3\/picklist_names\/4e80cba3-032f-48b4-ac03-17e3ec247aac",
-                        "itemValue": "Medium",
-                        "orderIndex": 2
-                    },
+                    "severity": "\/api\/3\/picklists\/b3c20a3a-ecfd-4adc-a225-0205968e6793",
                     "sourceId": "{%if vars.steps.Extract_Metadata.data.headers['message-id'] %}{{vars.steps.Extract_Metadata.data.headers['message-id'] | join}}{%else%}None{%endif%}",
                     "emailBody": "<p>{% if vars.steps.Extract_Metadata.data.body.html %}{{vars.steps.Extract_Metadata.data.body.html}}{%else%}{{vars.steps.Extract_Metadata.data.body.text}}{%endif%}<\/p>",
                     "emailFrom": "{{vars.steps.Extract_Metadata.data.headers.from}}",
-                    "returnPath": "{% if vars.steps.Extract_Metadata.data.headers['return-path'] %}{{vars.steps.Extract_Metadata.data.headers['return-path'].replace(\"<\",\"\") | replace(\">\",\"\")}}{% endif %}",
-                    "attachments": "{{vars.steps.Create_Attachment_in_CyOPs.data['@id']}}",
+                    "returnPath": "{% if vars.steps.Extract_Metadata.data.headers['return-path'] %}{{vars.steps.Extract_Metadata.data.headers['return-path'].replace(\"<\",\"\") | replace(\">\",\"\")}}{% elif vars.steps.Extract_Metadata.data.headers['Return-Path'] %}{{vars.steps.Extract_Metadata.data.headers['Return-Path'].replace(\"<\",\"\") | replace(\">\",\"\")}}{% endif %}",
+                    "attachments": "{{vars.steps.Create_Attachment_from_File.data['@id']}}",
                     "emailHeaders": "{{vars.steps.Extract_Metadata.data.headers |toJSON}}",
                     "emailSubject": "{{vars.steps.Extract_Metadata.data.headers.subject}}",
                     "senderDomain": "{% if vars.steps.Extract_Metadata.data.headers.from %}{{(vars.steps.Extract_Metadata.data.headers.from.split('<')[-1] | replace(\">\",\"\")).split('@')[-1] | replace(\">\",\"\")}}{% endif %}",
@@ -214,6 +186,7 @@
                 "_showJson": false,
                 "operation": "Overwrite",
                 "collection": "{{vars.input.records[0]['@id']}}",
+                "__recommend": [],
                 "collectionType": "\/api\/3\/alerts",
                 "fieldOperation": {
                     "recordTags": "Overwrite"
@@ -251,7 +224,7 @@
         },
         {
             "@type": "WorkflowStep",
-            "name": "Create Attachment in CyOPs",
+            "name": "Create Attachment from File",
             "description": null,
             "arguments": {
                 "params": {
@@ -262,7 +235,7 @@
                     "multipart_headers": "",
                     "extra_multipart_fields": ""
                 },
-                "version": "2.7.0",
+                "version": "3.2.3",
                 "connector": "cyops_utilities",
                 "operation": "create_cyops_attachment",
                 "operationTitle": "File: Create CyOPs Attachment from File",

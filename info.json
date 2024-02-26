@@ -1,6 +1,6 @@
 {
     "name": "phishingEmailResponse",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "type": "solutionpack",
     "local": true,
     "label": "Phishing Email Response",
@@ -9,43 +9,40 @@
             "name": "sOARFramework",
             "type": "solutionpack",
             "label": "SOAR Framework",
-            "version": "1.0.0",
             "minVersion": null
         },
         {
             "name": "socSimulator",
             "type": "solutionpack",
             "label": "SOC Simulator",
-            "version": "1.0.0",
             "minVersion": null
         }
     ],
-    "prerequisite": "- Configure the Fortinet FortiSandbox Connector",
+    "prerequisite": "* Configure the Exchange connector to ingest emails\n* Configure the Virustotal and Fortinet FortiSandbox connectors to enrich indicators\n* Configure the Remote Screenshot connector to capture screenshots of suspicious email-associated URLs.\n   * Highly recommended to set up this connector on the agent.",
     "certified": "true",
     "publisher": "Fortinet",
-    "description": "Phishing Email Response Solution Pack is designed to provide a set of investigation and utility playbooks to respond to suspicous emails. These emails are typically reported by employees in the organization (sent to a SOC common email inbox).",
-    "help": "https://github.com/fortinet-fortisoar/solution-pack-phishing-email-response/blob/release/1.0.1/README.md",
+    "description": "Phishing Email Response Solution Pack is designed to provide a set of investigation and utility playbooks to respond to suspicious emails. These emails are typically reported by employees in the organization (sent to a SOC common email inbox).",
+    "help": "https://github.com/fortinet-fortisoar/solution-pack-phishing-email-response/blob/release/1.0.2/README.md",
     "category": [],
     "featured": true,
     "supportInfo": "Fortinet Customer Support",
     "iconLarge": null,
+    "postInstallConfig": null,
     "recordTags": [
         "Phishing"
     ],
     "fsrMinCompatibility": "7.2.0",
     "date": "2022-04-11T07:07:18+00:00",
     "contents": {
-        "playbooks": [
+                "playbooks": [
             {
                 "name": "02 - Use Case - Phishing Email Response"
             }
         ],
-        "globalVariables": [
+        "connectors": [
             {
-                "id": 2,
-                "name": "Default_Email",
-                "value": "noreply@example.com",
-                "default_value": null
+                "name": "Remote Screenshot",
+                "apiName": "screenshot"
             }
         ],
         "recordSets": [

@@ -1,7 +1,8 @@
 {
+    "@context": "\/api\/3\/contexts\/Workflow",
     "@type": "Workflow",
     "triggerLimit": null,
-    "name": "Generate Phishing Email Alert",
+    "name": "Scenario - Generate Phishing Email Alert",
     "aliasName": null,
     "tag": null,
     "description": "Generate a Phishing Email alert",
@@ -86,7 +87,7 @@
                     "source": "{% if  'reporterEmailAddress' in vars.item %}User Reported{% else %}Email Server{% endif %}",
                     "status": "\/api\/3\/picklists\/7de816ff-7140-4ee5-bd05-93ce22002146",
                     "emailTo": "{{vars.item[\"headers\"][\"to\"]}}",
-                    "fileHash": "{% if vars.item.attachments | json_query(\"[*].metadata.md5\") | join(',') %}{{vars.item.attachments | json_query(\"[*].metadata.md5\") | join(', ')}}{%else%}NA{% endif%}",
+                    "fileHash": "{% if vars.item.attachments | json_query(\"[*].metadata.md5\") | join(',') %}{{vars.item.attachments | json_query(\"[*].metadata.md5\") | join(', ')}}{% endif%}",
                     "reporter": "{{vars.item.reporterEmailAddress}}",
                     "severity": "\/api\/3\/picklists\/b3c20a3a-ecfd-4adc-a225-0205968e6793",
                     "sourceId": "{% if vars.item.headers['message-id'] %} {{ vars.item.headers['message-id'] | join }} {% else %} null {% endif %}",
@@ -106,6 +107,7 @@
                     "reporterEmailBody": "<p>{% if vars.item[\"reporterEmailBody\"] %}{{vars.item[\"reporterEmailBody\"][\"html\"]}}{%endif%}<\/p>",
                     "senderEmailAddress": "{% if vars.item.headers.from %}{{vars.item.headers.from }}{% endif %}",
                     "escalatedtoincident": "\/api\/3\/picklists\/2128a09c-153d-4db3-985d-de6be33deae5",
+                    "resolvedAutomatedly": false,
                     "alertRemainingAckSLA": 0,
                     "recipientEmailAddress": "{% if vars.item.headers['to'] is not string %}{{vars.item.headers['to'] | join(',') }}{%else%}{{vars.item.headers['to']}}{% endif%}"
                 },
@@ -166,6 +168,7 @@
             "sourceStep": "\/api\/3\/workflow_steps\/13eacce8-453f-4013-9491-a82302901893",
             "label": null,
             "isExecuted": false,
+            "group": null,
             "uuid": "70c608b4-6dd8-44fd-8a1b-c4ec1ddda89e"
         },
         {
@@ -175,6 +178,7 @@
             "sourceStep": "\/api\/3\/workflow_steps\/c45fb844-cfa5-443b-8d4a-c358ce29f184",
             "label": null,
             "isExecuted": false,
+            "group": null,
             "uuid": "cdcf1152-35d2-4553-941f-f2cb1c9de616"
         },
         {
@@ -184,6 +188,7 @@
             "sourceStep": "\/api\/3\/workflow_steps\/ffca0d78-c031-4fb1-b1b5-6d38d2a58b65",
             "label": null,
             "isExecuted": false,
+            "group": null,
             "uuid": "fdc9548c-50f3-484a-8275-ed27984e0e21"
         },
         {
@@ -193,6 +198,7 @@
             "sourceStep": "\/api\/3\/workflow_steps\/261d9a4e-b9f7-400d-8aa4-fc0623e648da",
             "label": null,
             "isExecuted": false,
+            "group": null,
             "uuid": "3bfcf800-5aa7-4b23-9535-80e80ac9e04e"
         }
     ],
@@ -204,6 +210,7 @@
     "deletedAt": null,
     "recordTags": [
         "Alert",
-        "Demo"
+        "Demo",
+        "Scenario"
     ]
 }

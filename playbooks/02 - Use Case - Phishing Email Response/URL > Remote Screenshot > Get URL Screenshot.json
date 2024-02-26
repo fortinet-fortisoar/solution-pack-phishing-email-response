@@ -1,0 +1,112 @@
+{
+    "@type": "Workflow",
+    "triggerLimit": null,
+    "name": "URL > Remote Screenshot > Get URL Screenshot",
+    "aliasName": null,
+    "tag": null,
+    "description": "Retrieves a screenshot of the given URL associated with alert.",
+    "isActive": true,
+    "debug": false,
+    "singleRecordExecution": false,
+    "remoteExecutableFlag": false,
+    "parameters": [
+        "url_value"
+    ],
+    "synchronous": false,
+    "collection": "\/api\/3\/workflow_collections\/3cb90b29-1258-415c-8f4c-967296bccb15",
+    "versions": [],
+    "triggerStep": "\/api\/3\/workflow_steps\/e3cc11a0-32a0-4179-b7c3-fc65b665db08",
+    "steps": [
+        {
+            "@type": "WorkflowStep",
+            "name": "Get URL Screenshot",
+            "description": null,
+            "arguments": {
+                "name": "Remote Screenshot",
+                "config": "4cd99388-800a-46d0-9d05-c76da8b6185c",
+                "params": {
+                    "url": "{{ vars.input.params['url_value'] }}",
+                    "screenshot_name": "{{ vars.input.params['url_value'] | urlsplit('hostname') }}",
+                    "screenshot_size": "Full Screenshot",
+                    "create_attachment": true
+                },
+                "version": "1.0.0",
+                "connector": "screenshot",
+                "operation": "screenshot_url",
+                "ignore_errors": true,
+                "operationTitle": "Screenshot URL",
+                "pickFromTenant": false,
+                "step_variables": []
+            },
+            "status": null,
+            "top": "165",
+            "left": "125",
+            "stepType": "\/api\/3\/workflow_step_types\/0bfed618-0316-11e7-93ae-92361f002671",
+            "group": null,
+            "uuid": "469dc2e9-5950-4397-a63d-474abb93e5ef"
+        },
+        {
+            "@type": "WorkflowStep",
+            "name": "Start",
+            "description": null,
+            "arguments": {
+                "step_variables": {
+                    "input": {
+                        "params": []
+                    }
+                }
+            },
+            "status": null,
+            "top": "30",
+            "left": "125",
+            "stepType": "\/api\/3\/workflow_step_types\/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+            "group": null,
+            "uuid": "e3cc11a0-32a0-4179-b7c3-fc65b665db08"
+        },
+        {
+            "@type": "WorkflowStep",
+            "name": "Step Result",
+            "description": null,
+            "arguments": {
+                "attachmentIRI": "{{vars.steps.Get_URL_Screenshot.data['@id'] or None}}"
+            },
+            "status": null,
+            "top": "300",
+            "left": "125",
+            "stepType": "\/api\/3\/workflow_step_types\/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+            "group": null,
+            "uuid": "bec0780e-9453-473a-8270-86c88ec47654"
+        }
+    ],
+    "routes": [
+        {
+            "@type": "WorkflowRoute",
+            "name": "Get URL Screenshot -> Step Result",
+            "targetStep": "\/api\/3\/workflow_steps\/bec0780e-9453-473a-8270-86c88ec47654",
+            "sourceStep": "\/api\/3\/workflow_steps\/469dc2e9-5950-4397-a63d-474abb93e5ef",
+            "label": null,
+            "isExecuted": false,
+            "group": null,
+            "uuid": "c2b43429-ac4e-4f8a-8774-b913b0e1cc1f"
+        },
+        {
+            "@type": "WorkflowRoute",
+            "name": "Start -> Get URL Screenshot",
+            "targetStep": "\/api\/3\/workflow_steps\/469dc2e9-5950-4397-a63d-474abb93e5ef",
+            "sourceStep": "\/api\/3\/workflow_steps\/e3cc11a0-32a0-4179-b7c3-fc65b665db08",
+            "label": null,
+            "isExecuted": false,
+            "group": null,
+            "uuid": "87f63b62-8f80-4bb4-bc9d-2895c193a296"
+        }
+    ],
+    "groups": [],
+    "priority": "\/api\/3\/picklists\/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+    "uuid": "01acd03c-aaf1-4a79-b0b5-bddeb3a434a8",
+    "owners": [],
+    "isPrivate": false,
+    "deletedAt": null,
+    "recordTags": [
+        "Referenced"
+    ]
+}

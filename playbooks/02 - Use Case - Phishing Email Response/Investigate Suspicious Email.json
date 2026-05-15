@@ -1,5 +1,4 @@
 {
-    "@context": "\/api\/3\/contexts\/Workflow",
     "@type": "Workflow",
     "triggerLimit": null,
     "name": "Investigate Suspicious Email",
@@ -531,8 +530,8 @@
             "name": "Get Non Permitted IP",
             "description": null,
             "arguments": {
-                "Not_Permitted_IPs_for_SPF_Fail": "{% for var in vars.SPF_Record if vars.SPF_Record %}{{\n    (var | regex_search('(?<=client-ip=)([\\S]*)(?=;)'))\n    if (var.startswith('fail') and var | regex_search('(?<=fail)([^,]+)(?i)'))\n}}{%endfor%}",
-                "Not_Permitted_IPs_for_SPF_SoftFail": "{% for var in vars.SPF_Record if vars.SPF_Record %}{{\n    (var | regex_search('(?<=client-ip=)([\\S]*)(?=;)'))\n    if (var.startswith('softfail') and var | regex_search('(?<=softfail)([^,]+)(?i)'))\n}}{%endfor%}"
+                "Not_Permitted_IPs_for_SPF_Fail": "{% for var in vars.SPF_Record if vars.SPF_Record %}{{ (var | regex_search('(?<=client-ip=)([\\\\S]*)(?=;)')) if (var.startswith('fail') and var | regex_search('(?i)(?<=fail)([^,]+)')) }}{% endfor %}",
+                "Not_Permitted_IPs_for_SPF_SoftFail": "{% for var in vars.SPF_Record if vars.SPF_Record %}{{ (var | regex_search('(?<=client-ip=)([\\\\S]*)(?=;)')) if (var.startswith('softfail') and var | regex_search('(?i)(?<=softfail)([^,]+)')) }}{% endfor %}"
             },
             "status": null,
             "top": "705",

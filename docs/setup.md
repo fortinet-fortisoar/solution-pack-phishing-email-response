@@ -3,7 +3,7 @@
 # Installation
 
 1. To install a solution pack, click **Content Hub** > **Discover**.   
-2. From the list of solution pack that appears, search for and select **Phishing Email Response**.    
+2. From the list of solution pack that appears, search for **Phishing Email Response**.    
 3. Click the **Phishing Email Response** solution pack card.   
 4. Click the **Install** button on the bottom to begin the installation.
 
@@ -29,7 +29,9 @@ For optimal performance of the **Phishing Email Response** solution pack, you mu
 - Capture screenshots of the URLs associated with suspicious email
     - To configure and use the Remote Screenshot connector, refer to [Configuring Remote Screenshot Connector](http://docs.fortinet.com/document/fortisoar/1.0.0/remote-screenshot/591#Configuring_the_connector)
 
-        > **NOTE**: We recommend setting up this connector on the agent.
+> [!NOTE]
+> 
+> We recommend setting up the Remote Screenshot connector on the *access node*.
 
 # Next Steps
 

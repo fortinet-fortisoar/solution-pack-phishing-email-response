@@ -41,7 +41,10 @@ This section addresses the requirement of an email that has to be manually uploa
 
 When executed, this playbook prompts you to attach an email file in `.eml` or `.msg` format, to the alert.
 
->**NOTE**: To see the **Attach Email** playbook in action, create an alert of type *Suspicious Email*.
+> [!NOTE]
+> 
+> To see the **Attach Email** playbook in action, create an alert of type *Suspicious Email*.
+> 
 
 When executed, this playbook prompts you to attach an email file in `.eml` or `.msg` format, to the alert.
 
@@ -61,7 +64,9 @@ This section addresses the requirement to capture screenshots of URL indicators 
 
 - The screenshots are saved as records in FortiSOAR&trade;'s **Attachment** module correlated to the respective alert. A comment on the collaboration panel lists links of all the screenshot attachments.
 
->**NOTE**: We recommend setting up the Remote Screenshot connector on the **agent** to securely access URLs.
+> [!NOTE]
+> 
+> We recommend setting up the Remote Screenshot connector on the *access node*.
 
 # Next Steps
 

@@ -2,6 +2,4 @@
 
 ## Playbook Enhancements
 
-### Investigate Suspicious Email
-
-- Updated the regex patterns to place inline flags at the start of the expression to ensure compatibility with Python 3.9, 3.10, 3.11 and 3.12.
+- Updated the regex patterns, in the playbook **Investigate Suspicious Email**, to place *inline* flags at the start of the expression that ensures compatibility with Python `v3.9`, `v3.10`, `v3.11`, and `v3.12`.

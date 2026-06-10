@@ -1,6 +1,6 @@
 # Release Information
 
-- **Version**:  1.0.2
+- **Version**:  1.0.3
 - **Certified**: Yes
 - **Publisher**: Fortinet
 - **Compatible Version**: FortiSOAR v7.2.0 and later
@@ -26,8 +26,9 @@ Moreover, you can manually upload emails in `.eml` or `.msg` format to investiga
 
 Following is a demonstration video on how to use the **Phishing Email Response** solution pack:
 
-[![](./docs/res/phishing-email-response-thumbnail.png)](https://www.youtube.com/watch?v=Ch6yTGiES7I)
-**Video: Using Phishing Response Solution Pack**
+| [![](./docs/res/phishing-email-response-thumbnail.png)](https://www.youtube.com/watch?v=Ch6yTGiES7I) |
+|:----------------------------------------------------------------------------------------------------:|
+|                             Video: Using Phishing Response Solution Pack                             |
 
 # Next Steps
 

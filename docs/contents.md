@@ -4,44 +4,50 @@
 
 The **Phishing Email Response** solution pack contains the following resources.
 
-## Global Variable
-
-| Name            | Description                                                                                                     |
-|:----------------|:----------------------------------------------------------------------------------------------------------------|
-| `Default_Email` | This global variable contains the email address which sends an acknowledgment and other emails to the reporter. |
-
-## Record Set
-
-| Name     | Description                                                                                                                                                                                                          |
-|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Scenario | A simulation that helps you understand the *Phishing Email Response* solution pack by creating a demo phishing email alert. Executing this scenario emulates this solution pack's behavior on receiving such alerts. |
-
-## Playbook Collection
-
-| 02 - Use Case - Phishing Email Response                                  |
-|:-------------------------------------------------------------------------|
-
-
-| Playbook Name                                                                       | Description                                                                                       |
-|:------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------|
-| Investigate Suspicious Email                                                        | Investigates alerts of type *Suspicious Email*                                                    |
-| Generate Phishing Email Alert                                                       | Generates a Phishing Email alert                                                                  |
-| Email (Manual Upload) - Investigate                                                 | Extracts email metadata from an uploaded email file                                               |
-| Email (Manual Attach) - File to Alert (Suspicious Email)                            | Attaches emails to alerts of type *Suspicious Email* and investigates                             |
-| Email (Manual Upload) - Extract Attachments                                         | Extracts attachments, creates indicators, and links to parent alert                               |
-| URL > FortiSandbox > Enrichment                                                     | Retrieves the reputation of indicators of type 'URL' using Fortinet FortiSandbox.                 |
-| URL > Remote Screenshot > Create and Link Attachment![icon new](./res/icon-new.svg) | Generates and links attachment records for screenshots of all the URLs associated with the alert. |
-| URL > Remote Screenshot > Get URL Screenshot![icon new](./res/icon-new.svg)         | Retrieves a screenshot of the given URL associated with alert.                                    |
-
->**WARNING**: We recommend you clone these playbooks before customizing to avoid information loss while upgrading the solution pack.
-
 ## Connector
 
 | Connector         | Description                                                       |
 |:------------------|:------------------------------------------------------------------|
 | Remote Screenshot | Captures screenshots of the URLs associated with suspicious email |
 
-> **NOTE**: We recommend setting up this connector on the agent.
+> [!NOTE]
+> 
+> We recommend setting up this connector on the *access node*.
+> 
+
+## Global Variable
+
+| Name            | Description                                                                                                     |
+|:----------------|:----------------------------------------------------------------------------------------------------------------|
+| `Default_Email` | This global variable contains the email address which sends an acknowledgment and other emails to the reporter. |
+
+## Scenario
+
+| Name           | Description                                                                                                                                                                                                          |
+|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Phishing Email | A simulation that helps you understand the *Phishing Email Response* solution pack by creating a demo phishing email alert. Executing this scenario emulates this solution pack's behavior on receiving such alerts. |
+
+## Playbook Collection
+
+| 02 - Use Case - Phishing Email Response|
+|:---------------------------------------|
+
+
+| Playbook Name                                            | Description                                                                                       |
+|:---------------------------------------------------------|:--------------------------------------------------------------------------------------------------|
+| Email (Manual Attach) - File to Alert (Suspicious Email) | Attaches emails to alerts of type *Suspicious Email* and investigates                             |
+| Email (Manual Upload) - Extract Attachments              | Extracts attachments, creates indicators, and links to parent alert                               |
+| Email (Manual Upload) - Investigate                      | Extracts email metadata from an uploaded email file                                               |
+| Generate Phishing Email Alert                            | Generates a Phishing Email alert                                                                  |
+| Investigate Suspicious Email                             | Investigates alerts of type *Suspicious Email*                                                    |
+| URL > FortiSandbox > Enrichment                          | Retrieves the reputation of indicators of type 'URL' using Fortinet FortiSandbox.                 |
+| URL > Remote Screenshot > Create and Link Attachment     | Generates and links attachment records for screenshots of all the URLs associated with the alert. |
+| URL > Remote Screenshot > Get URL Screenshot             | Retrieves a screenshot of the given URL associated with alert.                                    |
+
+> [!WARNING] 
+> 
+> We recommend you clone these playbooks before customizing to avoid information loss while upgrading the solution pack.
+> 
 
 # Next Steps
 
